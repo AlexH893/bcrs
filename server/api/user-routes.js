@@ -66,9 +66,11 @@ router.get("/user/:id", async (req, res) => {
 
 /*
  * Create user
+ * In a later Sprint we will convert this API to the "register" API
  */
 router.post("/user", async (req, res) => {
   try {
+    // The password to be hashed
     const hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
     const newUser = {
       username: req.body.username,
@@ -99,6 +101,58 @@ router.post("/user", async (req, res) => {
     console.log(e);
     res.status(500).send({
       message: `Server Exception ${e.message}`,
+    });
+  }
+});
+
+/*
+ * Update user
+ * The password is still hashed when changed
+ */
+
+router.put("/:user/:id", async (req, res) => {
+  const hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+
+  try {
+    User.findOne({ _id: req.params.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        res.status(401).send({
+          message: `Invalid User ID: ${err}`,
+        });
+      } else {
+        console.log(user);
+
+        user.set({
+          username: req.body.username,
+          password: hashedPassword,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          phoneNum: req.body.phoneNum,
+          address: req.body.address,
+          isDisabled: req.body.isDisabled,
+          role: req.body.role,
+          securityQuestions: req.body.securityQuestions,
+          date_created: req.body.date_created,
+          date_modified: req.body.date_modified,
+        });
+
+        user.save(function (err, updatedUser) {
+          if (err) {
+            console.log(err);
+
+            res.json(updatedUser);
+          } else {
+            console.log(err);
+            res.json(updatedUser);
+          }
+        });
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({
+      message: `Server Exception:  ${e.message}`,
     });
   }
 });
