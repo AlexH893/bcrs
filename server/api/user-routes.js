@@ -10,12 +10,15 @@
 var express = require("express");
 const router = express.Router();
 const User = require("../models/user.js");
+const bcrypt = require("bcrypt");
+
+//Create variable saltRounds with integer value of 10
+const saltRounds = 10;
 
 /*
- * Find all users
+ * Find all users API
  * The $ne operator will return all documents where isDisabled is not true
  */
-
 router.get("/user", async (req, res) => {
   try {
     User.find({ isDisabled: { $ne: true } }, function (err, users) {
@@ -33,6 +36,69 @@ router.get("/user", async (req, res) => {
     console.log(e);
     res.status(500).send({
       message: `Server Exception: ${e.message}`,
+    });
+  }
+});
+
+/*
+ * Find user by ID
+ */
+router.get("/user/:id", async (req, res) => {
+  try {
+    User.findOne({ _id: req.params.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        res.status(500).send({
+          message: `MongoDB Exception: ${err}`,
+        });
+      } else {
+        console.log(user);
+        res.json(user);
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({
+      message: `Server Exception: ${e.message}`,
+    });
+  }
+});
+
+/*
+ * Create user
+ */
+router.post("/user", async (req, res) => {
+  try {
+    const hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+    const newUser = {
+      username: req.body.username,
+      password: hashedPassword,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      phoneNum: req.body.phoneNum,
+      address: req.body.address,
+      isDisabled: req.body.isDisabled,
+      role: req.body.role,
+      securityQuestions: req.body.securityQuestions,
+      date_created: req.body.date_created,
+      date_modified: req.body.date_modified,
+    };
+
+    await User.create(newUser, function (err, user) {
+      if (err) {
+        console.log(err);
+        res.status(501).send({
+          message: `MongoDB Exception: ${err}`,
+        });
+      } else {
+        console.log(user);
+        res.json(user);
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({
+      message: `Server Exception ${e.message}`,
     });
   }
 });
