@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './signin/signin.component';
-import { UserConfigurationComponent } from './user-configuration/user-configuration.component';
+import { UserConfigurationComponent } from './pages/user-configuration/user-configuration.component';
 
 @NgModule({
   declarations: [
