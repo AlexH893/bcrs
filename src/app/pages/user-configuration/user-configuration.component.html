@@ -1,1 +1,40 @@
-<p>user-configuration works!</p>
+<mat-card  class="container" fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div>
+      <h1>User Configuration</h1>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="flex-start">
+    <div>
+      <button mat-button style="text-decoration: underline;"><h3>Create a User</h3></button>
+    </div>
+  </div>
+
+  <div class="headers" fxLayout="row" fxLayoutAlign="start-start" fxLayoutGap="60%">
+    <div>
+      <h2>Username</h2>
+    </div>
+
+    <div>
+      <h2>Functions</h2>
+    </div>
+  </div>
+
+  <div class="actual-users" fxLayout="row" fxLayoutGap="66%">
+    <div>
+      <h4>amarti4</h4>
+    </div>
+    <div fxFlex fxLayoutAlign="start">
+      <p>
+      <button mat-icon-button class="edit-button">
+        <mat-icon color="primary">edit</mat-icon>
+      </button>
+
+      <button mat-icon-button>
+        <mat-icon color="primary">delete</mat-icon>
+      </button>
+      </p>
+    </div>
+  </div>
+</mat-card>
