@@ -16,10 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { UserConfigurationComponent } from './pages/user-configuration/user-configuration.component';
-<<<<<<< Updated upstream
-=======
-import { SignInComponent } from './pages/sign-in/sign-in.component';
->>>>>>> Stashed changes
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
