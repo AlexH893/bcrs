@@ -20,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { CreateUserComponent } from './pages/create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     AuthLayoutComponent,
     SignInComponent,
     UserConfigurationComponent,
-    SecurityQuestionsComponent
+    SecurityQuestionsComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,

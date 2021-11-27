@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserConfigurationComponent } from './pages/user-configuration/user-configuration.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
+import { CreateUserComponent } from './pages/create-user/create-user.component'
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'security-questions',
         component: SecurityQuestionsComponent
+      },
+      {
+        path: 'create-user',
+        component: CreateUserComponent
       }
     ]
   }
