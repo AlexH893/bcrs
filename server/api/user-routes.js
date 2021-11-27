@@ -199,4 +199,31 @@ router.delete("/:user/:id", async (req, res) => {
   }
 });
 
+/*
+ * Find all security questions of a user, searching by ID of user
+ */
+router.get("/:user/:id/security-questions", async (req, res) => {
+  try {
+    User.findOne(
+      { _id: req.params.id },
+      // Projections allow us to limit the amount of data that MongoDB sends to apps & specify fields to return
+      "securityQuestions",
+      function (err, question) {
+        if (err) {
+          console.log(err);
+          res.status(500).send({
+            message: "Interal server error:" + err.message,
+          });
+        } else {
+          console.log(question);
+          res.json(question);
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("Interal server error: " + e.message);
+  }
+});
+
 module.exports = router;

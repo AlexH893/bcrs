@@ -14,9 +14,11 @@ const bcrypt = require("bcrypt");
  * Find all security questions API
  * The $ne operator will return all documents where isDisabled is not true
  */
+
+/*
 router.get("/security-questions", async (req, res) => {
   try {
-    Question.find({ isDisabled: { $ne: true } }, function (err, questions) {
+    Question.find{}, function (err, questions) {
       if (err) {
         console.log(err);
         res.status(501).send({
@@ -34,5 +36,5 @@ router.get("/security-questions", async (req, res) => {
     });
   }
 });
-
+*/
 module.exports = router;

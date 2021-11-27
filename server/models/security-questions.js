@@ -7,12 +7,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-let questionSchema = new Schema({
-  /*questionId: { type: Number },*/
-  text: { type: String } /* The text of the question */,
-  answer: { type: String } /* The question answer */,
-  isDisabled: { type: Boolean },
+let questionSchema = new Schema(
+  {
+    /*questionId: { type: Number },*/
+    text: { type: String } /* The text of the question */,
+    answer: { type: String } /* The question answer */,
+    isDisabled: { type: Boolean },
   },
-  { collection: "users" });
+  { collection: "users" }
+);
 
 module.exports = questionSchema;

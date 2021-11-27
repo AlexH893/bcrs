@@ -51,7 +51,7 @@ mongoose
 /**
  * API(s) go here...
  */
-app.use("/api/", questionRoutes);
+app.use("/api/", userRoutes);
 
 /* Sign-in */
 
