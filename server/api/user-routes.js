@@ -161,7 +161,6 @@ router.put("/:user/:id", async (req, res) => {
 
 /*
  * Delete user
-
  * The delete function does not actually remove a document from the collection
  * Instead, you are setting the "isDisabled" flag to true
  */
@@ -196,38 +195,6 @@ router.delete("/:user/:id", async (req, res) => {
     console.log(e);
     res.status(500).send({
       message: `Server Exception:  ${e.message}`,
-
- * The delete function does not actually remove a document from the collection!
- * Instead, we are setting the "isDisabled" flag to true
- */
-router.post("/user/:id", async (req, res) => {
-  try {
-    User.findByIdAndUpdate(
-      { _id: req.params.id },
-      { isDisabled: "true" },
-      function (err, user) {
-        isDisabled: true;
-        if (err) {
-          console.log(err);
-          res.status(401).send({
-            message: `Invalid User Id: ${err}`,
-          });
-        } else {
-          console.log(user);
-          console.log(
-            "User with the id of" +
-              req.params.id +
-              " has been disabled succesfully"
-          );
-          res.json(user);
-        }
-      }
-    );
-  } catch (e) {
-    console.log(e);
-    res.status(500).send({
-      message: `Server Exception: ${e.message}`,
-
     });
   }
 });
