@@ -1,7 +1,7 @@
 /**
  * Require statements
  */
-
+const userRoutes =  require('./api/user-routes');
 const express = require("express");
 const http = require("http");
 const morgan = require("morgan");
@@ -19,10 +19,12 @@ let questionRoutes = require("./api/question-routes.js");
  */
 let app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(morgan("dev"));
-app.use(express.static(path.join(__dirname, "../dist/bcrs")));
-app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
+app.use(bodyParser.urlencoded({'extended': true}));
+app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, '../dist/bcrs')));
+app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
+app.use('/api',[userRoutes]);
+
 
 /**
  * Variables

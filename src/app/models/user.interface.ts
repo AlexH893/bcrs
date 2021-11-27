@@ -1,0 +1,18 @@
+import { SecurityQuestion } from './security-question.interface';
+
+export interface User {
+
+    _id?: string
+    username: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    phoneNum: string,
+    address: string,
+    email: string,
+    role: string,
+    securityQuestions: SecurityQuestion[],
+    date_created?: Date,
+    date_modified?: Date,
+    _v: number
+}
