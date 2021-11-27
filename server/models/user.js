@@ -19,6 +19,7 @@ let userSchema = new Schema(
     lastName: { type: String },
     address: { type: String },
     email: { type: String },
+    isDisabled: { type: Boolean, required: true, default: false },
     role: { type: String },
     securityQuestions: [QuestionDocument],
     date_created: { type: Date },
