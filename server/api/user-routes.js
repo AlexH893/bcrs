@@ -1,12 +1,15 @@
 /*
- * Author: Alex Haefner
- * Date: 11.23.2021
- * Description: Contains REST APIs that allow for communication between application &
- * database, peforming CRUD functions
- * Sources: Getting MEAN with Mongo, Express, Angular, and Node, Second Edition,
- * https://docs.mongodb.com/manual/reference/operator/query/ne/#mongodb-query-op.-ne
- * https://www.tutorialguruji.com/node-js/how-can-i-change-the-flag-in-my-mongoose-schema-based-on-the-value-of-other-field/
- */
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: User-Routes
+; Sources: Getting MEAN with Mongo, Express, Angular, and Node, Second Edition,
+; https://docs.mongodb.com/manual/reference/operator/query/ne/#mongodb-query-op.-ne
+; https://www.tutorialguruji.com/node-js/how-can-i-change-the-flag-in-my-mongoose-schema-based-on-the-value-of-other-field/
+===========================================
+*/
 
 var express = require("express");
 const router = express.Router();

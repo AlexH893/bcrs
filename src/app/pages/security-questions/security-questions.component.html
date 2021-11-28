@@ -1,26 +1,51 @@
-<div fxLayout="column">
+<!--
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Security Questions Component
+===========================================
+-->
+<mat-card  class="container" fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div>
+      <h1>Security Question Configuration</h1>
+    </div>
+  </div>
 
-  <mat-card class="security-questions-card" fxFlex>
-    <mat-card-title>Security Question Configuration</mat-card-title>
+  <div fxLayout="row" fxLayoutAlign="flex-start">
+    <div>
+      <button mat-button style="text-decoration: underline;"><h3>Create a new security question</h3></button>
+    </div>
+  </div>
 
-    <button mat-button style="text-decoration: underline;">Create a new security question </button>
-    <br/>
+  <div class="headers" fxLayout="row" fxLayoutAlign="start-start" fxLayoutGap="60%">
+    <div>
+      <h2>Security Question</h2>
+    </div>
 
-    <mat-card-content>
-      <div fxLayout="row" >
-        <div fxFlex>
-          <ul  class="security-questions">
-            <li>
-              <mat-icon>
-                <span class="material-icons">delete</span>
-                <span class="material-icons">edit</span>
-              </mat-icon>
-            </li>
-          </ul>
+    <div>
+      <h2>Functions</h2>
+    </div>
+  </div>
 
-        </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
+  <div class="actual-users" fxLayout="row" fxLayoutGap="60%">
+    <div>
+      <ul>
+        <li>
+          <p>
+            List of security questions goes here.
+            <button mat-icon-button class="edit-button">
+              <mat-icon color="black">edit</mat-icon>
+            </button>
 
-</div>
+            <button mat-icon-button>
+              <mat-icon color="black">delete</mat-icon>
+            </button>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</mat-card>
