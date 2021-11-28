@@ -1,3 +1,13 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: App.js
+===========================================
+*/
+
 /**
  * Require statements
  */
@@ -55,9 +65,8 @@ mongoose
  */
 app.use("/api/", userRoutes);
 
-/* Sign-in */
-
-app.post("/sign-in", async (req, res) => {
+/* Sign-in path:  /api/session/signin */
+app.post('/sign-in', async (req, res) => {
   try {
     User.findOne(
       {

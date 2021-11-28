@@ -1,3 +1,13 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: User-config Component
+==========================================
+*/
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -23,8 +33,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { VerifySecurityQuestionsComponent } from './pages/verify-security-questions/verify-security-questions.component';
 
-@NgModule({
+NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
@@ -33,7 +44,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     SignInComponent,
     UserConfigurationComponent,
     SecurityQuestionsComponent,
-    CreateUserComponent
+    VerifySecurityQuestionsComponent
   ],
   imports: [
     BrowserModule,
