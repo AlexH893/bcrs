@@ -28,6 +28,13 @@ export class CreateUserComponent implements OnInit {
         this.dialogRef.close(res)
       })
     }
+    else {
+      this.user.date_modified = new Date()
+      this.http.put(`/api/user/${this.user._id}`, this.user)
+      .subscribe((res: User) => {
+        this.dialogRef.close(res)
+      })
+    }
   }
 
 }

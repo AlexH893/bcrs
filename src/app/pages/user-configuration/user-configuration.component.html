@@ -7,7 +7,7 @@
 
   <div fxLayout="row" fxLayoutAlign="flex-start">
     <div>
-      <button mat-button style="text-decoration: underline" (click)="openDialog()"><h3>Create a User</h3></button>
+      <button mat-button style="text-decoration: underline" (click)="createUser()"><h3>Create a User</h3></button>
     </div>
   </div>
 
@@ -20,21 +20,24 @@
       <h2>Functions</h2>
     </div>
   </div>
+  <ng-container *ngFor="let user of users">
+    <div class="actual-users" fxLayout="row" fxLayoutGap="60%">
 
-  <div class="actual-users" fxLayout="row" fxLayoutGap="60%">
-    <div>
-      <h4>amarti4</h4>
-    </div>
-    <div fxFlex fxLayoutAlign="start">
-      <p>
-      <button mat-icon-button class="edit-button">
-        <mat-icon color="primary">edit</mat-icon>
-      </button>
+        <div>
+          <h4>{{user.username}}</h4>
+        </div>
+        <div fxFlex fxLayoutAlign="start">
+          <p>
+          <button mat-icon-button class="edit-button" (click)="updateUser(user)">
+            <mat-icon color="primary">edit</mat-icon>
+          </button>
 
-      <button mat-icon-button>
-        <mat-icon color="primary">delete</mat-icon>
-      </button>
-      </p>
+          <button mat-icon-button>
+            <mat-icon color="primary">delete</mat-icon>
+          </button>
+          </p>
+        </div>
+
     </div>
-  </div>
+  </ng-container>
 </mat-card>

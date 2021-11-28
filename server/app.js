@@ -1,7 +1,7 @@
 /**
  * Require statements
  */
-const userRoutes =  require('./api/user-routes');
+
 const express = require("express");
 const http = require("http");
 const morgan = require("morgan");
@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({'extended': true}));
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../dist/bcrs')));
 app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
-app.use('/api',[userRoutes]);
+app.use('/api',[userRoutes, questionRoutes]);
 
 
 /**
