@@ -14,7 +14,7 @@
 }
 
 .edit-button {
-  margin-left: 12px;
+  margin-left: 0px;
   padding-right: 75px;
 }
 
@@ -39,9 +39,13 @@ h4 {
   font-size: 20px;
 }
 
+p {
+  margin-left: 0;
+}
+
 
 
 mat-card {
-  margin: 25px;
+  margin: 40px;
   box-shadow: none;
 }
