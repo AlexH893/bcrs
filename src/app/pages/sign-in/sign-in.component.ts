@@ -29,7 +29,7 @@ export class SignInComponent implements OnInit {
     const password = this.form.controls['password'].value;
 
 
-    this.http.get('/api/user').subscribe((users: any[]) =>
+    this.http.get('/api/users').subscribe((users: any[]) =>
     {
       if (users)
       {

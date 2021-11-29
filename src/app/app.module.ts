@@ -35,6 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { VerifySecurityQuestionsComponent } from './pages/verify-security-questions/verify-security-questions.component';
 import { CommonModule } from '@angular/common';
+import { CreateQuestionDialogComponent } from './shared/create-question-dialog/create-question-dialog.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CommonModule } from '@angular/common';
     UserConfigurationComponent,
     SecurityQuestionsComponent,
     VerifySecurityQuestionsComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    CreateQuestionDialogComponent
   ],
   imports: [
     BrowserModule,

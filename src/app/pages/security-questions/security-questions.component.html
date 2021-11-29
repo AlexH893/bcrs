@@ -16,7 +16,9 @@
 
   <div fxLayout="row" fxLayoutAlign="flex-start">
     <div>
-      <button mat-button style="text-decoration: underline;"><h3>Create a new security question</h3></button>
+      <button mat-button style="text-decoration: underline;" (click)="openCreateQuestionDialog()">
+        <h3>Create a new security question</h3>
+      </button>
     </div>
   </div>
 
@@ -30,20 +32,20 @@
     </div>
   </div>
 
-  <div class="actual-users" fxLayout="row" fxLayoutGap="60%">
-    <div>
+  <div  fxLayout="row" fxLayoutGap="60%">
+    <div *ngIf= "securityQuestions">
       <ul>
         <li>
-          <p>
-            List of security questions goes here.
-            <button mat-icon-button class="edit-button">
-              <mat-icon color="black">edit</mat-icon>
+          <div>
+            <div>{{ securityQuestions.text }}</div>
+            <button mat-icon-button>
+              <mat-icon color="black" (click)="updateQuestion()">edit</mat-icon>
             </button>
 
             <button mat-icon-button>
-              <mat-icon color="black">delete</mat-icon>
+              <mat-icon color="black" (click)="deleteQuestion()">delete</mat-icon>
             </button>
-          </p>
+          </div>
         </li>
       </ul>
     </div>

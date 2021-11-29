@@ -20,4 +20,4 @@ let questionSchema = new Schema(
   { collection: "users" }
 );
 
-module.exports = questionSchema;
+module.exports = mongoose.model("SecurityQuestions", questionSchema);
