@@ -34,8 +34,9 @@ import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { VerifySecurityQuestionsComponent } from './pages/verify-security-questions/verify-security-questions.component';
+import { CommonModule } from '@angular/common';
 
-NgModule({
+@NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
@@ -44,7 +45,8 @@ NgModule({
     SignInComponent,
     UserConfigurationComponent,
     SecurityQuestionsComponent,
-    VerifySecurityQuestionsComponent
+    VerifySecurityQuestionsComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ NgModule({
     RouterModule,
     MatFormFieldModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    CommonModule
 
 
   ],

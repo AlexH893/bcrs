@@ -15,33 +15,36 @@
 
     <button mat-button style="text-decoration: underline;">Or create an account</button>
     <br/>
-
+    <form [formGroup]="form" (ngSubmit)="login(); form.reset();">
     <mat-card-content>
       <div>
         <p>Please enter a valid username and password to proceed.</p>
+        <div *ngIf="error != ''">{{ error }}</div>
 
         <mat-form-field appearance="fill">
           <mat-label>Enter your email</mat-label>
-          <input matInput placeholder="Username" required>
+          <input matInput [formControl]="form.controls['username']" placeholder="Username" required>
         </mat-form-field>
         <br/>
 
         <mat-form-field appearance="fill">
           <mat-label>Enter your password</mat-label>
-          <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'">
+          <input matInput [formControl]="form.controls['password']" placeholder="Password" [type]="hide ? 'password' : 'text'">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>Eye {{hide ? 'visibility_off' : 'visibility'}}</mat-icon> <!--eye not showing-->
           </button>
         </mat-form-field>
         <br/>
 
-        <button mat-raised-button>Sign-in</button>
-        <br/>
-
-        <button mat-button style="text-decoration: underline;">Forgot password</button>
-
       </div>
     </mat-card-content>
+
+    <mat-card-actions>
+      <button class="button" color="primary" mat-raised-button type="submit" [disabled]="!form.valid">Submit</button>
+    </mat-card-actions>
+
+    <button mat-button style="text-decoration: underline;">Forgot password</button>
+  </form>
   </mat-card>
 
 </div>
