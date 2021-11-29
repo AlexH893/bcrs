@@ -256,7 +256,7 @@ router.get("/security-questions", async (req, res) => {
  */
 router.post("/security-questions/:id", async (req, res) => {
   try {
-    // Finding an employee by ID
+    // Finding a user by ID
     User.findOne({ _id: req.params.id }, function (err, user) {
       if (err) {
         console.log(err);
@@ -300,8 +300,75 @@ router.post("/security-questions/:id", async (req, res) => {
 
 /*
  * Delete security question
- * Remove document matching the given filter (in this case it's task ID)
- * INCOMPLETE
+ * This API actually deletes the question
  */
+router.delete("/:id/security-questions/:questionId", async (req, res) => {
+  try {
+    User.findOne(
+      {
+        _id: req.params.id,
+      },
+      function (err, user) {
+        if (err) {
+          console.log(err);
+          res.status(500).send({
+            message: "Internal server error:" + err.message,
+          });
+        } else {
+          console.log(user);
+
+          const securityQuestion = user.securityQuestions.find(
+            (q) => q._id.toString() === req.params.questionId
+          );
+
+          // If question is found
+          if (securityQuestion) {
+            /*
+             * The line below actually REMOVES the security question from the user document, however it's out of scope due to
+             * the assignment requirements. This API can still be used to quickly delete a security question from a user document
+             * if needed for testing purposes, just uncomment out the line below and comment out the securityQuestion.set code
+             * block that is placed right under it
+             */
+            //user.securityQuestions.id(securityQuestion._id).remove();
+
+            // Setting the isDisabled flag to true to soft-delete the security question
+            securityQuestion.set({
+              isDisabled: (req.body.isDisabled = true),
+            });
+
+            // Saving user document
+            user.save(function (err, updatedUser) {
+              if (err) {
+                console.log(err);
+                res.status(500).send({
+                  message: "Internal server error:" + err.message,
+                });
+              } else {
+                res.status(200).send({
+                  message: "deleted question",
+                });
+              }
+            });
+          } else {
+            // Displays if an invalid task ID is given
+            console.log(
+              "Invalid security question Id: " + req.params.questionId
+            );
+
+            res.status(300).send({
+              message: "Internal security q id:" + err.message,
+            });
+          }
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+
+    res.status(500).send({
+      message: "Internal server error:" + err.message,
+    });
+  }
+});
 
 module.exports = router;
