@@ -24,7 +24,7 @@ const saltRounds = 10;
  * Find all users API
  * The $ne operator will return all documents where isDisabled is not true
  */
-router.get("/user", async (req, res) => {
+router.get("/users", async (req, res) => {
   try {
     User.find({ isDisabled: { $ne: true } }, function (err, users) {
       if (err) {
@@ -35,6 +35,7 @@ router.get("/user", async (req, res) => {
       } else {
         console.log(users);
         res.json(users);
+        console.log("All users have been displayed that are NOT disabled!");
       }
     });
   } catch (e) {
@@ -48,7 +49,7 @@ router.get("/user", async (req, res) => {
 /*
  * Find user by ID
  */
-router.get("/user/:id", async (req, res) => {
+router.get("/users/:id", async (req, res) => {
   try {
     User.findOne({ _id: req.params.id }, function (err, user) {
       if (err) {
@@ -59,6 +60,7 @@ router.get("/user/:id", async (req, res) => {
       } else {
         console.log(user);
         res.json(user);
+        console.log("User with the ID " + req.params.id + " has been found!");
       }
     });
   } catch (e) {
@@ -73,7 +75,7 @@ router.get("/user/:id", async (req, res) => {
  * Create user
  * In a later Sprint we will convert this API to the "register" API
  */
-router.post("/user", async (req, res) => {
+router.post("/users", async (req, res) => {
   try {
     // The password to be hashed
     const hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
@@ -100,6 +102,14 @@ router.post("/user", async (req, res) => {
       } else {
         console.log(user);
         res.json(user);
+        console.log(
+          "A new user has been created! They're name is " +
+            req.body.firstName +
+            " " +
+            req.body.lastName +
+            " and they're username is " +
+            req.body.username
+        );
       }
     });
   } catch (e) {
@@ -115,7 +125,7 @@ router.post("/user", async (req, res) => {
  * The password is still hashed when changed
  */
 
-router.put("/:user/:id", async (req, res) => {
+router.put("/:users/:id", async (req, res) => {
   const hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
 
   try {
@@ -148,8 +158,13 @@ router.put("/:user/:id", async (req, res) => {
 
             res.json(updatedUser);
           } else {
-            console.log(err);
             res.json(updatedUser);
+            console.log(
+              "The user " +
+                req.body.username +
+                " has just been updated! Now, they're document looks like this: " +
+                updatedUser
+            );
           }
         });
       }
@@ -167,7 +182,7 @@ router.put("/:user/:id", async (req, res) => {
  * The delete function does not actually remove a document from the collection
  * Instead, you are setting the "isDisabled" flag to true
  */
-router.delete("/:user/:id", async (req, res) => {
+router.delete("/:users/:id", async (req, res) => {
   try {
     User.findOne({ _id: req.params.id }, function (err, user) {
       if (err) {
@@ -188,8 +203,13 @@ router.delete("/:user/:id", async (req, res) => {
 
             res.json(updatedUser);
           } else {
-            console.log(err);
             res.json(updatedUser);
+            console.log(
+              "User with an ID of " +
+                req.params.id +
+                " has had their disabled flag set to true!"
+            );
+            console.log(user);
           }
         });
       }
@@ -234,13 +254,16 @@ router.get("/:user/:id/security-questions", async (req, res) => {
  */
 router.get("/security-questions", async (req, res) => {
   try {
-    User.findOne({}, "securityQuestions", function (err, question) {
+    User.find({}, "securityQuestions", function (err, question) {
       if (err) {
         console.log(err);
         res.status(500).send({
           message: "Interal server error:" + err.message,
         });
       } else {
+        console.log(
+          "Here is all of the security questions I could find that aren't disabled."
+        );
         console.log(question);
         res.json(question);
       }
@@ -286,6 +309,14 @@ router.post("/security-questions/:id", async (req, res) => {
           } else {
             console.log(updatedUser);
             res.json(updatedUser);
+            console.log(
+              "The user with an ID of " +
+                req.params.id +
+                " has a new security question! The question & answer is " +
+                req.body.text +
+                " " +
+                req.body.answer
+            );
           }
         });
       }
@@ -300,7 +331,7 @@ router.post("/security-questions/:id", async (req, res) => {
 
 /*
  * Delete security question
- * This API actually deletes the question
+ * This API will set the isDisabled flag to true
  */
 router.delete("/:id/security-questions/:questionId", async (req, res) => {
   try {
@@ -324,7 +355,7 @@ router.delete("/:id/security-questions/:questionId", async (req, res) => {
           // If question is found
           if (securityQuestion) {
             /*
-             * The line below actually REMOVES the security question from the user document, however it's out of scope due to
+             * The commented line below actually REMOVES the security question from the user document, however it's out of scope due to
              * the assignment requirements. This API can still be used to quickly delete a security question from a user document
              * if needed for testing purposes, just uncomment out the line below and comment out the securityQuestion.set code
              * block that is placed right under it
@@ -345,8 +376,90 @@ router.delete("/:id/security-questions/:questionId", async (req, res) => {
                 });
               } else {
                 res.status(200).send({
-                  message: "deleted question",
+                  message:
+                    "Security question" + securityQuestion + " is now disabled",
                 });
+                console.log(
+                  "The security question  " +
+                    "\n" +
+                    securityQuestion +
+                    "\n" +
+                    "  has had it's disabled flag set to true"
+                );
+              }
+            });
+          } else {
+            // Displays if an invalid task ID is given
+            console.log(
+              "Invalid security question Id: " + req.params.questionId
+            );
+
+            res.status(300).send({
+              message: "Internal security q id:" + err.message,
+            });
+          }
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+
+    res.status(500).send({
+      message: "Internal server error:" + err.message,
+    });
+  }
+});
+
+/*
+ * Update security question
+ * Allows a user to update the text of the question as well as the answer
+ */
+router.put("/:id/security-questions/:questionId", async (req, res) => {
+  try {
+    User.findOne(
+      {
+        _id: req.params.id,
+      },
+      function (err, user) {
+        if (err) {
+          console.log(err);
+          res.status(500).send({
+            message: "Internal server error:" + err.message,
+          });
+        } else {
+          console.log(user + "\n");
+
+          const securityQuestion = user.securityQuestions.find(
+            (q) => q._id.toString() === req.params.questionId
+          );
+
+          // If question is found
+          if (securityQuestion) {
+            // Here we're updating the security question
+            securityQuestion.set({
+              text: req.body.text,
+              answer: req.body.answer,
+            });
+
+            // Saving user document
+            user.save(function (err, updatedUser) {
+              if (err) {
+                console.log(err);
+                res.status(500).send({
+                  message: "Internal server error:" + err.message,
+                });
+              } else {
+                res.status(200).send({
+                  message: "Security question has been updated",
+                });
+                console.log(
+                  "The security question has been updated! Now the question & answer is " +
+                    req.body.text +
+                    " " +
+                    req.body.answer +
+                    "\n" +
+                    securityQuestion
+                );
               }
             });
           } else {
