@@ -229,4 +229,79 @@ router.get("/:user/:id/security-questions", async (req, res) => {
   }
 });
 
+/*
+ * Find all security questions
+ */
+router.get("/security-questions", async (req, res) => {
+  try {
+    User.findOne({}, "securityQuestions", function (err, question) {
+      if (err) {
+        console.log(err);
+        res.status(500).send({
+          message: "Interal server error:" + err.message,
+        });
+      } else {
+        console.log(question);
+        res.json(question);
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("Interal server error: " + e.message);
+  }
+});
+
+/*
+ * Create security question - ID of user is needed
+ */
+router.post("/security-questions/:id", async (req, res) => {
+  try {
+    // Finding an employee by ID
+    User.findOne({ _id: req.params.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        res.status(500).send({
+          message: "Internal server error: " + err.message,
+        });
+      } else {
+        console.log(user);
+
+        // Creating the new question
+        const newQuestion = {
+          // The question text & answer is present in the request body
+          text: req.body.text,
+          answer: req.body.answer,
+        };
+
+        // Here we're actually pushing the new question to the array
+        user.securityQuestions.push(newQuestion);
+
+        // After that, we save the new user
+        user.save(function (err, updatedUser) {
+          if (err) {
+            console.log(err);
+            res.status(500).send({
+              message: "Internal server error: " + err.message,
+            });
+          } else {
+            console.log(updatedUser);
+            res.json(updatedUser);
+          }
+        });
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({
+      message: "Internal server error: " + e.message,
+    });
+  }
+});
+
+/*
+ * Delete security question
+ * Remove document matching the given filter (in this case it's task ID)
+ * INCOMPLETE
+ */
+
 module.exports = router;
