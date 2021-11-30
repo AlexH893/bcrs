@@ -32,22 +32,24 @@
     </div>
   </div>
 
-  <div  fxLayout="row" fxLayoutGap="60%">
-    <div *ngIf= "securityQuestions">
-      <ul>
-        <li>
-          <div>
-            <div>{{ securityQuestions.text }}</div>
-            <button mat-icon-button>
-              <mat-icon color="black" (click)="updateQuestion()">edit</mat-icon>
-            </button>
+  <ng-container *ngFor="let question of questions;index as i">
+    <div class="security-questions" fxLayout="row" fxLayoutGap="60%">
 
-            <button mat-icon-button>
-              <mat-icon color="black" (click)="deleteQuestion()">delete</mat-icon>
-            </button>
-          </div>
-        </li>
-      </ul>
+        <div class="icons">
+          <h4>{{ user.username.securityQuestions.text }}</h4>
+        </div>
+        <div fxFlex fxLayoutAlign="start">
+          <p>
+          <button mat-icon-button class="edit-button" (click)="updateQuestion(user)">
+            <mat-icon color="primary">edit</mat-icon>
+          </button>
+
+          <button mat-icon-button (click)="deleteQuestion(i)">
+            <mat-icon color="primary">delete</mat-icon>
+          </button>
+          </p>
+        </div>
+
     </div>
-  </div>
+  </ng-container>
 </mat-card>
