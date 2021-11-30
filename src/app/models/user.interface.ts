@@ -14,5 +14,6 @@ export interface User {
     securityQuestions: SecurityQuestion[],
     date_created?: Date,
     date_modified?: Date,
+    isDisabled: boolean,
     _v: number
 }

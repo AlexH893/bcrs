@@ -32,10 +32,13 @@ import { SecurityQuestionsComponent } from './pages/security-questions/security-
 import { MatTabsModule } from '@angular/material/tabs';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { CookieService } from 'ngx-cookie-service';
 import { VerifySecurityQuestionsComponent } from './pages/verify-security-questions/verify-security-questions.component';
 import { CommonModule } from '@angular/common';
 import { CreateQuestionDialogComponent } from './shared/create-question-dialog/create-question-dialog.component';
+import { MatInputModule } from '@angular/material/input'
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -66,11 +69,15 @@ import { CreateQuestionDialogComponent } from './shared/create-question-dialog/c
     MatFormFieldModule,
     MatTabsModule,
     MatDialogModule,
-    CommonModule
-
+    CommonModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatSelectModule
 
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

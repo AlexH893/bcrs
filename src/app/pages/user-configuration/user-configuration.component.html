@@ -1,12 +1,12 @@
 <mat-card  class="container" fxLayout="column">
   <div fxLayout="row" fxLayoutAlign="center">
     <div>
-      <h1>User Configuration</h1>
+      <h1>User Configuration<br><br></h1>
     </div>
   </div>
 
-  <br>
-  <br>
+
+
   <br>
   <div fxLayout="row" fxLayoutAlign="flex-start">
     <div>
@@ -25,10 +25,10 @@
       <h2>Functions</h2>
     </div>
   </div>
-  <ng-container *ngFor="let user of users">
+  <ng-container *ngFor="let user of users;index as i">
     <div class="actual-users" fxLayout="row" fxLayoutGap="60%">
 
-        <div>
+        <div class="icons">
           <h4>{{user.username}}</h4>
         </div>
         <div fxFlex fxLayoutAlign="start">
@@ -37,7 +37,7 @@
             <mat-icon color="primary">edit</mat-icon>
           </button>
 
-          <button mat-icon-button>
+          <button mat-icon-button (click)="deleteUser(i)">
             <mat-icon color="primary">delete</mat-icon>
           </button>
           </p>

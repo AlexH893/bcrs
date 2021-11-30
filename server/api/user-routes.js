@@ -182,7 +182,7 @@ router.put("/:users/:id", async (req, res) => {
  * The delete function does not actually remove a document from the collection
  * Instead, you are setting the "isDisabled" flag to true
  */
-router.delete("/:users/:id", async (req, res) => {
+router.delete("/users/:id", async (req, res) => {
   try {
     User.findOne({ _id: req.params.id }, function (err, user) {
       if (err) {

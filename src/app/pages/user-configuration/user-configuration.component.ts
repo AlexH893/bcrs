@@ -30,7 +30,19 @@ export class UserConfigurationComponent implements OnInit {
           address: "",
           email: "",
           role: "",
-          securityQuestions: [],
+          securityQuestions: [
+            {
+              text: "None",
+              answer: "",
+              isDisabled: false
+            },
+            {
+              text: "None",
+              answer: "",
+              isDisabled: false
+            }
+          ],
+          isDisabled: false,
           _v: 0
         },
         newUser: true
@@ -38,7 +50,7 @@ export class UserConfigurationComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.users.push(result)
     });
   }
 
@@ -57,8 +69,15 @@ export class UserConfigurationComponent implements OnInit {
   }
 
   fetchUsers(): void {
-    this.http.get('/api/user').subscribe((res: User[]) => {
+    this.http.get('/api/users').subscribe((res: User[]) => {
       this.users = res
+    })
+  }
+
+  deleteUser(i: number) {
+    const user: User = this.users[i]
+    this.http.delete(`/api/users/${user._id}`).subscribe(() => {
+      this.users.splice(i, 1)
     })
   }
 

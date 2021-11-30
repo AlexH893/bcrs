@@ -1,1 +1,118 @@
-<p>create-user works!</p>
+<div fxFlexLayout="column">
+  <mat-card class="container">
+    <mat-card-title>Create Account</mat-card-title>
+    <form>
+
+      <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
+        <div>
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" type="name" name="lastName" [(ngModel)]="user.lastName">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First Name" type="name" name="firstName" [(ngModel)]="user.firstName">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
+        <div>
+          <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" type="name" name="userName" [(ngModel)]="user.username">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="Ex: 123-456-7890" type="tel" name="phone" [(ngModel)]="user.phoneNum">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div>
+          <mat-form-field class="wide-input">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Ex: 123 Central Ave. Austin, Texas" type="text" name="address" [(ngModel)]="user.address" size="300">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
+        <div>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" type="email" name="email" [(ngModel)]="user.email">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>User Role</mat-label>
+            <input matInput placeholder="User Role" type="text" name="userRole" [(ngModel)]="user.role">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
+        <div>
+          <mat-form-field appearance="standard">
+            <mat-label>Security Question 1</mat-label>
+            <mat-select [(value)]="user.securityQuestions[0].text" name="securityQuestion1text">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion">{{securityQuestion}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <mat-label>Answer</mat-label>
+            <input matInput type="text" name="securityQuestion1" [(ngModel)]="user.securityQuestions[0].answer">
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
+        <div>
+          <mat-form-field appearance="standard">
+            <mat-label>Security Question 2</mat-label>
+            <mat-select [(value)]="user.securityQuestions[1].text" name="securityQuestion2text">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion">{{securityQuestion}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <mat-label>Answer</mat-label>
+            <input matInput type="text" name="securityQuestion2" [(ngModel)]="user.securityQuestions[1].answer">
+          </mat-form-field>
+        </div>
+
+      </div>
+
+
+      <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
+        <div>
+          <mat-form-field class="wide-input">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="user.password">
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
+      <div>
+          <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
+      </div>
+
+    </form>
+  </mat-card>
+</div>

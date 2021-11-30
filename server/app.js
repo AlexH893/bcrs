@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({'extended': true}));
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../dist/bcrs')));
 app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
-app.use('/api',[userRoutes, questionRoutes]);
+
 
 
 /**
@@ -63,7 +63,7 @@ mongoose
 /**
  * API(s) go here...
  */
-app.use("/api/", userRoutes);
+app.use("/api", userRoutes);
 
 /* Sign-in path:  /api/session/signin */
 app.post('/sign-in', async (req, res) => {

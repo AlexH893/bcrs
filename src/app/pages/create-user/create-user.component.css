@@ -1,48 +1,32 @@
 
 .container {
-  width: 65%;
+  width: 45%;
   position: fixed;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  box-shadow: none;
-
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-.actual-users {
-  margin-left: 28px;
+
+::ng-deep .wide-input{
+    width: 560px !important;
 }
 
-.edit-button {
-  margin-left: 12px;
-  padding-right: 75px;
+
+button {
+  margin-top: 30px;
 }
 
-h1 {
-  font-size: 34px;
-  font-weight: normal;
-
+mat-card-title {
+  margin-bottom: 50px;
 }
 
-h2 {
-  font-size: 24px;
-  font-weight:normal;
-  margin-left: 26px;
-}
-
-h3 {
-  font-size: 16px;
-  margin-left: 10px;
-}
-
-h4 {
-  font-size: 20px;
+mat-select {
+  margin-top: -25px;
 }
 
 
 
-mat-card {
-  margin: 25px;
-  box-shadow: none;
-}

@@ -14,12 +14,13 @@ import {
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cookieService: CookieService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -30,7 +31,7 @@ export class AuthGuard implements CanActivate {
     | UrlTree {
     return true;
 
-    const sessionUser = this.sessionStrage.get('session_user');
+    const sessionUser = this.cookieService.get('session_user');
 
     if (sessionUser) {
       return true;

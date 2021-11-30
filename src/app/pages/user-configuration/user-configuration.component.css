@@ -9,28 +9,34 @@
 */
 
 .container {
-  width: 65%;
+  width: 55%;
   position: fixed;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   box-shadow: none;
+  margin-top: 150px;
 
 }
 
 .actual-users {
   margin-left: 28px;
+  justify-self: end;
 }
 
 .edit-button {
   margin-left: 0px;
   padding-right: 75px;
+
 }
+
+
 
 h1 {
   font-size: 34px;
   font-weight: normal;
+
 
 }
 
@@ -49,13 +55,8 @@ h4 {
   font-size: 20px;
 }
 
-p {
-  margin-left: 0;
-}
-
-
-
 mat-card {
   margin: 40px;
   box-shadow: none;
 }
+
