@@ -15,7 +15,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserConfigurationComponent } from './pages/user-configuration/user-configuration.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
-import { VerifySecurityQuestionsComponent } from './pages/verify-security-questions/verify-security-questions.component'
+import { VerifySecurityQuestionsComponent } from './pages/verify-security-questions/verify-security-questions.component';
+import { AuthGuard } from '../auth.guard';
 
 const routes: Routes = [
   {
@@ -24,29 +25,56 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'user-configuration',
-        component: UserConfigurationComponent
-      },
-      {
-        path: 'sign-in',
-        component: SignInComponent
+        component: UserConfigurationComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'security-questions',
-        component: SecurityQuestionsComponent
-      },{
+        component: SecurityQuestionsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'verify-security-questions',
-        component: VerifySecurityQuestionsComponent
-      }
-    ]
-  }
+        component: VerifySecurityQuestionsComponent,
+        canActivate: [AuthGuard],
+      },
+    ],
+  },
+  {
+    path: 'session',
+    component: BaseLayoutComponent,
+    children: [
+      {
+        path: 'sign-in',
+        component: SignInComponent,
+      },
+      //TODO
+      /*{
+        path: 'not-found',
+        component: NotFoundComponent,
+      },*/
+    ],
+  },
+  {
+    path: '**',
+    redirectTo: 'session/not-found',
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled', relativeLinkResolution: 'legacy' })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      useHash: true,
+      enableTracing: false,
+      scrollPositionRestoration: 'enabled',
+      relativeLinkResolution: 'legacy',
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
