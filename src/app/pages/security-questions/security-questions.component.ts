@@ -16,15 +16,25 @@ export class SecurityQuestionsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.fetchQuestions
+    this.fetchQuestions()
   }
 
   //Task dialog to open when user hits button
-  openCreateQuestionDialog() {
+  openCreateQuestionDialog(): void {
     const dialogRef = this.dialog.open(CreateQuestionDialogComponent, {
-      disableClose: true
-    })
+      width: '250px',
+      data: {
+        question: {
+          text: "",
+          answer: ""
+        }
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.questions.push(result)
+    });
   }
+
 
   fetchQuestions(): void {
     this.http.get('/api/questions').subscribe((res: SecurityQuestion[]) => {
@@ -32,8 +42,21 @@ export class SecurityQuestionsComponent implements OnInit {
     })
   }
 
-  deleteQuestion(){}
+  deleteQuestion(i: number) {
+    const question: SecurityQuestion = this.questions[i]
+    this.http.delete(`/api/questions/${question._id}`).subscribe(() => {
+      this.questions.splice(i, 1)
+    })
+  }
 
-  updateQuestion(){}
+  updateQuestion(question: SecurityQuestion): void{
+    const dialogRef = this.dialog.open(CreateQuestionDialogComponent, {
+      width: '250px',
+      data: {
+        question: question,
+        newQuestion: false
+      },
+    });
+  }
 
 }
