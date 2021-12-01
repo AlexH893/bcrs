@@ -37,14 +37,14 @@ export class SecurityQuestionsComponent implements OnInit {
 
 
   fetchQuestions(): void {
-    this.http.get('/api/questions').subscribe((res: SecurityQuestion[]) => {
+    this.http.get('/api/security-questions').subscribe((res: SecurityQuestion[]) => {
       this.questions = res
     })
   }
 
   deleteQuestion(i: number) {
     const question: SecurityQuestion = this.questions[i]
-    this.http.delete(`/api/questions/${question._id}`).subscribe(() => {
+    this.http.delete(`/api/security-questions/${question._id}`).subscribe(() => {
       this.questions.splice(i, 1)
     })
   }
