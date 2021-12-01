@@ -3,20 +3,19 @@ import { CreateQuestionDialogComponent } from 'src/app/shared/create-question-di
 import { MatDialog } from '@angular/material/dialog';
 import { SecurityQuestion } from 'src/app/models/security-question.interface';
 import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/models/user.interface';
 
 @Component({
   selector: 'app-security-questions',
   templateUrl: './security-questions.component.html',
-  styleUrls: ['./security-questions.component.css']
+  styleUrls: ['./security-questions.component.css'],
 })
-
 export class SecurityQuestionsComponent implements OnInit {
   questions: SecurityQuestion[];
+  user: User;
   constructor(public dialog: MatDialog, private http: HttpClient) {}
-
-
   ngOnInit(): void {
-    this.fetchQuestions()
+    this.fetchQuestions();
   }
 
   //Task dialog to open when user hits button
@@ -25,38 +24,40 @@ export class SecurityQuestionsComponent implements OnInit {
       width: '250px',
       data: {
         question: {
-          text: "",
-          answer: ""
-        }
-      }
+          text: '',
+          answer: '',
+        },
+      },
     });
-    dialogRef.afterClosed().subscribe(result => {
-      this.questions.push(result)
+    dialogRef.afterClosed().subscribe((result) => {
+      this.questions.push(result);
     });
   }
 
-
   fetchQuestions(): void {
-    this.http.get('/api/security-questions').subscribe((res: SecurityQuestion[]) => {
-      this.questions = res
-    })
+    this.http
+      .get('/api/security-questions')
+      .subscribe((res: SecurityQuestion[]) => {
+        this.questions = res;
+      });
   }
 
   deleteQuestion(i: number) {
-    const question: SecurityQuestion = this.questions[i]
-    this.http.delete(`/api/security-questions/${question._id}`).subscribe(() => {
-      this.questions.splice(i, 1)
-    })
+    const question: SecurityQuestion = this.questions[i];
+    this.http
+      .delete(`/api/security-questions/${question._id}`)
+      .subscribe(() => {
+        this.questions.splice(i, 1);
+      });
   }
 
-  updateQuestion(question: SecurityQuestion): void{
+  updateQuestion(question: SecurityQuestion): void {
     const dialogRef = this.dialog.open(CreateQuestionDialogComponent, {
       width: '250px',
       data: {
         question: question,
-        newQuestion: false
+        newQuestion: false,
       },
     });
   }
-
 }
