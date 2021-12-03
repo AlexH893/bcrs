@@ -7,33 +7,52 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-security-questions',
   templateUrl: './security-questions.component.html',
-  styleUrls: ['./security-questions.component.css']
+  styleUrls: ['./security-questions.component.css'],
 })
-
 export class SecurityQuestionsComponent implements OnInit {
   questions: SecurityQuestion[];
   constructor(public dialog: MatDialog, private http: HttpClient) {}
 
-
   ngOnInit(): void {
-    this.fetchQuestions
+    this.fetchQuestions;
   }
 
   //Task dialog to open when user hits button
-  openCreateQuestionDialog() {
+  openCreateQuestionDialog(): void {
     const dialogRef = this.dialog.open(CreateQuestionDialogComponent, {
-      disableClose: true
-    })
+      width: '250px',
+      data: {
+        question: {
+          text: '',
+          answer: '',
+        },
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.questions.push(result);
+    });
   }
 
   fetchQuestions(): void {
     this.http.get('/api/questions').subscribe((res: SecurityQuestion[]) => {
-      this.questions = res
-    })
+      this.questions = res;
+    });
   }
 
-  deleteQuestion(){}
+  deleteQuestion(i: number) {
+    const question: SecurityQuestion = this.questions[i];
+    this.http.delete(`/api/questions/${question._id}`).subscribe(() => {
+      this.questions.splice(i, 1);
+    });
+  }
 
-  updateQuestion(){}
-
+  updateQuestion(question: SecurityQuestion): void {
+    const dialogRef = this.dialog.open(CreateQuestionDialogComponent, {
+      width: '250px',
+      data: {
+        question: question,
+        newQuestion: false,
+      },
+    });
+  }
 }
