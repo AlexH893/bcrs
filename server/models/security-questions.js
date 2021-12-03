@@ -17,10 +17,12 @@ let questionSchema = new Schema(
     answer: { type: String } /* The question answer */,
     isDisabled: { type: Boolean },
   },
-  { collection: "users/securityQuestions" }
+  { collection: "users" }
 );
 
+const QuestionDocument = mongoose.model("SecurityQuestions", questionSchema);
 
-module.exports = mongoose.model("SecurityQuestion", questionSchema);
-
-
+module.exports = {
+  questionSchema,
+  QuestionDocument
+}

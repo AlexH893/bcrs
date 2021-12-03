@@ -7,7 +7,7 @@
 ; Description: Security Questions Component
 ===========================================
 -->
-<mat-card class="container" fxLayout="column">
+<mat-card  class="container" fxLayout="column">
   <div fxLayout="row" fxLayoutAlign="center">
     <div>
       <h1>Security Question Configuration</h1>
@@ -16,22 +16,13 @@
 
   <div fxLayout="row" fxLayoutAlign="flex-start">
     <div>
-      <button
-        mat-button
-        style="text-decoration: underline"
-        (click)="openCreateQuestionDialog()"
-      >
+      <button mat-button style="text-decoration: underline;" (click)="openCreateQuestionDialog()">
         <h3>Create a new security question</h3>
       </button>
     </div>
   </div>
 
-  <div
-    class="headers"
-    fxLayout="row"
-    fxLayoutAlign="start-start"
-    fxLayoutGap="60%"
-  >
+  <div class="headers" fxLayout="row" fxLayoutAlign="start-start" fxLayoutGap="60%">
     <div>
       <h2>Security Question</h2>
     </div>
@@ -41,26 +32,24 @@
     </div>
   </div>
 
-  <ng-container *ngFor="let question of questions; index as i">
+  <ng-container *ngFor="let question of questions;index as i">
     <div class="security-questions" fxLayout="row" fxLayoutGap="60%">
-      <div class="icons">
-        <h3>{{ question | json }}</h3>
-      </div>
-      <div fxFlex fxLayoutAlign="start">
-        <p>
-          <button
-            mat-icon-button
-            class="edit-button"
-            (click)="updateQuestion(user)"
-          >
+
+        <div class="icons">
+          <h4>{{ user.username.securityQuestions.text }}</h4>
+        </div>
+        <div fxFlex fxLayoutAlign="start">
+          <p>
+          <button mat-icon-button class="edit-button" (click)="updateQuestion(user)">
             <mat-icon color="primary">edit</mat-icon>
           </button>
 
           <button mat-icon-button (click)="deleteQuestion(i)">
             <mat-icon color="primary">delete</mat-icon>
           </button>
-        </p>
-      </div>
+          </p>
+        </div>
+
     </div>
   </ng-container>
 </mat-card>

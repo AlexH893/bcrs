@@ -10,7 +10,7 @@
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const { questionSchema } = require("./security-questions");
+const { QuestionDocument, questionSchema } = require("./security-questions");
 
 let userSchema = new Schema(
   {
