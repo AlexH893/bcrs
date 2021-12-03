@@ -3,6 +3,8 @@ import { CreateQuestionDialogComponent } from 'src/app/shared/create-question-di
 import { MatDialog } from '@angular/material/dialog';
 import { SecurityQuestion } from 'src/app/models/security-question.interface';
 import { HttpClient } from '@angular/common/http';
+import { User } from 'server/models/user';
+
 
 @Component({
   selector: 'app-security-questions',

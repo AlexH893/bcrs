@@ -39,6 +39,8 @@ import { CreateQuestionDialogComponent } from './shared/create-question-dialog/c
 import { MatInputModule } from '@angular/material/input'
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { MatSelectModule } from '@angular/material/select';
     SecurityQuestionsComponent,
     VerifySecurityQuestionsComponent,
     CreateUserComponent,
-    CreateQuestionDialogComponent
+    CreateQuestionDialogComponent,
+    PageNotFoundComponent,
+    InternalErrorComponent
   ],
   imports: [
     BrowserModule,
