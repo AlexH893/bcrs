@@ -42,6 +42,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     CreateQuestionDialogComponent,
     PageNotFoundComponent,
     InternalErrorComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

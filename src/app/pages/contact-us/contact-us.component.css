@@ -1,0 +1,50 @@
+
+/* Welcome Styling */
+.main-welcome {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* title Styling */
+.title {
+  text-align: center;
+  font-size: 46px;
+  padding-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* Styling for both cards */
+.contact-container{
+  width: 80%;
+  margin: 0 auto;
+
+}
+
+/* Card Styling */
+.card{
+  background-color: whitesmoke;
+}
+
+/* text inside the Card Styling */
+.center-text{
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* Icons in card Styling */
+.material-icons{
+  font-size: 40px;
+  color:dimgray;
+
+}
+
+/* Styling for image */
+.photo{
+  width: 100%;
+  margin-right: 20px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
