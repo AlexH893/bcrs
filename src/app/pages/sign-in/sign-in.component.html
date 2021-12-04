@@ -13,25 +13,25 @@
   <mat-card class="signin" fxFlex>
     <mat-card-title>Employee Sign-In</mat-card-title>
 
-    <button mat-button style="text-decoration: underline;">Or create an account</button>
+    <button mat-button class="button" style="text-decoration: underline;">Or create an account</button>
     <br/>
     <form [formGroup]="form" (ngSubmit)="login(); form.reset();">
     <mat-card-content>
       <div>
-        <p>Please enter a valid username and password to proceed.</p>
+        <p class="message">Please enter a valid username and password to proceed.</p>
         <div *ngIf="error != ''">{{ error }}</div>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field class="form" appearance="fill">
           <mat-label>Enter your username</mat-label>
           <input matInput [formControl]="form.controls['username']" placeholder="Username" required>
         </mat-form-field>
         <br/>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field class="form" appearance="fill">
           <mat-label>Enter your password</mat-label>
           <input matInput [formControl]="form.controls['password']" placeholder="Password" [type]="hide ? 'password' : 'text'">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon> {{hide ? 'visibility_off' : 'visibility'}}</mat-icon> 
+            <mat-icon> {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
         <br/>
@@ -40,10 +40,10 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <button class="button" color="primary" mat-raised-button type="submit" [disabled]="!form.valid">Submit</button>
+      <button class="submit" color="primary" mat-raised-button type="submit" [disabled]="!form.valid">Submit</button>
     </mat-card-actions>
 
-    <button mat-button style="text-decoration: underline;">Forgot password</button>
+    <button mat-button class="button" style="text-decoration: underline;">Forgot password</button>
   </form>
   </mat-card>
 

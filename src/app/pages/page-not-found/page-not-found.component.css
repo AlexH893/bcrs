@@ -1,7 +1,32 @@
-.background {
+.image-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  position: fixed;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 
-    overflow: hidden;
-    text-align: center;
 }
 
+.top-left {
+  position: absolute;
+  top: 170px;
+  left: 100px;
+  color: white;
+  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  font-size: 42px;
+}
+
+a {
+  color: white;
+  position: absolute;
+  top: 230px;
+  left: 150px;
+  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  font-size: 28px;
+}
 

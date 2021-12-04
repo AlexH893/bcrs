@@ -1,0 +1,103 @@
+<!--
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: User-config Component
+==========================================
+-->
+<mat-card class="card">
+
+  <h1 class="title">Create Account</h1>
+
+  <mat-horizontal-stepper class="stepper">
+    <!-- Step 1 - Contact Info-->
+    <mat-step>
+      <ng-template matStepLabel>Contact Information</ng-template>
+      <form>
+        <mat-form-field>
+          <input matInput placeholder="First Name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last Name">
+        </mat-form-field>
+        <br/>
+
+        <mat-form-field>
+          <input matInput placeholder="Phone Number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Email">
+        </mat-form-field>
+        <br/>
+
+        <mat-form-field>
+          <input matInput placeholder="Address">
+        </mat-form-field>
+        <br/>
+
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <!-- Step 2 - Security Question Info-->
+    <mat-step>
+      <ng-template matStepLabel>Security Questions</ng-template>
+        <form>
+          <mat-form-field>
+            <input matInput placeholder="Enter Security Question">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Enter Security Question">
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field>
+            <input matInput placeholder="Enter Security Question">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Enter Security Question">
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field>
+            <input matInput placeholder="Enter Security Question">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Enter Security Question">
+          </mat-form-field>
+          <br/>
+
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+    </mat-step>
+
+    <!-- Step 3 - Credentials Info-->
+    <mat-step>
+      <ng-template matStepLabel>Credentials</ng-template>
+        <form>
+
+          <mat-form-field>
+            <input matInput placeholder="Username">
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field>
+            <input matInput placeholder="Password">
+          </mat-form-field>
+
+
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button>Submit</button>
+          </div>
+        </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+</mat-card>

@@ -13,6 +13,7 @@
   text-align: center;
   font-size: 36px;
   margin-top: 60px;
+  font-family:'Castoro', serif;
   }
 
   /* Styling for image */
@@ -23,24 +24,35 @@
   }
 
   .link{
-    color: darkgray;
+    color:  #5D5B5B;
   }
 
   /* Styling for text */
   .text{
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5;
     width: 54%;
     float: left;
     margin-left: 20px;
+    font-family:'Abhaya Libre', serif;
 
   }
 
   .note{
-    color: darkgray;
+    color: #5D5B5B;
   }
 
+  /* Card Styling */
+.card{
+  background-color: #f2efeb;
+  margin: 20px 60px 0px 40px;
+  padding: 40px;
+}
+
   .signature{
-   font-size: 18px;
-   font-family: cursive;
+   font-size: 32px;
+   font-weight: bold;
+   font-family: 'Reenie Beanie', cursive;
   }
+
+
