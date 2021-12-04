@@ -23,18 +23,17 @@ const { userInfo } = require("os");
 
 let userRoutes = require("./api/user-routes.js");
 let questionRoutes = require("./api/question-routes.js");
+let sessionRoutes = require("./api/session-routes.js");
 
 /**
  * App configurations
  */
 let app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({'extended': true}));
-app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, '../dist/bcrs')));
-app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
-
-
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan("dev"));
+app.use(express.static(path.join(__dirname, "../dist/bcrs")));
+app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
 
 /**
  * Variables
@@ -62,11 +61,11 @@ mongoose
 
 /**
  * API(s) go here...
- */
+ */ //          sessionRoutes
 app.use("/api", userRoutes);
 
 /* Sign-in path:  /api/session/signin */
-app.post('/sign-in', async (req, res) => {
+app.post("/sign-in", async (req, res) => {
   try {
     User.findOne(
       {
