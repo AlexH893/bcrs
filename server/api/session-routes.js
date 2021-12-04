@@ -13,7 +13,8 @@ const User = require("../models/user.js");
 const Question = require("../models/security-questions.js");
 const bcrypt = require("bcrypt");
 const BaseResponse = require("../models/base-response.js");
-
+const ErrorResponse = require("../models/error-response");
+const saltRounds = 10;
 /*
  * Regiser user
  */
@@ -30,7 +31,6 @@ router.post("/register", async (req, res) => {
         res.status(500).send(registerUserMongodbErrorResponse.toObject());
       } else {
         if (!user) {
-          // hashing the password
           let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
           standardRole = {
             role: "standard",
@@ -54,7 +54,7 @@ router.post("/register", async (req, res) => {
               console.log(err);
               const newUserMongodbErrorResponse = new ErrorResponse(
                 "500",
-                "Internal server error",
+                "Internal server error.",
                 err
               );
               res.status(500).send(newUserMongodbErrorResponse.toObject());
@@ -62,17 +62,17 @@ router.post("/register", async (req, res) => {
               console.log(newUser);
               const registeredUserResponse = new BaseResponse(
                 "200",
-                "Registration successful",
+                "Registration success.",
                 newUser
               );
               res.json(registeredUserResponse.toObject());
             }
           });
         } else {
-          console.log(`Username ${req.body.userName} already exists.`);
+          console.log(`Username ${req.body.userName} already exists!`);
           const userExistsError = new BaseResponse(
             "400",
-            `The username '${req.body.userName}' is already in use.`,
+            `Username '${req.body.userName}' is already in use!`,
             null
           );
           res.status(400).send(userExistsError.toObject());
@@ -87,6 +87,50 @@ router.post("/register", async (req, res) => {
       e.message
     );
     res.status(500).send(registerUserCatchErrorResponse.toObject());
+  }
+});
+
+/*
+ * Verify user
+ */
+router.get("/verify/users/:userName", async (req, res) => {
+  try {
+    User.findOne({ userName: req.params.userName }, function (err, user) {
+      if (user) {
+        if (err) {
+          console.log(err);
+          const verifyUserMongodbErrorResponse = new ErrorResponse(
+            "500",
+            "Internal server error",
+            err
+          );
+          res.status(500).send(verifyUserMongodbErrorResponse.toObject());
+        } else {
+          console.log(user);
+          const verifyUserResponse = new BaseResponse(
+            "200",
+            "User verification successful",
+            user
+          );
+          res.json(verifyUserResponse.toObject());
+        }
+      } else {
+        const invalidUsernameResponse = new BaseResponse(
+          "400,",
+          "Invalid username",
+          req.params.userName
+        );
+        res.status(400).send(invalidUsernameResponse.toObject());
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const verifyUserCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(verifyUserCatchErrorResponse.toObject());
   }
 });
 
