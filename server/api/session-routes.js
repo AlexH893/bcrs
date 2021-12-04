@@ -22,8 +22,7 @@ router.post("/register", async (req, res) => {
     User.findOne({ userName: req.body.userName }, function (err, user) {
       if (err) {
         console.log(err);
-
-        const registerUserMongodbErrorResponse = new ErrorRespons(
+        const registerUserMongodbErrorResponse = new ErrorResponse(
           "500",
           "Internal server error",
           err
@@ -31,11 +30,13 @@ router.post("/register", async (req, res) => {
         res.status(500).send(registerUserMongodbErrorResponse.toObject());
       } else {
         if (!user) {
-          const hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+          // hashing the password
+          let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
           standardRole = {
             role: "standard",
           };
 
+          // the registered user object
           let registeredUser = {
             username: req.body.username,
             password: hashedPassword,
@@ -61,20 +62,31 @@ router.post("/register", async (req, res) => {
               console.log(newUser);
               const registeredUserResponse = new BaseResponse(
                 "200",
-                "Query succesfull",
+                "Registration successful",
                 newUser
               );
               res.json(registeredUserResponse.toObject());
             }
           });
+        } else {
+          console.log(`Username ${req.body.userName} already exists.`);
+          const userExistsError = new BaseResponse(
+            "400",
+            `The username '${req.body.userName}' is already in use.`,
+            null
+          );
+          res.status(400).send(userExistsError.toObject());
         }
       }
     });
   } catch (e) {
     console.log(e);
-    res.status(500).send({
-      message: `Server Exception: ${e.message}`,
-    });
+    const registerUserCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(registerUserCatchErrorResponse.toObject());
   }
 });
 
