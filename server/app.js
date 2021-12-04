@@ -61,8 +61,9 @@ mongoose
 
 /**
  * API(s) go here...
- */ //          sessionRoutes
+ */ //          userRoutes
 app.use("/api", userRoutes);
+app.use("/api/session", sessionRoutes);
 
 /* Sign-in path:  /api/session/signin */
 app.post("/sign-in", async (req, res) => {
@@ -95,8 +96,14 @@ app.post("/sign-in", async (req, res) => {
         if (!user) res.status(401).send("Invalid username and/or password");
       }
     );
-  } catch (error) {
-    res.status(500).send("server exception");
+  } catch (e) {
+    console.log(e);
+    const registerUserCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(registerUserCatchErrorResponse.toObject());
   }
 });
 
