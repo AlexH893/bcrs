@@ -1,11 +1,7 @@
 .background {
-    width: auto;
-    height: 100%;
-    background: url('/assets/julie-rotter-Y03s37C6tQk1-unsplash.jpg') no-repeat;
-    background-size: cover;
-    color: cue-region white;
+
+    overflow: hidden;
     text-align: center;
 }
-
 
 
