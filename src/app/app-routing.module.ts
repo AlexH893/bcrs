@@ -19,6 +19,8 @@ import { VerifySecurityQuestionsComponent } from './pages/verify-security-questi
 import { AuthGuard } from '../auth.guard';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -28,6 +30,16 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'about-us',
+        component: AboutUsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'contact-us',
+        component: ContactUsComponent,
         canActivate: [AuthGuard],
       },
       {
