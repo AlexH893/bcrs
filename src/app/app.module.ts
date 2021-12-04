@@ -41,6 +41,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { InternalErrorComponent } from './pages/internal-error/internal-error.co
     CreateUserComponent,
     CreateQuestionDialogComponent,
     PageNotFoundComponent,
-    InternalErrorComponent
+    InternalErrorComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

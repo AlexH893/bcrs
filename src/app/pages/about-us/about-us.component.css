@@ -1,0 +1,46 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Home Component
+===========================================
+*/
+
+/* Styling for title */
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 60px;
+  }
+
+  /* Styling for image */
+  .photo{
+    width: 44%;
+    float: left;
+
+  }
+
+  .link{
+    color: darkgray;
+  }
+
+  /* Styling for text */
+  .text{
+    font-size: 16px;
+    line-height: 1.5;
+    width: 54%;
+    float: left;
+    margin-left: 20px;
+
+  }
+
+  .note{
+    color: darkgray;
+  }
+
+  .signature{
+   font-size: 18px;
+   font-family: cursive;
+  }
