@@ -24,5 +24,5 @@ const QuestionDocument = mongoose.model("SecurityQuestions", questionSchema);
 
 module.exports = {
   questionSchema,
-  QuestionDocument
-}
+  QuestionDocument,
+};

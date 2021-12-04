@@ -17,6 +17,8 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
 import { VerifySecurityQuestionsComponent } from './pages/verify-security-questions/verify-security-questions.component';
 import { AuthGuard } from '../auth.guard';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 
 const routes: Routes = [
   {
@@ -53,11 +55,15 @@ const routes: Routes = [
         path: 'sign-in',
         component: SignInComponent,
       },
-      //TODO
-      /*{
+
+      {
         path: 'not-found',
-        component: NotFoundComponent,
-      },*/
+        component: PageNotFoundComponent,
+      },
+      {
+        path: 'internal-error',
+        component: InternalErrorComponent
+      },
     ],
   },
   {
