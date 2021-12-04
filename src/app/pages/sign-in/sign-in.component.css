@@ -10,4 +10,32 @@
 
 .signin{
   text-align: center;
+  width: 40%;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin-top: 150px;
+  font-family:'Castoro', serif;
+}
+
+.message{
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 24px;
+  padding: 4px;
+}
+
+.form{
+  width: 60%;
+  font-family:'Abhaya Libre', serif;
+}
+
+.button{
+  font-family:'Abhaya Libre', serif;
+}
+
+.submit{
+  font-family:'Abhaya Libre', serif;
+  width: 60%;
 }
