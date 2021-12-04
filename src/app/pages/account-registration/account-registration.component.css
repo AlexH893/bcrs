@@ -1,0 +1,18 @@
+/* Card Styling */
+.card{
+  background-color: #f2efeb;
+  margin: 20px 60px 0px 40px;
+  padding: 40px;
+}
+
+.stepper{
+  background-color: #f2efeb;
+  font-family:'Abhaya Libre', serif;
+}
+
+.title{
+  text-align: center;
+  font-size: 36px;
+  margin-top: 60px;
+  font-family:'Castoro', serif;
+}

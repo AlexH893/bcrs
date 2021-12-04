@@ -43,6 +43,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { AccountRegistrationComponent } from './pages/account-registration/account-registration.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
     PageNotFoundComponent,
     InternalErrorComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    AccountRegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +83,8 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
     CommonModule,
     MatInputModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatStepperModule
 
   ],
   providers: [

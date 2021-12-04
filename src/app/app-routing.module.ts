@@ -21,6 +21,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { AccountRegistrationComponent } from './pages/account-registration/account-registration.component'
 
 const routes: Routes = [
   {
@@ -55,6 +56,11 @@ const routes: Routes = [
       {
         path: 'verify-security-questions',
         component: VerifySecurityQuestionsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'account-registration',
+        component: AccountRegistrationComponent,
         canActivate: [AuthGuard],
       },
     ],
