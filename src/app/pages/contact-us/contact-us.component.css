@@ -9,14 +9,15 @@
 
 /* Styling for both cards */
 .contact-container{
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
 
 }
 
 /* Card Styling */
 .card{
-  background-color: whitesmoke;
+  background-color: #f2efeb;
+  margin: 10px;
 }
 
 /* text inside the Card Styling */
@@ -41,12 +42,20 @@
   display: block;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 40px;
 }
 
 .final-note{
   text-align: center;
-  font-size: 24px;
-  line-height: 1.5;
-  word-spacing: 4px;
+  font-size: 18px;
+  word-spacing: 2px;
+  font-family:'Castoro', serif;
+}
+
+.link{
   font-family: 'Reenie Beanie', cursive;
+  text-decoration: none;
+  font-size: 22px;
+  color: dimgray;
+  font-weight: bold;
 }

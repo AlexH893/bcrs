@@ -44,7 +44,9 @@
 
   /* Card Styling */
 .card{
-  background-color: whitesmoke;
+  background-color: #f2efeb;
+  margin: 20px 60px 0px 40px;
+  padding: 40px;
 }
 
   .signature{
