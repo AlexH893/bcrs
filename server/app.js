@@ -61,8 +61,8 @@ mongoose
 
 /**
  * API(s) go here...
- */ //          userRoutes
-app.use("/api", sessionRoutes);
+ */ //          sessionRoutes
+app.use("/api", userRoutes);
 
 /* Sign-in path:  /api/session/signin */
 app.post("/sign-in", async (req, res) => {
