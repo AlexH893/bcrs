@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SecurityQuestion } from 'src/app/models/security-question.interface';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-question-dialog',
@@ -9,21 +11,36 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CreateQuestionDialogComponent implements OnInit {
   questionForm: FormGroup;
-
-  constructor(private dialogRef: MatDialogRef<CreateQuestionDialogComponent>, private fb: FormBuilder) { }
+  securityQuestion: SecurityQuestion;
+  constructor(private dialogRef: MatDialogRef<CreateQuestionDialogComponent>, private fb: FormBuilder,
+    private http: HttpClient,
+    @Inject(MAT_DIALOG_DATA) public data: {question: SecurityQuestion, newQuestion: boolean}) {
+      this.securityQuestion = data.question
+    }
 
   ngOnInit(): void {
     this.questionForm = this.fb.group({
-      text: [null, Validators.compose([Validators.required])]
+      text: [this.securityQuestion.text, Validators.compose([Validators.required])]
     })
   }
 
-  // create task and close dialog
-  createQuestion() {
-    this.dialogRef.close(this.questionForm.value);
+  // create question and close dialog
+  createQuestion():void {
+    if (this.data.newQuestion) {
+      this.http.post("/api/security-questions", this.questionForm.value)
+      .subscribe((res: SecurityQuestion) => {
+        this.dialogRef.close(res)
+      })
+    }
+    else {
+      this.http.put(`/api/security-questions/${this.securityQuestion._id}`, this.questionForm.value)
+      .subscribe((res: SecurityQuestion) => {
+        this.dialogRef.close(res)
+      })
+    }
   }
 
-  // Do not create task and close dialog
+  // Do not create question and close dialog
   cancel() {
     this.dialogRef.close();
   }

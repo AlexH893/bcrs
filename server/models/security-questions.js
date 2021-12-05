@@ -13,16 +13,25 @@ const Schema = mongoose.Schema;
 
 let questionSchema = new Schema(
   {
-    text: { type: String } /* The text of the question */,
+    questionId: { type: String }, /* The text ID of the question */
     answer: { type: String } /* The question answer */,
-    isDisabled: { type: Boolean },
   },
-  { collection: "users" }
 );
 
-const QuestionDocument = mongoose.model("SecurityQuestions", questionSchema);
+let securityQuestionSchema = new Schema (
+  {
+    text: { type: String },
+    isDisabled: { type: Boolean, default: false}
+  },
+  {
+    collection: "securityQuestions"
+  }
+);
+
+const SecurityQuestion = mongoose.model("SecurityQuestions", securityQuestionSchema);
 
 module.exports = {
   questionSchema,
-  QuestionDocument,
+  securityQuestionSchema,
+  SecurityQuestion
 };

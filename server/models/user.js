@@ -17,7 +17,7 @@ let userSchema = new Schema(
   {
     //Unique:true is to ensure that indexed fields don't store duplicate values
     /*userId: { type: Number, unique: true, dropdups: true },*/
-    username: { type: String },
+    userName: { type: String },
     password: { type: String },
     phoneNum: { type: String },
     firstName: { type: String },

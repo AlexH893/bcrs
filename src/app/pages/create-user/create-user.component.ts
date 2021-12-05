@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, } from '@angular/material/dia
 import { User } from '../../models/user.interface';
 import { HttpClient } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SecurityQuestion } from 'src/app/models/security-question.interface';
 
 
 
@@ -16,15 +17,19 @@ export class CreateUserComponent implements OnInit {
   securityQuestions: string[]
   constructor(public dialogRef: MatDialogRef<CreateUserComponent>,
     public flexLayout: FlexLayoutModule,
-
     private http: HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: {user: User, newUser: boolean}) {
       this.user = data.user
      }
 
   ngOnInit(): void {
-    this.securityQuestions = ["What is the name of your favorite pet?", "What is your favorite color?", "What city were you born in?",
-  "What is your favorite car?", "What is your favorite drink?", "What is your favorite food?"]
+   this.fetchQuestions()
+  }
+
+  fetchQuestions(): void {
+    this.http.get('/api/security-questions').subscribe((res: SecurityQuestion[]) => {
+      this.securityQuestions = res.map((question) => question.text);
+    });
   }
 
   onSubmit():void {
