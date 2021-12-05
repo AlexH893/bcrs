@@ -198,4 +198,76 @@ router.post("/users/:userName/reset-password", async (req, res) => {
   }
 });
 
+/*
+ * Verify security questions
+ */
+
+router.post("/verify/users/:userName/security-questions", async (req, res) => {
+  try {
+    User.findOne({ userName: req.params.userName }, function (err, user) {
+      if (err) {
+        console.log(err);
+        const verifySecurityQuestionsMongodbErrorResponse = new ErrorResponse(
+          "500",
+          "internal server error",
+          err
+        );
+        res
+          .status(500)
+          .send(verifySecurityQuestionsMongodbErrorResponse.toObject());
+      } else {
+        console.log(user);
+
+        const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(
+          (q) => q.questionText === req.body.questionText1
+        );
+        const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(
+          (q2) => q2.questionText === req.body.questionText2
+        );
+        const selectedSecurityQuestionThree =
+          user.selectedSecurityQuestions.find(
+            (q3) => q3.questionText === req.body.questionText3
+          );
+
+        const isValidAnswerOne =
+          selectedSecurityQuestionOne.answerText === req.body.questionText1;
+        const isValidAnswerTwo =
+          selectedSecurityQuestionTwo.answerText === req.body.questionText2;
+        const isValidAnswerThree =
+          selectedSecurityQuestionThree.answerText === req.body.questionText3;
+
+        if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
+          console.log(
+            "User ${user.userName} answered their security questions correctly!"
+          );
+          const validSecurityQuestionResponse = new BaseResponse(
+            "200",
+            "success",
+            user
+          );
+          res.json(validSecurityQuestionResponse.toObject());
+        } else {
+          console.log(
+            "User ${user.userName} not not answer their security questions correctly!"
+          );
+          const invalidSecurityQuestionsResponse = new BaseResponse(
+            "200",
+            "error",
+            user
+          );
+          res.json(invalidSecurityQuestionsResponse.toObject());
+        }
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const verifySecurityQuestionsCatchErrorResponse = new ErrorResponse(
+      "500",
+      "internal server error",
+      e.message
+    );
+    res.status(500).send(verifySecurityQuestionsCatchErrorResponse.toObject());
+  }
+});
+
 module.exports = router;
