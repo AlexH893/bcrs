@@ -3,7 +3,7 @@ import { SecurityQuestion } from './security-question.interface';
 export interface User {
 
     _id?: string
-    username: string,
+    userName: string,
     password: string,
     firstName: string,
     lastName: string,

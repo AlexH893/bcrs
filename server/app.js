@@ -61,12 +61,14 @@ mongoose
 
 /**
  * API(s) go here...
- */ //          userRoutes
-app.use("/api", userRoutes);
+ */
+
 app.use("/api/session", sessionRoutes);
 
-/* Sign-in path:  /api/session/signin */
-app.post("/sign-in", async (req, res) => {
+app.use("/api", [questionRoutes, userRoutes]);
+
+/* Sign-in */
+app.post("/api/sessions/sign-in", async (req, res) => {
   try {
     User.findOne(
       {

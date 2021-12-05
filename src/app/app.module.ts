@@ -46,6 +46,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { AccountRegistrationComponent } from './pages/account-registration/account-registration.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {CdkStepperModule} from '@angular/cdk/stepper';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -86,8 +87,8 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
     MatCheckboxModule,
     MatSelectModule,
     MatStepperModule,
-    CdkStepperModule
-
+    CdkStepperModule,
+    MatTableModule
   ],
   providers: [
     CookieService
