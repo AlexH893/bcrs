@@ -143,6 +143,7 @@ router.post("/users/:userName/reset-password", async (req, res) => {
 
     User.findOne(
       { userName: req.params.userName },
+      /* Wont work without projections - doesn't like returning the role field currently */
       "userName password",
       function (err, user) {
         if (err) {
