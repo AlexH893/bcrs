@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CreateUserComponent } from '../create-user/create-user.component';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user.interface';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-user-configuration',
@@ -10,7 +11,8 @@ import { User } from 'src/app/models/user.interface';
   styleUrls: ['./user-configuration.component.css']
 })
 export class UserConfigurationComponent implements OnInit {
-  users: User[]
+  displayedColumns = ["username", "firstName", "lastName", "phoneNum", "email", "functions"]
+  users = new MatTableDataSource<User>([]);
   constructor(public dialog: MatDialog, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -22,7 +24,7 @@ export class UserConfigurationComponent implements OnInit {
       width: '250px',
       data: {
         user: {
-          username: "",
+          userName: "",
           password: "",
           firstName: "",
           lastName: "",
@@ -50,7 +52,11 @@ export class UserConfigurationComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.users.push(result)
+      if(result){
+        this.users.data.push(result)
+        this.users.data = this.users.data
+      }
+
     });
   }
 
@@ -64,20 +70,21 @@ export class UserConfigurationComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.users.data = this.users.data
     });
   }
 
   fetchUsers(): void {
     this.http.get('/api/users').subscribe((res: User[]) => {
-      this.users = res
+      this.users.data = res
     })
   }
 
   deleteUser(i: number) {
-    const user: User = this.users[i]
+    const user: User = this.users.data[i]
     this.http.delete(`/api/users/${user._id}`).subscribe(() => {
-      this.users.splice(i, 1)
+      this.users.data.splice(i, 1)
+      this.users.data = this.users.data
     })
   }
 

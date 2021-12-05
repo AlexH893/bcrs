@@ -258,7 +258,7 @@ router.get("/security-questions", async (req, res) => {
       if (err) {
         console.log(err);
         res.status(500).send({
-          message: "Interal server error:" + err.message,
+          message: "Internal server error:" + err.message,
         });
       } else {
         console.log(
@@ -270,7 +270,7 @@ router.get("/security-questions", async (req, res) => {
     });
   } catch (e) {
     console.log(e);
-    res.status(500).send("Interal server error: " + e.message);
+    res.status(500).send("Internal server error: " + e.message);
   }
 });
 
