@@ -45,6 +45,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { AccountRegistrationComponent } from './pages/account-registration/account-registration.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import {CdkStepperModule} from '@angular/cdk/stepper';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatInputModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatStepperModule
+    MatStepperModule,
+    CdkStepperModule
 
   ],
   providers: [
