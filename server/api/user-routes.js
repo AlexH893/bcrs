@@ -80,7 +80,7 @@ router.post("/users", async (req, res) => {
     // The password to be hashed
     const hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
     const newUser = {
-      username: req.body.username,
+      userName: req.body.userName,
       password: hashedPassword,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -108,7 +108,7 @@ router.post("/users", async (req, res) => {
             " " +
             req.body.lastName +
             " and they're username is " +
-            req.body.username
+            req.body.userName
         );
       }
     });
@@ -139,7 +139,7 @@ router.put("/:users/:id", async (req, res) => {
         console.log(user);
 
         user.set({
-          username: req.body.username,
+          userName: req.body.userName,
           password: hashedPassword,
           firstName: req.body.firstName,
           lastName: req.body.lastName,
@@ -161,7 +161,7 @@ router.put("/:users/:id", async (req, res) => {
             res.json(updatedUser);
             console.log(
               "The user " +
-                req.body.username +
+                req.body.userName +
                 " has just been updated! Now, they're document looks like this: " +
                 updatedUser
             );
@@ -483,7 +483,5 @@ router.put("/:id/security-questions/:questionId", async (req, res) => {
     });
   }
 });
-
-
 
 module.exports = router;
