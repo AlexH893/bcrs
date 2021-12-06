@@ -15,25 +15,25 @@
     <!-- Step 1 - Contact Info-->
     <mat-step class="required" errorMessage="Contact Information Required">
       <ng-template matStepLabel>Contact Information</ng-template>
-      <form>
-        <mat-form-field [formGroup]="contactForm">
+      <form [formGroup]="contactForm">
+        <mat-form-field>
           <input matInput placeholder="First Name" type="text" [formControl]="contactForm.controls['firstName']">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Last Name" >
+          <input matInput placeholder="Last Name" type="text" [formControl]="contactForm.controls['lastName']">
         </mat-form-field>
         <br/>
 
         <mat-form-field>
-          <input matInput placeholder="Phone Number">
+          <input matInput placeholder="Phone Number"  type="text" [formControl]="contactForm.controls['phoneNum']">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Email">
+          <input matInput placeholder="Email"  type="text" [formControl]="contactForm.controls['email']">
         </mat-form-field>
         <br/>
 
         <mat-form-field>
-          <input matInput placeholder="Address">
+          <input matInput placeholder="Address"  type="text" [formControl]="contactForm.controls['address']">
         </mat-form-field>
         <br/>
 
@@ -46,35 +46,46 @@
     <!-- Step 2 - Security Question Info-->
     <mat-step>
       <ng-template matStepLabel>Security Questions</ng-template>
-        <form>
+        <form [formGroup]="questionsForm">
           <mat-form-field>
-            <input matInput placeholder="Enter Security Question">
-            <mat-select>
-              <mat-option *ngIf = "securityQuestion">
-                    {{ securityQuestion.text }} <!--Not displaying-->
+            <mat-label>Select Security Question</mat-label>
+            <mat-select [formControl] = "questionsForm.controls['question1']">
+              <mat-option *ngFor = "let question of questions" [value]="question._id">
+                    {{ question.text }}
               </mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Enter Security Question">
+            <input matInput placeholder="Answer" [formControl] = "questionsForm.controls['answer1']">
           </mat-form-field>
           <br/>
 
           <mat-form-field>
-            <input matInput placeholder="Enter Security Question">
+            <mat-label>Select Security Question</mat-label>
+            <mat-select [formControl] = "questionsForm.controls['question2']">
+              <mat-option *ngFor = "let question of questions" [value]="question._id">
+                    {{ question.text }}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Enter Security Question">
+            <input matInput placeholder="Answer" [formControl] = "questionsForm.controls['answer2']">
           </mat-form-field>
           <br/>
 
           <mat-form-field>
-            <input matInput placeholder="Enter Security Question">
+            <mat-label>Select Security Question</mat-label>
+            <mat-select [formControl] = "questionsForm.controls['question3']">
+              <mat-option *ngFor = "let question of questions" [value]="question._id">
+                    {{ question.text }}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Enter Security Question">
+            <input matInput placeholder="Answer" [formControl] = "questionsForm.controls['answer3']">
           </mat-form-field>
           <br/>
+
 
           <div>
             <button mat-button matStepperPrevious>Back</button>
@@ -86,16 +97,20 @@
     <!-- Step 3 - Credentials Info-->
     <mat-step>
       <ng-template matStepLabel>Credentials</ng-template>
-        <form>
+        <form [formGroup]="credentialsForm">
 
           <mat-form-field>
-            <input matInput placeholder="Username">
+            <input matInput placeholder="Username" type="text" [formControl]="credentialsForm.controls['userName']">
           </mat-form-field>
           <br/>
 
           <mat-form-field>
-            <input matInput placeholder="Password">
+            <input matInput type="password" placeholder="Password" [formControl]="credentialsForm.controls['password']">
           </mat-form-field>
+
+          <mat-error *ngIf="credentialsForm.controls['password'].invalid &&
+            !credentialsForm.controls['password'].pristine">The Password must be 8 characters long with a capital letter and a number</mat-error>
+
 
 
           <div>

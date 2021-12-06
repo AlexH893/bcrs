@@ -16,7 +16,7 @@ const BaseResponse = require("../models/base-response.js");
 const ErrorResponse = require("../models/error-response");
 const saltRounds = 10;
 /*
- * Regiser user
+ * Register user
  */
 router.post("/api/session/register", async (req, res) => {
   try {
