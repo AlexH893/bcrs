@@ -201,7 +201,6 @@ router.post("/users/:userName/reset-password", async (req, res) => {
 /*
  * Verify security questions
  */
-
 router.post("/verify/users/:userName/security-questions", async (req, res) => {
   try {
     User.findOne({ userName: req.params.userName }, function (err, user) {
@@ -218,16 +217,15 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
       } else {
         console.log(user);
 
-        const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(
+        const selectedSecurityQuestionOne = user.securityQuestions.find(
           (q) => q.questionText === req.body.questionText1
         );
-        const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(
+        const selectedSecurityQuestionTwo = user.securityQuestions.find(
           (q2) => q2.questionText === req.body.questionText2
         );
-        const selectedSecurityQuestionThree =
-          user.selectedSecurityQuestions.find(
-            (q3) => q3.questionText === req.body.questionText3
-          );
+        const selectedSecurityQuestionThree = user.securityQuestions.find(
+          (q3) => q3.questionText === req.body.questionText3
+        );
 
         const isValidAnswerOne =
           selectedSecurityQuestionOne.answerText === req.body.questionText1;
