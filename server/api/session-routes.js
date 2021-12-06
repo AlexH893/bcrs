@@ -270,6 +270,9 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
   }
 });
 
+/*
+ * Find selected security question
+ */
 router.get("/:userName/security-questions", async (req, res) => {
   try {
     User.findOne({ userName: req.params.userName }, function (err, user) {
@@ -287,7 +290,7 @@ router.get("/:userName/security-questions", async (req, res) => {
         const findSelectedSecurityQuestionsResponse = new BaseResponse(
           "200",
           "query successful",
-          user.selectedSecurityQuestions
+          user.securityQuestions
         );
         res.json(findSelectedSecurityQuestionsResponse.toObject());
       }
