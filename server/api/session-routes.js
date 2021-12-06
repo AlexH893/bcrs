@@ -270,4 +270,39 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
   }
 });
 
+router.get("/:userName/security-questions", async (req, res) => {
+  try {
+    User.findOne({ userName: req.params.userName }, function (err, user) {
+      if (err) {
+        console.log(err);
+        const findSelectedSelectedSecurityQuestionsMongodbErrorResponse =
+          new ErrorResponse("500", "internal server error", err);
+        res
+          .status(500)
+          .send(
+            findSelectedSelectedSecurityQuestionsMongodbErrorResponse.toObject()
+          );
+      } else {
+        console.log(user);
+        const findSelectedSecurityQuestionsResponse = new BaseResponse(
+          "200",
+          "query successful",
+          user.selectedSecurityQuestions
+        );
+        res.json(findSelectedSecurityQuestionsResponse.toObject());
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse(
+      "500",
+      "internal server error",
+      e
+    );
+    res
+      .status(500)
+      .send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
+  }
+});
+
 module.exports = router;
