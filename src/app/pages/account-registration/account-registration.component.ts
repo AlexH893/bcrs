@@ -11,38 +11,40 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   selector: 'app-account-registration',
   templateUrl: './account-registration.component.html',
   styleUrls: ['./account-registration.component.css'],
-  providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS,
-    useValue: { showError: true }
-  }]
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { showError: true },
+    },
+  ],
 })
-
 export class AccountRegistrationComponent implements OnInit {
-
   securityQuestion: SecurityQuestion;
   contactForm = new FormGroup({
-  firstName: new FormControl()
-  })
+    firstName: new FormControl(),
+  });
 
-  constructor(private http: HttpClient,
+  constructor(
+    private http: HttpClient,
     private router: Router,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder
+  ) {}
 
-  register(){
+  register() {
     const contactInformation = this.contactForm.value;
 
-
-    this.http.post('/api/session/register', {
-      firstName: contactInformation.firstName
-    }).subscribe(res => {
-      this.router.navigate(['sign-in']);
-    })
+    this.http
+      .post('/api/session/register', {
+        firstName: contactInformation.firstName,
+      })
+      .subscribe((res) => {
+        this.router.navigate(['sign-in']);
+      });
   }
 
   ngOnInit() {
     this.contactForm = this.fb.group({
-    firstName: [null, Validators.compose([Validators.required])]
+      firstName: [null, Validators.compose([Validators.required])],
     });
   }
-
 }
