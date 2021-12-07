@@ -59,14 +59,7 @@ export class AccountRegistrationComponent implements OnInit {
       phoneNum: contactInformation.phoneNum,
       address: contactInformation.address,
 
-      question1: questionInformation.question1,
-      question2: questionInformation.question2,
-      question3: questionInformation.question3,
-      answer1: questionInformation.answer1,
-      answer2: questionInformation.answer2,
-      answer3: questionInformation.answer3,
-
-      userName: credentialsInformation.userName,
+      username: credentialsInformation.username,
       password: credentialsInformation.password,
 
       securityQuestions: questions
@@ -95,7 +88,7 @@ export class AccountRegistrationComponent implements OnInit {
     });
 
     this.credentialsForm = this.fb.group({
-      userName: [null, Validators.compose([Validators.required])],
+      username: [null, Validators.compose([Validators.required])],
       password: [null, Validators.compose([Validators.required,
         Validators.minLength(8),
         Validators.pattern(/\d/),
