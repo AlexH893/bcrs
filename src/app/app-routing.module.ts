@@ -60,8 +60,7 @@ const routes: Routes = [
       },
       {
         path: 'account-registration',
-        component: AccountRegistrationComponent,
-        canActivate: [AuthGuard],
+        component: AccountRegistrationComponent
       },
     ],
   },
