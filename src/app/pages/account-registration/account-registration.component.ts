@@ -12,28 +12,28 @@ import { CookieService } from 'ngx-cookie-service';
   selector: 'app-account-registration',
   templateUrl: './account-registration.component.html',
   styleUrls: ['./account-registration.component.css'],
-  providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS,
-    useValue: { showError: true }
-  }]
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { showError: true },
+    },
+  ],
 })
-
 export class AccountRegistrationComponent implements OnInit {
 
   securityQuestion: SecurityQuestion;
   questions : SecurityQuestion[] = [];
-
   contactForm = new FormGroup({});
-
   questionsForm = new FormGroup({});
-
   credentialsForm = new FormGroup({});
 
 
-  constructor(private http: HttpClient,
+  constructor(
+    private http: HttpClient,
     private router: Router,
-    private fb: FormBuilder,
-    private cookieService: CookieService) { }
+    private fb: FormBuilder
+  ) {}
+
 
   register(){
     const contactInformation = this.contactForm.value;

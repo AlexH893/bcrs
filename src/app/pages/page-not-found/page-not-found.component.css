@@ -14,7 +14,7 @@
 
 .top-left {
   position: absolute;
-  top: 170px;
+  top: 150px;
   left: 100px;
   color: white;
   font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
@@ -29,4 +29,21 @@ a {
   font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
   font-size: 28px;
 }
+
+.button-style {
+  font-family: 'Castoro', Arial, Helvetica, sans-serif;
+  border: solid #616161;
+  border-radius: 10%;
+  color: #616161;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+button {
+  position: absolute;
+  top: 205px;
+  left: 240px;
+}
+
+
 

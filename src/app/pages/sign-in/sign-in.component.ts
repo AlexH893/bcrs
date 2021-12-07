@@ -29,35 +29,15 @@ export class SignInComponent implements OnInit {
   }
 
   login(): void {
-    const username = this.form.controls['username'].value;
+    const userName = this.form.controls['username'].value;
     const password = this.form.controls['password'].value;
 
-    this.http.get('/api/users').subscribe((users: any[]) => {
-      if (users) {
-        console.log(users);
+    this.http.post('/api/session/signin', {userName, password}).subscribe((res: any) => {
+      if (res) {
 
-        let user: any;
-
-        users.forEach((eachUser) => {
-          if (eachUser.username == username) {
-            user = eachUser;
-          }
-        });
-        if (user == undefined) {
-          this.error = 'Invalid user credentials. Please try again.';
-          return;
-        }
-
-        if (user.password != password) {
-          this.error = 'Invalid user credentials. Please try again.';
-          return;
-        }
-
-        // Add first and last name to session storage
-        //sessionStorage.setItem('session_user', username);
-        this.cookieService.set('session_user', username);
+        this.cookieService.set('session_user', userName);
         this.router.navigate(['/']);
       }
-    });
+    },(error) => alert(error));
   }
 }

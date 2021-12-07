@@ -5,8 +5,6 @@
     </div>
   </div>
 
-
-
   <br>
   <div fxLayout="row" fxLayoutAlign="flex-start">
     <div>
@@ -16,33 +14,50 @@
     </div>
   </div>
 
-  <div class="headers" fxLayout="row" fxLayoutAlign="start-start" fxLayoutGap="55%">
-    <div>
-      <h2>Username</h2>
-    </div>
+  <table mat-table [dataSource]="users" class="mat-elevation-z8">
 
-    <div>
-      <h2>Functions</h2>
-    </div>
-  </div>
-  <ng-container *ngFor="let user of users;index as i">
-    <div class="actual-users" fxLayout="row" fxLayoutGap="60%">
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef>User Name</th>
+      <td mat-cell *matCellDef="let user"> {{user.userName}} </td>
+    </ng-container>
 
-        <div class="icons">
-          <h4>{{user.username}}</h4>
-        </div>
-        <div fxFlex fxLayoutAlign="start">
-          <p>
-          <button mat-icon-button class="edit-button" (click)="updateUser(user)">
-            <mat-icon color="primary">edit</mat-icon>
-          </button>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
+    </ng-container>
 
-          <button mat-icon-button (click)="deleteUser(i)">
-            <mat-icon color="primary">delete</mat-icon>
-          </button>
-          </p>
-        </div>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let user"> {{user.lastName}} </td>
+    </ng-container>
 
-    </div>
-  </ng-container>
+    <ng-container matColumnDef="phoneNum">
+      <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+      <td mat-cell *matCellDef="let user"> {{user.phoneNum}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="functions">
+      <th mat-header-cell *matHeaderCellDef>Functions</th>
+      <td mat-cell *matCellDef="let user; let i = index">
+        <button mat-icon-button class="edit-button" (click)="updateUser(user)">
+          <mat-icon color="primary">edit</mat-icon>
+        </button>
+
+        <button mat-icon-button (click)="deleteUser(i)">
+          <mat-icon color="primary">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+
 </mat-card>

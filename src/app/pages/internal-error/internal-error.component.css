@@ -1,0 +1,36 @@
+.image-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  position: fixed;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.top-left {
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  color: white;
+  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  font-size: 42px;
+}
+
+.button-style {
+  font-family: 'Castoro', Arial, Helvetica, sans-serif;
+  border: solid white;
+  border-radius: 10%;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+button {
+  position: absolute;
+  top: 205px;
+  left: 240px;
+}

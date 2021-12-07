@@ -11,12 +11,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const { questionSchema } = require("./security-questions");
+const { roleSchema } = require("./role");
 
 let userSchema = new Schema(
   {
     //Unique:true is to ensure that indexed fields don't store duplicate values
     /*userId: { type: Number, unique: true, dropdups: true },*/
-    username: { type: String },
+    userName: { type: String },
     password: { type: String },
     phoneNum: { type: String },
     firstName: { type: String },
@@ -24,7 +25,7 @@ let userSchema = new Schema(
     address: { type: String },
     email: { type: String },
     isDisabled: { type: Boolean, required: true, default: false },
-    role: { type: String },
+    role: roleSchema,
     securityQuestions: [questionSchema],
     date_created: { type: Date },
     date_modified: { type: Date },
