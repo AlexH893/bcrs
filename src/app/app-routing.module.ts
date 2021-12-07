@@ -21,7 +21,10 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
-import { AccountRegistrationComponent } from './pages/account-registration/account-registration.component'
+import { AccountRegistrationComponent } from './pages/account-registration/account-registration.component';
+import { ForgotPasswordUsernameComponent } from './pages/forgot-password-username/forgot-password-username.component';
+import { ForgotPasswordQuestionsComponent } from './pages/forgot-password-questions/forgot-password-questions.component';
+import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/forgot-password-confirm.component';
 
 const routes: Routes = [
   {
@@ -72,11 +75,25 @@ const routes: Routes = [
         path: 'sign-in',
         component: SignInComponent,
       },
-
       {
-        path: 'not-found',
-        component: PageNotFoundComponent,
+        path: 'forgot-password',
+        children: [
+          {
+            path: '',
+            component: ForgotPasswordUsernameComponent
+          },
+          {
+            path: ':username',
+            component: ForgotPasswordQuestionsComponent
+          },
+          {
+            path: 'confirm',
+            component: ForgotPasswordConfirmComponent
+          }
+        ]
+
       },
+
       {
         path: 'internal-error',
         component: InternalErrorComponent

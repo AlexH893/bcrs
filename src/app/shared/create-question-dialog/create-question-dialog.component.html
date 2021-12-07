@@ -8,18 +8,21 @@
 ========================================================
 -->
 
-<!-- Add new task dialog-->
-<h2 class="title" mat-dialog-title>Create a New Security Question</h2>
+<!-- Container -->
+<mat-card class="container">
+<!-- Add new question dialog -->
+  <h2 class="title" mat-dialog-title>Create a New Security Question</h2>
 
-<!-- form to allow user to enter task-->
-<mat-dialog-content class="content" [formGroup]="questionForm">
-  <mat-form-field class="input" style="width: 200px;">
-    <input type="text" matInput formControlName="text" (keydown.enter)="createQuestion()">
-  </mat-form-field>
-</mat-dialog-content>
+  <!-- form to allow user to enter question -->
+  <mat-dialog-content class="content" [formGroup]="questionForm">
+    <mat-form-field class="input">
+      <input type="text" matInput formControlName="text" (keydown.enter)="createQuestion()">
+    </mat-form-field>
+  </mat-dialog-content>
 
-<!-- Button to create task and send to TODO list-->
-<mat-dialog-actions>
-  <button class="button" mat-button (click)="cancel()">Cancel</button>
-  <button class="button" mat-button [disabled]="!questionForm.valid" (click)="createQuestion()">Create</button>
-</mat-dialog-actions>
+  <!-- Button to create a new question and send to DB -->
+  <mat-dialog-actions>
+    <button class="button" mat-button (click)="cancel()">Cancel</button>
+    <button class="button" mat-button [disabled]="!questionForm.valid" (click)="createQuestion()">Create</button>
+  </mat-dialog-actions>
+</mat-card>

@@ -44,9 +44,12 @@ import { InternalErrorComponent } from './pages/internal-error/internal-error.co
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { AccountRegistrationComponent } from './pages/account-registration/account-registration.component';
-import {MatStepperModule} from '@angular/material/stepper';
-import {CdkStepperModule} from '@angular/cdk/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatTableModule } from '@angular/material/table';
+import { ForgotPasswordUsernameComponent } from './pages/forgot-password-username/forgot-password-username.component';
+import { ForgotPasswordQuestionsComponent } from './pages/forgot-password-questions/forgot-password-questions.component';
+import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/forgot-password-confirm.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,10 @@ import { MatTableModule } from '@angular/material/table';
     InternalErrorComponent,
     AboutUsComponent,
     ContactUsComponent,
-    AccountRegistrationComponent
+    AccountRegistrationComponent,
+    ForgotPasswordUsernameComponent,
+    ForgotPasswordQuestionsComponent,
+    ForgotPasswordConfirmComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ const Schema = mongoose.Schema;
 
 let questionSchema = new Schema(
   {
-    questionId: { type: String }, /* The text ID of the question */
+    text: { type: String }, /* The text ID of the question */
     answer: { type: String } /* The question answer */,
   },
 );

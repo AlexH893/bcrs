@@ -125,8 +125,8 @@ router.post("/users", async (req, res) => {
  * The password is still hashed when changed
  */
 
-router.put("/:users/:id", async (req, res) => {
-  const hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+router.put("/users/:id", async (req, res) => {
+
 
   try {
     User.findOne({ _id: req.params.id }, function (err, user) {
@@ -138,19 +138,19 @@ router.put("/:users/:id", async (req, res) => {
       } else {
         console.log(user);
 
-        user.set({
-          userName: req.body.userName,
-          password: hashedPassword,
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          phoneNum: req.body.phoneNum,
-          address: req.body.address,
-          isDisabled: req.body.isDisabled,
-          role: req.body.role,
-          securityQuestions: req.body.securityQuestions,
-          date_created: req.body.date_created,
-          date_modified: req.body.date_modified,
-        });
+          user.userName = req.body.userName
+          user.password = req.body.password
+          user.firstName = req.body.firstName
+          user.lastName = req.body.lastName
+          user.phoneNum = req.body.phoneNum
+          user.address = req.body.address
+          user.isDisabled = req.body.isDisabled
+          user.email = req.body.email
+          user.role = req.body.role
+          user.securityQuestions = req.body.securityQuestions
+          user.date_created = req.body.date_created
+          user.date_modified = req.body.date_modified
+
 
         user.save(function (err, updatedUser) {
           if (err) {
@@ -225,21 +225,25 @@ router.delete("/users/:id", async (req, res) => {
 /*
  * Find all security questions of a user, searching by ID of user
  */
-router.get("/:user/:id/security-questions", async (req, res) => {
+router.get("/users/:username/security-questions", async (req, res) => {
   try {
     User.findOne(
-      { _id: req.params.id },
+      { userName: req.params.username },
       // Projections allow us to limit the amount of data that MongoDB sends to apps & specify fields to return
       "securityQuestions",
-      function (err, question) {
+      function (err, questions) {
         if (err) {
           console.log(err);
           res.status(500).send({
             message: "Internal server error:" + err.message,
           });
         } else {
-          console.log(question);
-          res.json(question);
+          console.log(questions);
+          for (let question of questions.securityQuestions) {
+            console.log(question.answer)
+            question.answer = ""
+          }
+          res.json(questions);
         }
       }
     );
@@ -254,7 +258,7 @@ router.get("/:user/:id/security-questions", async (req, res) => {
  */
 router.get("/security-questions", async (req, res) => {
   try {
-    User.find({}, "securityQuestions", function (err, question) {
+    User.find({}, "securityQuestions", function (err, questions) {
       if (err) {
         console.log(err);
         res.status(500).send({
@@ -264,8 +268,9 @@ router.get("/security-questions", async (req, res) => {
         console.log(
           "Here is all of the security questions I could find that aren't disabled."
         );
-        console.log(question);
-        res.json(question);
+        console.log(questions);
+
+        res.json(questions);
       }
     });
   } catch (e) {
