@@ -18,7 +18,7 @@ const saltRounds = 10;
 /*
  * Regiser user
  */
-router.post("/register", async (req, res) => {
+router.post("/api/session/register", async (req, res) => {
   try {
     User.findOne({ userName: req.body.userName }, function (err, user) {
       if (err) {
@@ -201,7 +201,6 @@ router.post("/users/:userName/reset-password", async (req, res) => {
 /*
  * Verify security questions
  */
-
 router.post("/verify/users/:userName/security-questions", async (req, res) => {
   try {
     User.findOne({ userName: req.params.userName }, function (err, user) {
@@ -228,6 +227,14 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
           user.securityQuestions.find(
             (q3) => q3.text === req.body.questionText3
           );
+          (q) => q.questionText === req.body.questionText1
+        );
+        const selectedSecurityQuestionTwo = user.securityQuestions.find(
+          (q2) => q2.questionText === req.body.questionText2
+        );
+        const selectedSecurityQuestionThree = user.securityQuestions.find(
+          (q3) => q3.questionText === req.body.questionText3
+        );
 
         const isValidAnswerOne =
           selectedSecurityQuestionOne?.answer === req.body.answerText1;
@@ -267,6 +274,44 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
       e.message
     );
     res.status(500).send(verifySecurityQuestionsCatchErrorResponse.toObject());
+  }
+});
+
+/*
+ * Find selected security question
+ */
+router.get("/:userName/security-questions", async (req, res) => {
+  try {
+    User.findOne({ userName: req.params.userName }, function (err, user) {
+      if (err) {
+        console.log(err);
+        const findSelectedSelectedSecurityQuestionsMongodbErrorResponse =
+          new ErrorResponse("500", "internal server error", err);
+        res
+          .status(500)
+          .send(
+            findSelectedSelectedSecurityQuestionsMongodbErrorResponse.toObject()
+          );
+      } else {
+        console.log(user);
+        const findSelectedSecurityQuestionsResponse = new BaseResponse(
+          "200",
+          "query successful",
+          user.securityQuestions
+        );
+        res.json(findSelectedSecurityQuestionsResponse.toObject());
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse(
+      "500",
+      "internal server error",
+      e
+    );
+    res
+      .status(500)
+      .send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
   }
 });
 

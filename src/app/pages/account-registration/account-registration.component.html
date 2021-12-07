@@ -11,16 +11,16 @@
 
   <h1 class="title">Create Account</h1>
 
-  <mat-horizontal-stepper class="stepper">
+  <mat-horizontal-stepper class="stepper" #stepper linear>
     <!-- Step 1 - Contact Info-->
-    <mat-step>
+    <mat-step class="required" errorMessage="Contact Information Required">
       <ng-template matStepLabel>Contact Information</ng-template>
       <form>
-        <mat-form-field>
-          <input matInput placeholder="First Name">
+        <mat-form-field [formGroup]="contactForm">
+          <input matInput placeholder="First Name" type="text" [formControl]="contactForm.controls['firstName']">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Last Name">
+          <input matInput placeholder="Last Name" >
         </mat-form-field>
         <br/>
 
@@ -49,6 +49,11 @@
         <form>
           <mat-form-field>
             <input matInput placeholder="Enter Security Question">
+            <mat-select>
+              <mat-option *ngIf = "securityQuestion">
+                    {{ securityQuestion.text }} <!--Not displaying-->
+              </mat-option>
+            </mat-select>
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="Enter Security Question">
@@ -95,7 +100,7 @@
 
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button>Submit</button>
+            <button mat-button (click)="register()">Register</button>
           </div>
         </form>
     </mat-step>
