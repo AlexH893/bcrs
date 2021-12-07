@@ -218,23 +218,23 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
       } else {
         console.log(user);
 
-        const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(
-          (q) => q.questionText === req.body.questionText1
+        const selectedSecurityQuestionOne = user.securityQuestions.find(
+          (q) => q.text === req.body.questionText1
         );
-        const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(
-          (q2) => q2.questionText === req.body.questionText2
+        const selectedSecurityQuestionTwo = user.securityQuestions.find(
+          (q2) => q2.text === req.body.questionText2
         );
         const selectedSecurityQuestionThree =
-          user.selectedSecurityQuestions.find(
-            (q3) => q3.questionText === req.body.questionText3
+          user.securityQuestions.find(
+            (q3) => q3.text === req.body.questionText3
           );
 
         const isValidAnswerOne =
-          selectedSecurityQuestionOne.answerText === req.body.questionText1;
+          selectedSecurityQuestionOne?.answer === req.body.answerText1;
         const isValidAnswerTwo =
-          selectedSecurityQuestionTwo.answerText === req.body.questionText2;
+          selectedSecurityQuestionTwo?.answer === req.body.answerText2;
         const isValidAnswerThree =
-          selectedSecurityQuestionThree.answerText === req.body.questionText3;
+          selectedSecurityQuestionThree?.answer === req.body.answerText3;
 
         if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
           console.log(

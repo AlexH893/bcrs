@@ -20,6 +20,13 @@ export class CreateUserComponent implements OnInit {
     private http: HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: {user: User, newUser: boolean}) {
       this.user = data.user
+      while (this.user.securityQuestions.length < 3) {
+        this.user.securityQuestions.push({
+          text:"",
+          answer: "",
+          isDisabled: false
+        })
+      }
      }
 
   ngOnInit(): void {

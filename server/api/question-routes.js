@@ -69,10 +69,8 @@ router.put("/security-questions/:id", async (req, res) => {
         });
       } else {
 
+        question.text = req.body.text
 
-        question.set({
-          text: req.body.text,
-        });
 
         question.save(function (err, updatedQuestion) {
           if (err) {

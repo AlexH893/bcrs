@@ -31,7 +31,7 @@ export class UserConfigurationComponent implements OnInit {
           phoneNum: "",
           address: "",
           email: "",
-          role: "",
+          role: {text:""},
           securityQuestions: [
             {
               text: "None",

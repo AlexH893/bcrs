@@ -1,6 +1,6 @@
-<div fxFlexLayout="column">
-  <mat-card class="container">
-    <mat-card-title>Create Account</mat-card-title>
+<div fxFlexLayout="column" class="dialog">
+  <mat-card style="background-color: #f2efeb;"class="container">
+    <mat-card-title>Create User</mat-card-title>
     <form>
 
       <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
@@ -52,7 +52,7 @@
         <div>
           <mat-form-field>
             <mat-label>User Role</mat-label>
-            <input matInput placeholder="User Role" type="text" name="userRole" [(ngModel)]="user.role">
+            <input matInput placeholder="User Role" type="text" name="userRole" [(ngModel)]="user.role.text">
           </mat-form-field>
         </div>
       </div>
@@ -97,8 +97,28 @@
 
       </div>
 
+      <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
+        <div>
+          <mat-form-field appearance="standard">
+            <mat-label>Security Question 3</mat-label>
+            <mat-select [(value)]="user.securityQuestions[2].text" name="securityQuestion3text">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion">{{securityQuestion}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <mat-label>Answer</mat-label>
+            <input matInput type="text" name="securityQuestion3" [(ngModel)]="user.securityQuestions[2].answer">
+          </mat-form-field>
+        </div>
+
+      </div>
+
       <div>
-          <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
+          <button mat-raised-button (click)="onSubmit()">Submit</button>
       </div>
 
     </form>

@@ -24,7 +24,7 @@ export class SecurityQuestionsComponent implements OnInit {
   //Task dialog to open when user hits button
   openCreateQuestionDialog(): void {
     const dialogRef = this.dialog.open(CreateQuestionDialogComponent, {
-      width: '250px',
+      width: '600px',
       data: {
         question: {
           text: '',
@@ -58,7 +58,7 @@ export class SecurityQuestionsComponent implements OnInit {
 
   updateQuestion(question: SecurityQuestion): void {
     const dialogRef = this.dialog.open(CreateQuestionDialogComponent, {
-      width: '250px',
+      width: '600px',
       data: {
         question: question,
         newQuestion: false,
