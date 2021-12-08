@@ -8,16 +8,32 @@
 ===========================================
 */
 
-.main-welcome {
-    margin-top: 30px;
-  }
+.large-card{
+  margin: 20px;
+  background-color: #e2ddd8;
+}
 
-  .title {
-    text-align: center;
-    font-weight: lighter;
-  }
+.example-card {
+  background-color: #f2efeb;
+  height: 240px;
+  width: 400px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-family:'Abhaya Libre', serif;
+}
 
-  .subtitle {
-    text-align: center;
-    font-size: 14px;
-  }
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 40px;
+  font-family:'Castoro', serif;
+}
+
+button{
+  font-family:'Castoro', serif;
+}
+
+.form{
+  width: 80%;
+  font-family:'Abhaya Libre', serif;
+}
