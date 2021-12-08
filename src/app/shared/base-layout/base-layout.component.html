@@ -9,7 +9,6 @@
 -->
 
 <div fxLayout="column">
-
   <!-- navigation -->
   <nav fxFlex>
     <mat-toolbar>
@@ -19,16 +18,39 @@
         <button class="logo" routerLink="/" mat-button>BCRS</button>
 
         <button class="navbar-link" routerLink="/" mat-button>Home</button>
-        <button class="navbar-link" routerLink="/about-us" mat-button>About Us</button>
-        <button class="navbar-link" routerLink="/contact-us" mat-button>Contact Us</button>
-        <button class="navbar-link" routerLink="/session/sign-in" mat-button>Sign-in</button>
-        <button class="navbar-link" routerLink="/user-configuration" mat-button>User Configuration</button>
-        <button class="navbar-link" routerLink="/security-questions" mat-button>security question config</button>
-        <button class="navbar-link" routerLink="/not-found" mat-button>Not Found</button>
-        <button class="navbar-link" routerLink="/account-registration" mat-button>Account Reg</button>
-        <button class="navbar-link" routerLink="/session/internal-error" mat-button>Internal Error</button>
+        <button class="navbar-link" routerLink="/about-us" mat-button>
+          About Us
+        </button>
+        <button class="navbar-link" routerLink="/contact-us" mat-button>
+          Contact Us
+        </button>
+        <button class="navbar-link" routerLink="/session/sign-in" mat-button>
+          Sign-in
+        </button>
+        <button class="navbar-link" routerLink="/user-configuration" mat-button>
+          User Configuration
+        </button>
+        <button class="navbar-link" routerLink="/security-questions" mat-button>
+          Security Question Config
+        </button>
+        <button class="navbar-link" routerLink="/not-found" mat-button>
+          Not Found
+        </button>
+        <button
+          class="navbar-link"
+          routerLink="/account-registration"
+          mat-button
+        >
+          Account Reg
+        </button>
+        <button
+          class="navbar-link"
+          routerLink="/session/internal-error"
+          mat-button
+        >
+          Internal Error
+        </button>
       </div>
-
     </mat-toolbar>
   </nav>
 
@@ -44,10 +66,12 @@
     <footer class="footer">
       <mat-toolbar class="footer-content">
         <p>
-          &copy; {{year | date: 'yyyy'}} - Bob's Computer Repair Shop - <a href="https://www.bellevue.edu/" class="bu-link" target="_blank">Bellevue University</a>
+          &copy; {{ year | date: "yyyy" }} - Bob's Computer Repair Shop -
+          <a href="https://www.bellevue.edu/" class="bu-link" target="_blank"
+            >Bellevue University</a
+          >
         </p>
       </mat-toolbar>
     </footer>
   </div>
-
 </div>
