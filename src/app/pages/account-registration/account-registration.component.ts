@@ -53,21 +53,22 @@ export class AccountRegistrationComponent implements OnInit {
     ];
 
     this.http
-      .post('http://localhost:3000/api/session/register', {
+      .post('/api/session/register', {
         firstName: contactInformation.firstName,
         lastName: contactInformation.lastName,
         email: contactInformation.email,
         phoneNum: contactInformation.phoneNum,
         address: contactInformation.address,
 
-        username: credentialsInformation.username,
+        userName: credentialsInformation.userName,
         password: credentialsInformation.password,
 
         securityQuestions: questions,
       })
       .subscribe((res) => {
-        this.router.navigate(['/sign-in']);
+        this.router.navigate(['/session/sign-in']);
       });
+    alert('Registration success');
   }
 
   ngOnInit() {
@@ -92,7 +93,7 @@ export class AccountRegistrationComponent implements OnInit {
     });
 
     this.credentialsForm = this.fb.group({
-      username: [null, Validators.compose([Validators.required])],
+      userName: [null, Validators.compose([Validators.required])],
       password: [
         null,
         Validators.compose([
