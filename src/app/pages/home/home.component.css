@@ -25,13 +25,14 @@
 .title {
   text-align: center;
   font-size: 36px;
-  margin-top: 40px;
+  margin-top: 20px;
+  padding-top: 10px;
   font-family:'Castoro', serif;
-  padding: 10px;
 }
 
 button{
   font-family:'Castoro', serif;
+  margin-left: 4px;
 }
 
 .form{

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-invoice-dialog',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoiceDialogComponent implements OnInit {
 
-  constructor() { }
+  date : string;
+
+  constructor(private datePipe: DatePipe){
+      this.date = this.datePipe.transform(Date.now(), 'yyyy-MM-dd');
+  }
 
   ngOnInit(): void {
   }
