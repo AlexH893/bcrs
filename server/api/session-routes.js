@@ -18,7 +18,8 @@ const saltRounds = 10;
 /*
  * Regiser user
  */
-router.post("/api/session/register", async (req, res) => {
+
+router.post("/register", async (req, res) => {
   try {
     User.findOne({ userName: req.body.userName }, function (err, user) {
       if (err) {
