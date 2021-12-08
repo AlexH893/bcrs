@@ -21,12 +21,14 @@
 
 .input {
   width: 700px;
-
 }
 
-.button {
-  margin-left: 20px;
+.button-left {
+  margin-left: 275px;
+  margin-right: 50px;
 }
+
+
 
 
 
