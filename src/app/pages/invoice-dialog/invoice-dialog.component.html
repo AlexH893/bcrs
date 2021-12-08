@@ -1,1 +1,52 @@
-<p>invoice-dialog works!</p>
+<!--
+==========================================
+  Title: Bobs Computer Repair Shop
+  Author: Sarah Jean Baptiste
+  Date: 10/03/2021
+  Description:Bobs Computer Repair Shop
+==========================================
+-->
+
+<mat-card class="container">
+
+  <!--main content-->
+  <h1 mat-dialog-title class="title">Invoice Summary</h1>
+
+  <mat-dialog-content>
+
+    <!--display current date-->
+    <strong>Date:</strong>
+      <span>
+
+      </span>
+    <hr>
+
+    <!--display selected services-->
+    <strong>Services</strong>
+    <hr>
+    <ul class="services">
+      <li>
+        <p></p>
+      </li>
+    </ul>
+
+    <!--display parts fee and labor hours times 50-->
+    <strong>Standard Fees</strong>
+    <hr>
+      <div>
+        <p>Parts: </p>
+        <p>Labor: </p>
+      </div>
+
+      <!--display invoice total-->
+    <strong>Total Charges:</strong>
+      <div></div>
+  </mat-dialog-content>
+  <br/>
+
+  <!--button to close dialog-->
+  <mat-dialog-actions>
+    <button mat-raised-button>Submit Order</button>
+    <button mat-raised-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</mat-card>
