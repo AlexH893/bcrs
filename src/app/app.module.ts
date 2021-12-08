@@ -52,6 +52,7 @@ import { ForgotPasswordQuestionsComponent } from './pages/forgot-password-questi
 import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/forgot-password-confirm.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
+import { InvoiceDialogComponent } from './pages/invoice-dialog/invoice-dialog.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import {MatListModule} from '@angular/material/list';
     AccountRegistrationComponent,
     ForgotPasswordUsernameComponent,
     ForgotPasswordQuestionsComponent,
-    ForgotPasswordConfirmComponent
+    ForgotPasswordConfirmComponent,
+    InvoiceDialogComponent
   ],
   imports: [
     BrowserModule,

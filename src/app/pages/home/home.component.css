@@ -27,6 +27,7 @@
   font-size: 36px;
   margin-top: 40px;
   font-family:'Castoro', serif;
+  padding: 10px;
 }
 
 button{
@@ -34,6 +35,12 @@ button{
 }
 
 .form{
-  width: 80%;
+  width: 100%;
   font-family:'Abhaya Libre', serif;
+}
+.submit-button{
+  width: 40%;
+  padding: 10px;
+  margin-top: 10px;
+  left: 30%;
 }
