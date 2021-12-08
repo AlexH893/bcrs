@@ -20,13 +20,11 @@ import { CookieService } from 'ngx-cookie-service';
   ],
 })
 export class AccountRegistrationComponent implements OnInit {
-
   securityQuestion: SecurityQuestion;
-  questions : SecurityQuestion[] = [];
+  questions: SecurityQuestion[] = [];
   contactForm = new FormGroup({});
   questionsForm = new FormGroup({});
   credentialsForm = new FormGroup({});
-
 
   constructor(
     private http: HttpClient,
@@ -34,48 +32,54 @@ export class AccountRegistrationComponent implements OnInit {
     private fb: FormBuilder
   ) {}
 
-
-  register(){
+  register() {
     const contactInformation = this.contactForm.value;
     const questionInformation = this.questionsForm.value;
     const credentialsInformation = this.credentialsForm.value;
 
-    const questions = [{
-      questionId: questionInformation.question1,
-      answer: questionInformation.answer1
-    }, {
-      questionId: questionInformation.question2,
-      answer: questionInformation.answer2
-    }, {
-      questionId: questionInformation.question3,
-      answer: questionInformation.answer3
-    }];
+    const questions = [
+      {
+        questionId: questionInformation.question1,
+        answer: questionInformation.answer1,
+      },
+      {
+        questionId: questionInformation.question2,
+        answer: questionInformation.answer2,
+      },
+      {
+        questionId: questionInformation.question3,
+        answer: questionInformation.answer3,
+      },
+    ];
 
+    this.http
+      .post('http://localhost:3000/api/session/register', {
+        firstName: contactInformation.firstName,
+        lastName: contactInformation.lastName,
+        email: contactInformation.email,
+        phoneNum: contactInformation.phoneNum,
+        address: contactInformation.address,
 
-    this.http.post('/api/session/register', {
-      firstName: contactInformation.firstName,
-      lastName: contactInformation.lastName,
-      email: contactInformation.email,
-      phoneNum: contactInformation.phoneNum,
-      address: contactInformation.address,
+        username: credentialsInformation.username,
+        password: credentialsInformation.password,
 
-      username: credentialsInformation.username,
-      password: credentialsInformation.password,
-
-      securityQuestions: questions
-
-    }).subscribe(res => {
-      this.router.navigate(['/sign-in']);
-    })
+        securityQuestions: questions,
+      })
+      .subscribe((res) => {
+        this.router.navigate(['/sign-in']);
+      });
   }
 
   ngOnInit() {
     this.contactForm = this.fb.group({
       firstName: [null, Validators.compose([Validators.required])],
       lastName: [null, Validators.compose([Validators.required])],
-      phoneNum: [null, Validators.compose([Validators.required, Validators.minLength(10)])],
+      phoneNum: [
+        null,
+        Validators.compose([Validators.required, Validators.minLength(10)]),
+      ],
       email: [null, Validators.compose([Validators.required])],
-      address: [null, Validators.compose([Validators.required])]
+      address: [null, Validators.compose([Validators.required])],
     });
 
     this.questionsForm = this.fb.group({
@@ -84,24 +88,30 @@ export class AccountRegistrationComponent implements OnInit {
       question3: [null, Validators.compose([Validators.required])],
       answer1: [null, Validators.compose([Validators.required])],
       answer2: [null, Validators.compose([Validators.required])],
-      answer3: [null, Validators.compose([Validators.required])]
+      answer3: [null, Validators.compose([Validators.required])],
     });
 
     this.credentialsForm = this.fb.group({
       username: [null, Validators.compose([Validators.required])],
-      password: [null, Validators.compose([Validators.required,
-        Validators.minLength(8),
-        Validators.pattern(/\d/),
-        Validators.pattern(/[A-Z]/)])]
+      password: [
+        null,
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern(/\d/),
+          Validators.pattern(/[A-Z]/),
+        ]),
+      ],
     });
 
     this.fetchQuestions();
   }
 
   fetchQuestions(): void {
-    this.http.get('/api/security-questions').subscribe((res: SecurityQuestion[]) => {
-      this.questions = res;
-    });
+    this.http
+      .get('/api/security-questions')
+      .subscribe((res: SecurityQuestion[]) => {
+        this.questions = res;
+      });
   }
-
 }
