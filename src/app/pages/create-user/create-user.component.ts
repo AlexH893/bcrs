@@ -57,4 +57,10 @@ export class CreateUserComponent implements OnInit {
     }
   }
 
+  cancel() {
+    this.dialogRef.close();
+  }
+
 }
+
+

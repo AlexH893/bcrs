@@ -98,6 +98,10 @@ const routes: Routes = [
         path: 'internal-error',
         component: InternalErrorComponent
       },
+      {
+        path: 'not-found',
+        component: PageNotFoundComponent
+      },
     ],
   },
   {

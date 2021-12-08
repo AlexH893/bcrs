@@ -11,8 +11,6 @@
   border-radius: 1%;
 }
 
-
-
 .dialog {
   background-color: #f2efeb;
 }
@@ -27,11 +25,9 @@ mat-form-field input:active {
   color: #6c5c47;
 }
 
-
-button {
+.button-left {
   margin-top: 30px;
-  background-color: #6c5c47;
-  color: white;
+  margin-right: 60px;
 }
 
 mat-card-title {

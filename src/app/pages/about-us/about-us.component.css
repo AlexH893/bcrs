@@ -12,15 +12,14 @@
 .title {
   text-align: center;
   font-size: 36px;
-  margin-top: 60px;
+  margin-top: 40px;
   font-family:'Castoro', serif;
   }
 
   /* Styling for image */
   .photo{
-    width: 44%;
-    float: left;
-
+    width: 140%;
+    margin-top: 25px;
   }
 
   .link{
@@ -31,11 +30,9 @@
   .text{
     font-size: 18px;
     line-height: 1.5;
-    width: 54%;
-    float: left;
-    margin-left: 20px;
+    margin-left: 200px;
+    margin-top: 30px;
     font-family:'Abhaya Libre', serif;
-
   }
 
   .note{
@@ -45,8 +42,8 @@
   /* Card Styling */
 .card{
   background-color: #f2efeb;
-  margin: 20px 60px 0px 40px;
-  padding: 40px;
+  margin: 20px 40px 0px 40px;
+  padding: 20px;
 }
 
   .signature{
@@ -55,4 +52,9 @@
    font-family: 'Reenie Beanie', cursive;
   }
 
+  figcaption {
+    text-align: center;
+    margin-top: 15px;
+    margin-left: 185px;
+  }
 

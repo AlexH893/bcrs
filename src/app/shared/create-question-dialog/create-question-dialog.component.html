@@ -22,7 +22,7 @@
 
   <!-- Button to create a new question and send to DB -->
   <mat-dialog-actions>
-    <button class="button" mat-button (click)="cancel()">Cancel</button>
-    <button class="button" mat-button [disabled]="!questionForm.valid" (click)="createQuestion()">Create</button>
+    <button class="button-left" mat-button (click)="cancel()">Cancel</button>
+    <button class="button-right" mat-button [disabled]="!questionForm.valid" (click)="createQuestion()">Create</button>
   </mat-dialog-actions>
 </mat-card>
