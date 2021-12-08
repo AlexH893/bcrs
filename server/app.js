@@ -20,7 +20,6 @@ const path = require("path");
 const mongoose = require("mongoose");
 const { Router } = require("express");
 const { userInfo } = require("os");
-
 let userRoutes = require("./api/user-routes.js");
 let questionRoutes = require("./api/question-routes.js");
 let sessionRoutes = require("./api/session-routes.js");
