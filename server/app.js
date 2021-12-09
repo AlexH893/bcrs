@@ -23,6 +23,8 @@ const { userInfo } = require("os");
 let userRoutes = require("./api/user-routes.js");
 let questionRoutes = require("./api/question-routes.js");
 let sessionRoutes = require("./api/session-routes.js");
+let roleRoutes = require("./api/role-routes.js");
+
 var cors = require("cors");
 
 /**
@@ -67,6 +69,8 @@ mongoose
 app.use("/api/session", sessionRoutes);
 
 app.use("/api", [questionRoutes, userRoutes]);
+
+app.use("/api/role", [roleRoutes, userRoutes]);
 
 /* Sign-in */
 app.post("/api/sessions/sign-in", async (req, res) => {
