@@ -15,11 +15,13 @@ import { SecurityQuestion } from 'src/app/models/security-question.interface';
 export class CreateUserComponent implements OnInit {
   user: User
   securityQuestions: string[]
+  title: string
   constructor(public dialogRef: MatDialogRef<CreateUserComponent>,
     public flexLayout: FlexLayoutModule,
     private http: HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: {user: User, newUser: boolean}) {
       this.user = data.user
+      this.title = data.newUser?"Create": "Edit"
       while (this.user.securityQuestions.length < 3) {
         this.user.securityQuestions.push({
           text:"",

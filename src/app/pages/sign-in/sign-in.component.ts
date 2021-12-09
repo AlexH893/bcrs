@@ -32,7 +32,7 @@ export class SignInComponent implements OnInit {
     const userName = this.form.controls['username'].value;
     const password = this.form.controls['password'].value;
 
-    this.http.post('/api/session/signin', {userName, password}).subscribe((res: any) => {
+    this.http.post('/api/session/sign-in', {userName, password}).subscribe((res: any) => {
       if (res) {
 
         this.cookieService.set('session_user', userName);

@@ -83,13 +83,14 @@ const routes: Routes = [
             component: ForgotPasswordUsernameComponent
           },
           {
-            path: ':username',
-            component: ForgotPasswordQuestionsComponent
-          },
-          {
             path: 'confirm',
             component: ForgotPasswordConfirmComponent
+          },
+          {
+            path: ':username',
+            component: ForgotPasswordQuestionsComponent
           }
+
         ]
 
       },

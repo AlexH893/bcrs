@@ -14,6 +14,7 @@ const Schema = mongoose.Schema;
 let roleSchema = new Schema({
   /*  role: { type: String, default: "standard" },*/
   text: { type: String, unique: true },
+  isDisabled: { type: Boolean, default: false },
 });
 
 const RoleDocument = mongoose.model("Role", roleSchema);
