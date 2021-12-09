@@ -53,6 +53,7 @@ import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
 import { InvoiceDialogComponent } from './pages/invoice-dialog/invoice-dialog.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { InvoiceDialogComponent } from './pages/invoice-dialog/invoice-dialog.co
     MatListModule
   ],
   providers: [
-    CookieService
+    CookieService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
