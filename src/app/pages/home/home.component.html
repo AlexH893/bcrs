@@ -27,17 +27,18 @@
      <mat-card class="example-card">
        <mat-card-title-group>
          <mat-card-title>Password Reset</mat-card-title>
-         <img src="assets/pwreset.png" />
-         <mat-card-subtitle
-           >Our password reset services can help you get back into your
-           machines.</mat-card-subtitle
-         >
-         <img src="" height="65" />
+         <mat-card-subtitle>
+            Our password reset services can help you get back into your
+            machines.
+          </mat-card-subtitle>
        </mat-card-title-group>
+
        <mat-card-content>
+        <img class="image" src="assets/pwreset.png" />
         <div class="button-price">
-          <p style="display: inline-block">$39.99</p>
-          <button mat-button>Add to Cart</button>
+          <mat-selection-list color="primary" #selectedServices>
+            <mat-list-option checkboxPosition="before" >$39.99</mat-list-option>
+          </mat-selection-list>
         </div>
        </mat-card-content>
      </mat-card>
@@ -49,18 +50,18 @@
      <mat-card class="example-card">
        <mat-card-title-group>
          <mat-card-title>Spyware Removal</mat-card-title>
-         <img src="assets/spyware.png" style="width: 128px; height: 110px" />
- ​
-         <mat-card-subtitle
-           >Is your computer running slow? You might need our spyware removal
-           service.</mat-card-subtitle
-         >
-         <img src="" height="65" />
+         <mat-card-subtitle>
+            Is your computer running slow? You might need our spyware removal
+            service.
+          </mat-card-subtitle>
        </mat-card-title-group>
+
        <mat-card-content>
+        <img class="image" src="assets/spyware.png"/>
         <div class="button-price">
-          <p style="display: inline-block">$99.90</p>
-          <button mat-button>Add to Cart</button>
+          <mat-selection-list color="primary" #selectedServices>
+            <mat-list-option checkboxPosition="before" >$99.90</mat-list-option>
+          </mat-selection-list>
         </div>
        </mat-card-content>
      </mat-card>
@@ -70,19 +71,19 @@
    <!-- Third item -->
    <mat-grid-tile>
      <mat-card class="example-card">
-       <mat-card-title-group>
-         <mat-card-title>RAM Upgrade</mat-card-title>
-         <img src="assets/ram.png" style="width: 128px; height: 120px" />
- ​
-         <mat-card-subtitle
-           >Looking for more power? Look no further.</mat-card-subtitle
-         >
-         <img src="" height="65" />
-       </mat-card-title-group>
+        <mat-card-title-group>
+          <mat-card-title>RAM Upgrade</mat-card-title>
+          <mat-card-subtitle>
+          Looking for more power? Look no further.
+          </mat-card-subtitle>
+        </mat-card-title-group>
+
        <mat-card-content>
+        <img class="image" src="assets/ram.png"/>
         <div class="button-price">
-          <p style="display: inline-block">$129.99</p>
-          <button mat-button>Add to Cart</button>
+          <mat-selection-list color="primary" #selectedServices>
+            <mat-list-option checkboxPosition="before" >$129.99</mat-list-option>
+          </mat-selection-list>
         </div>
        </mat-card-content>
      </mat-card>
@@ -92,20 +93,19 @@
    <!-- Fourth item -->
    <mat-grid-tile>
      <mat-card class="example-card">
-       <mat-card-title-group>
-         <mat-card-title>Software Installation</mat-card-title>
-         <img src="assets/install.png" />
- ​
-         <mat-card-subtitle
-           >If you need assistance installing software, we can
-           help.</mat-card-subtitle
-         >
-         <img src="" height="65" />
-       </mat-card-title-group>
+        <mat-card-title-group>
+          <mat-card-title>Software Installation</mat-card-title>
+          <mat-card-subtitle>
+          If you need assistance installing software, we can help.
+          </mat-card-subtitle>
+        </mat-card-title-group>
+
        <mat-card-content>
+        <img class="image" src="assets/install.png" />
         <div class="button-price">
-          <p style="display: inline-block">$49.99</p>
-          <button mat-button>Add to Cart</button>
+          <mat-selection-list color="primary" #selectedServices>
+            <mat-list-option checkboxPosition="before" >$49.99</mat-list-option>
+          </mat-selection-list>
         </div>
        </mat-card-content>
      </mat-card>
@@ -116,19 +116,18 @@
    <mat-grid-tile>
      <mat-card class="example-card">
        <mat-card-title-group>
-         <mat-card-title>PC Tuneup</mat-card-title>
-         <img src="assets/tuneup.png" style="width: 128px; height: 120px" />
- ​
-         <mat-card-subtitle
-           >Computer running sluggishly? Not enough disk space? It might be time
-           for a tuneup.</mat-card-subtitle
-         >
-         <img src="" height="65" />
+          <mat-card-title>PC TuneUp</mat-card-title>
+          <mat-card-subtitle>
+          Computer running sluggishly? Not enough disk space? It might be time for a tuneUp.
+          </mat-card-subtitle>
        </mat-card-title-group>
+
        <mat-card-content>
+        <img class="image" src="assets/tuneup.png"/>
          <div class="button-price">
-          <p style="display: inline-block">$89.99</p>
-          <button mat-button>Add to Cart</button>
+          <mat-selection-list color="primary" #selectedServices>
+            <mat-list-option checkboxPosition="before" >$39.99</mat-list-option>
+          </mat-selection-list>
         </div>
        </mat-card-content>
      </mat-card>
@@ -138,21 +137,21 @@
    <!-- Sixth item -->
    <mat-grid-tile>
      <mat-card class="example-card">
-       <mat-card-title-group>
-         <mat-card-title>Keyboard Cleaning</mat-card-title>
-         <img src="assets/keyboard.png" />
- ​
-         <mat-card-subtitle
-           >If your keys get stuck or your keyboard has debris in between the
-           keys, it's time for a clean.</mat-card-subtitle
-         >
-         <img src="" height="65" />
-       </mat-card-title-group>
-       <mat-card-content>
-        <div class="button-price">
-          <p style="display: inline-block">$45.00</p>
-          <button mat-button>Add to Cart</button>
-        </div>
+        <mat-card-title-group>
+          <mat-card-title>Keyboard Cleaning</mat-card-title>
+          <mat-card-subtitle>
+          If your keys get stuck or your keyboard has debris in between the
+          keys, it's time for a clean.
+          </mat-card-subtitle>
+        </mat-card-title-group>
+
+        <mat-card-content>
+          <img class="image" src="assets/keyboard.png" />
+          <div class="button-price">
+            <mat-selection-list color="primary" #selectedServices>
+              <mat-list-option checkboxPosition="before" >$45.99</mat-list-option>
+            </mat-selection-list>
+          </div>
        </mat-card-content>
      </mat-card>
    </mat-grid-tile>
@@ -161,21 +160,19 @@
    <!-- Seventh item -->
    <mat-grid-tile>
      <mat-card class="example-card">
-       <mat-card-title-group>
-         <mat-card-title>Disk Cleanup</mat-card-title>
-         <img src="assets/cleanup.png" style="width: 128px; height: 120px" />
- ​
-         <mat-card-subtitle
-           >Large/leftoverall installation files clogging your space? We can
-           assist in cleaning things up.
-           </mat-card-subtitle>
+        <mat-card-title-group>
+          <mat-card-title>Disk Cleanup</mat-card-title>
+          <mat-card-subtitle>
+          Large/leftoverall installation files clogging your space? We can assist in cleaning things up.
+        </mat-card-subtitle>
+        </mat-card-title-group>
 
-         <img src="" height="65" />
-       </mat-card-title-group>
        <mat-card-content>
+        <img class="image" src="assets/cleanup.png"/>
          <div class="button-price">
-          <p style="display: inline-block">$149.99</p>
-          <button mat-button>Add to Cart</button>
+          <mat-selection-list color="primary" #selectedServices>
+            <mat-list-option checkboxPosition="before" >$149.99</mat-list-option>
+          </mat-selection-list>
         </div>
        </mat-card-content>
      </mat-card>

@@ -16,7 +16,7 @@
 
     <!--display current date-->
       <span>
-        {{ date | date }}
+        {{ date | date: 'MMMM d, y' }}
       </span>
     <hr>
     <br/>
@@ -39,6 +39,7 @@
       </div>
 
       <!--display invoice total-->
+    <hr>
     <strong>Total Charges:</strong>
       <div></div>
   </mat-dialog-content>

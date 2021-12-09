@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { InvoiceDialogComponent } from '../invoice-dialog/invoice-dialog.component';
+import { IService } from '../../../interfaces/services.interface'
 
 @Component({
   selector: 'app-home',

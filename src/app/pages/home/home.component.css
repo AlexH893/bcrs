@@ -35,6 +35,11 @@ button{
   margin-left: 4px;
 }
 
+.button-price{
+  position: absolute;
+  top: 80%;
+}
+
 .form{
   width: 100%;
   font-family:'Abhaya Libre', serif;
@@ -44,4 +49,14 @@ button{
   padding: 10px;
   margin-top: 10px;
   left: 30%;
+  background-color: #f2efeb;
+  font-size: 20px;
+}
+
+.image{
+  filter: grayscale(100%);
+  margin-top: 25%;
+  float: right;
+  width: 128px;
+  height: 110px;
 }
