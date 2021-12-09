@@ -33,8 +33,9 @@ export class ForgotPasswordQuestionsComponent implements OnInit {
       this.securityquestion3 = securityQuestions[2]
       this.questionsFetched = true
     },(error) => {
-      alert(error)
-      this.router.navigate(['/session/signin']);
+      console.log(error)
+      alert(error.error.message)
+      this.router.navigate(['/session/forgot-password']);
     })
   }
 
@@ -53,7 +54,7 @@ export class ForgotPasswordQuestionsComponent implements OnInit {
     const url = `/api/session/verify/users/${this.username}/security-questions`
     this.http.post(url, this.getState()).subscribe((res: any) => {
       if (res.msg === "success") {
-        this.router.navigateByUrl("/session/forgot-password/confirm",{state: {username: this.username}})
+        this.router.navigate(["/session/forgot-password/confirm"],{state: {username: this.username}})
       }
       else  {
         alert("Failed to verify security questions")

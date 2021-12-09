@@ -11,7 +11,7 @@
 <!-- Container -->
 <mat-card class="container">
 <!-- Add new question dialog -->
-  <h2 class="title" mat-dialog-title>Create a New Security Question</h2>
+  <h2 class="title" mat-dialog-title>{{titletext}}</h2>
 
   <!-- form to allow user to enter question -->
   <mat-dialog-content class="content" [formGroup]="questionForm">
@@ -23,6 +23,6 @@
   <!-- Button to create a new question and send to DB -->
   <mat-dialog-actions>
     <button class="button-left" mat-button (click)="cancel()">Cancel</button>
-    <button class="button-right" mat-button [disabled]="!questionForm.valid" (click)="createQuestion()">Create</button>
+    <button class="button-right" mat-button [disabled]="!questionForm.valid" (click)="createQuestion()">{{submitbuttontext}}</button>
   </mat-dialog-actions>
 </mat-card>

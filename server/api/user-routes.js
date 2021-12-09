@@ -237,7 +237,11 @@ router.get("/users/:username/security-questions", async (req, res) => {
           res.status(500).send({
             message: "Internal server error:" + err.message,
           });
-        } else {
+        }else if(questions == null) {
+          res.status(400).send({
+            message: "Could not find user " + req.params.username
+          })
+        }else {
           console.log(questions);
           for (let question of questions.securityQuestions) {
             console.log(question.answer)
