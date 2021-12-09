@@ -50,6 +50,10 @@ import { MatTableModule } from '@angular/material/table';
 import { ForgotPasswordUsernameComponent } from './pages/forgot-password-username/forgot-password-username.component';
 import { ForgotPasswordQuestionsComponent } from './pages/forgot-password-questions/forgot-password-questions.component';
 import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/forgot-password-confirm.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
+import { InvoiceDialogComponent } from './pages/invoice-dialog/invoice-dialog.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -70,7 +74,8 @@ import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/
     AccountRegistrationComponent,
     ForgotPasswordUsernameComponent,
     ForgotPasswordQuestionsComponent,
-    ForgotPasswordConfirmComponent
+    ForgotPasswordConfirmComponent,
+    InvoiceDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -94,10 +99,13 @@ import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/
     MatSelectModule,
     MatStepperModule,
     CdkStepperModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule,
+    MatListModule
   ],
   providers: [
-    CookieService
+    CookieService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

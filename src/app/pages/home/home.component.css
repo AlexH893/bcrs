@@ -8,16 +8,40 @@
 ===========================================
 */
 
-.main-welcome {
-    margin-top: 30px;
-  }
+.large-card{
+  margin: 20px;
+  background-color: #e2ddd8;
+}
 
-  .title {
-    text-align: center;
-    font-weight: lighter;
-  }
+.example-card {
+  background-color: #f2efeb;
+  height: 240px;
+  width: 400px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-family:'Abhaya Libre', serif;
+}
 
-  .subtitle {
-    text-align: center;
-    font-size: 14px;
-  }
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-family:'Castoro', serif;
+}
+
+button{
+  font-family:'Castoro', serif;
+  margin-left: 4px;
+}
+
+.form{
+  width: 100%;
+  font-family:'Abhaya Libre', serif;
+}
+.submit-button{
+  width: 40%;
+  padding: 10px;
+  margin-top: 10px;
+  left: 30%;
+}

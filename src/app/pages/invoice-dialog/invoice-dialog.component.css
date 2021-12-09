@@ -1,0 +1,34 @@
+.container {
+  width: 40%;
+  margin-left: 3px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 10px;
+  border-radius: 1%;
+  background-color: #f2efeb;
+  font-family:'Abhaya Libre', serif;
+}
+
+.services{
+  list-style-type: none;
+  text-align: center;
+  font-family:'Abhaya Libre', serif;
+}
+
+.title {
+  font-family: 'Castoro', serif;
+  font-size: 32px;
+  font-weight: normal;
+  text-align: center;
+}
+
+button{
+  width: 40%;
+  font-family: 'Castoro', serif;
+  left: 10%;
+}
+
