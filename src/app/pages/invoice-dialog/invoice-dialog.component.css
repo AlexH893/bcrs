@@ -1,22 +1,25 @@
 .container {
-  width: 40%;
+  width: 30%;
   margin-left: 3px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
+  text-align: left;
   padding-top: 50px;
   padding-bottom: 10px;
   border-radius: 1%;
-  background-color: #f2efeb;
+  background-color: #e2ddd8;
   font-family:'Abhaya Libre', serif;
+  box-shadow: 2px 2px 2px 2px grey;
 }
 
 .services{
   list-style-type: none;
-  text-align: center;
+  text-align: left;
   font-family:'Abhaya Libre', serif;
+  width: 40%;
+  line-height: 1.5;
 }
 
 .title {
@@ -30,5 +33,7 @@ button{
   width: 40%;
   font-family: 'Castoro', serif;
   left: 10%;
+  background-color: #f2efeb;
+
 }
 

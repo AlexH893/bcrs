@@ -15,8 +15,8 @@
 
 .example-card {
   background-color: #f2efeb;
-  height: 240px;
-  width: 400px;
+  height: 84%;
+  width: 90%;
   font-size: 18px;
   line-height: 1.5;
   font-family:'Abhaya Libre', serif;
@@ -35,13 +35,44 @@ button{
   margin-left: 4px;
 }
 
+.button-price{
+  position: absolute;
+  top: 85%;
+  margin-left: 10px;
+  font-family:'Abhaya Libre', serif;
+  font-size: 16px;
+}
+
 .form{
   width: 100%;
   font-family:'Abhaya Libre', serif;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
+
+mat-hint{
+  font-size: 12px;
+}
+
 .submit-button{
   width: 40%;
   padding: 10px;
   margin-top: 10px;
   left: 30%;
+  background-color: #f2efeb;
+  font-size: 20px;
+
+}
+
+.image{
+  filter: grayscale(100%);
+  margin-top: 25%;
+  float: right;
+  width: 36%;
+  height: auto;
+}
+
+.add-to-cart{
+  position: absolute;
+  top: 80%;
 }

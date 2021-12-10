@@ -23,6 +23,8 @@ const { userInfo } = require("os");
 let userRoutes = require("./api/user-routes.js");
 let questionRoutes = require("./api/question-routes.js");
 let sessionRoutes = require("./api/session-routes.js");
+let roleRoutes = require("./api/role-routes.js");
+
 var cors = require("cors");
 
 /**
@@ -68,7 +70,7 @@ app.use("/api/session", sessionRoutes);
 
 app.use("/api", [questionRoutes, userRoutes]);
 
-
+app.use("/api/roles", roleRoutes);
 
 /**
  * Create and start server
