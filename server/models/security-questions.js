@@ -28,6 +28,7 @@ let securityQuestionSchema = new Schema (
   }
 );
 
+
 const SecurityQuestion = mongoose.model("SecurityQuestions", securityQuestionSchema);
 
 module.exports = {
@@ -35,3 +36,5 @@ module.exports = {
   securityQuestionSchema,
   SecurityQuestion
 };
+
+
