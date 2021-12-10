@@ -16,7 +16,7 @@ const router = express.Router();
 const User = require("../models/user.js");
 const Question = require("../models/security-questions.js");
 const bcrypt = require("bcrypt");
-
+const Role = "../models/role.js";
 //Create variable saltRounds with integer value of 10
 const saltRounds = 10;
 
@@ -126,8 +126,6 @@ router.post("/users", async (req, res) => {
  */
 
 router.put("/users/:id", async (req, res) => {
-
-
   try {
     User.findOne({ _id: req.params.id }, function (err, user) {
       if (err) {
@@ -138,19 +136,18 @@ router.put("/users/:id", async (req, res) => {
       } else {
         console.log(user);
 
-          user.userName = req.body.userName
-          user.password = req.body.password
-          user.firstName = req.body.firstName
-          user.lastName = req.body.lastName
-          user.phoneNum = req.body.phoneNum
-          user.address = req.body.address
-          user.isDisabled = req.body.isDisabled
-          user.email = req.body.email
-          user.role = req.body.role
-          user.securityQuestions = req.body.securityQuestions
-          user.date_created = req.body.date_created
-          user.date_modified = req.body.date_modified
-
+        user.userName = req.body.userName;
+        user.password = req.body.password;
+        user.firstName = req.body.firstName;
+        user.lastName = req.body.lastName;
+        user.phoneNum = req.body.phoneNum;
+        user.address = req.body.address;
+        user.isDisabled = req.body.isDisabled;
+        user.email = req.body.email;
+        user.role = req.body.role;
+        user.securityQuestions = req.body.securityQuestions;
+        user.date_created = req.body.date_created;
+        user.date_modified = req.body.date_modified;
 
         user.save(function (err, updatedUser) {
           if (err) {
@@ -237,15 +234,15 @@ router.get("/users/:username/security-questions", async (req, res) => {
           res.status(500).send({
             message: "Internal server error:" + err.message,
           });
-        }else if(questions == null) {
+        } else if (questions == null) {
           res.status(400).send({
-            message: "Could not find user " + req.params.username
-          })
-        }else {
+            message: "Could not find user " + req.params.username,
+          });
+        } else {
           console.log(questions);
           for (let question of questions.securityQuestions) {
-            console.log(question.answer)
-            question.answer = ""
+            console.log(question.answer);
+            question.answer = "";
           }
           res.json(questions);
         }
