@@ -15,39 +15,41 @@
   <mat-dialog-content>
 
     <!--display current date-->
-      <span>
+      <strong>
         {{ date | date: 'MMMM d, y' }}
-      </span>
+      </strong>
     <hr>
     <br/>
 
     <!--display selected services-->
     <strong>Services</strong>
     <hr>
-    <ul class="services">
-      <li>
-        <p></p>
-      </li>
-    </ul>
+        <div *ngFor = "let service of getSelectedServices()" class="services">
+          <span> {{ service.name }} </span> 
+          &#160;
+          <span> {{ service.value | currency }} </span>
+        </div>
+        <br/>
 
     <!--display parts fee and labor hours times 50-->
-    <strong>Standard Fees</strong>
+    <strong>Parts & Labor</strong>
     <hr>
-      <div>
-        <p>Parts: </p>
-        <p>Labor: </p>
+      <div class="parts-labor">
+        <p>Parts: {{ data.partsAmount | currency }}</p>
+        <p>Labor: {{ data.laborHours }} hours</p>
       </div>
+      <br/>
 
       <!--display invoice total-->
     <hr>
     <strong>Total Charges:</strong>
-      <div></div>
+      <div> {{ totalCharge | currency }}</div>
   </mat-dialog-content>
   <br/>
 
   <!--button to close dialog-->
   <mat-dialog-actions>
-    <button mat-raised-button>Submit Order</button>
+    <button mat-raised-button mat-dialog-close>Submit Order</button>
     <button mat-raised-button mat-dialog-close>Close</button>
   </mat-dialog-actions>
 </mat-card>

@@ -31,7 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { CookieService } from 'ngx-cookie-service';
 import { VerifySecurityQuestionsComponent } from './pages/verify-security-questions/verify-security-questions.component';
 import { CommonModule } from '@angular/common';
@@ -105,7 +105,8 @@ import { DatePipe } from '@angular/common';
   ],
   providers: [
     CookieService,
-    DatePipe
+    DatePipe,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
   bootstrap: [AppComponent]
 })

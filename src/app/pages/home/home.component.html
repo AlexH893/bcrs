@@ -8,11 +8,10 @@
 ===========================================
 -->
 
-
-
+<!-- Card to hold all content-->
 <mat-card class="large-card">
 
-  <!-- Main Welcome-->
+  <!-- Title-->
   <h1 class="title">Services</h1>
 
  <!-- Shop items -->​
@@ -22,192 +21,55 @@
    style="margin-left: 10%; width: 80%"
    gutterSize="1em"
   >
-   <!-- First item -->
-   <mat-grid-tile>
+   <!-- Card for all items-->
+   <mat-grid-tile *ngFor = "let service of services">
      <mat-card class="example-card">
        <mat-card-title-group>
-         <mat-card-title>Password Reset</mat-card-title>
+         <mat-card-title> {{ service.name }}</mat-card-title>
          <mat-card-subtitle>
-            Our password reset services can help you get back into your
-            machines.
+          {{ service.description }}
           </mat-card-subtitle>
        </mat-card-title-group>
 
        <mat-card-content>
-        <img class="image" src="assets/pwreset.png" />
-        <div class="button-price">
-          <mat-selection-list color="primary" #selectedServices>
-            <mat-list-option checkboxPosition="before" >$39.99</mat-list-option>
-          </mat-selection-list>
+        <img class="image" src= "{{ service.image }}"/>
+        <div>
+          <mat-checkbox [(ngModel)] = "service.selected"  class="button-price" type="checkbox">
+            {{ service.value | currency }}
+          </mat-checkbox>
         </div>
        </mat-card-content>
      </mat-card>
    </mat-grid-tile>
-   <!-- !First item -->
- ​
-   <!-- Second item -->
-   <mat-grid-tile>
-     <mat-card class="example-card">
-       <mat-card-title-group>
-         <mat-card-title>Spyware Removal</mat-card-title>
-         <mat-card-subtitle>
-            Is your computer running slow? You might need our spyware removal
-            service.
-          </mat-card-subtitle>
-       </mat-card-title-group>
-
-       <mat-card-content>
-        <img class="image" src="assets/spyware.png"/>
-        <div class="button-price">
-          <mat-selection-list color="primary" #selectedServices>
-            <mat-list-option checkboxPosition="before" >$99.90</mat-list-option>
-          </mat-selection-list>
-        </div>
-       </mat-card-content>
-     </mat-card>
-   </mat-grid-tile>
-   <!-- !Second item -->
- ​
-   <!-- Third item -->
-   <mat-grid-tile>
-     <mat-card class="example-card">
-        <mat-card-title-group>
-          <mat-card-title>RAM Upgrade</mat-card-title>
-          <mat-card-subtitle>
-          Looking for more power? Look no further.
-          </mat-card-subtitle>
-        </mat-card-title-group>
-
-       <mat-card-content>
-        <img class="image" src="assets/ram.png"/>
-        <div class="button-price">
-          <mat-selection-list color="primary" #selectedServices>
-            <mat-list-option checkboxPosition="before" >$129.99</mat-list-option>
-          </mat-selection-list>
-        </div>
-       </mat-card-content>
-     </mat-card>
-   </mat-grid-tile>
-   <!-- !Third item -->
- ​
-   <!-- Fourth item -->
-   <mat-grid-tile>
-     <mat-card class="example-card">
-        <mat-card-title-group>
-          <mat-card-title>Software Installation</mat-card-title>
-          <mat-card-subtitle>
-          If you need assistance installing software, we can help.
-          </mat-card-subtitle>
-        </mat-card-title-group>
-
-       <mat-card-content>
-        <img class="image" src="assets/install.png" />
-        <div class="button-price">
-          <mat-selection-list color="primary" #selectedServices>
-            <mat-list-option checkboxPosition="before" >$49.99</mat-list-option>
-          </mat-selection-list>
-        </div>
-       </mat-card-content>
-     </mat-card>
-   </mat-grid-tile>
-   <!-- !Fourth item -->
- ​
-   <!-- Fifth item -->
-   <mat-grid-tile>
-     <mat-card class="example-card">
-       <mat-card-title-group>
-          <mat-card-title>PC TuneUp</mat-card-title>
-          <mat-card-subtitle>
-          Computer running sluggishly? Not enough disk space? It might be time for a tuneUp.
-          </mat-card-subtitle>
-       </mat-card-title-group>
-
-       <mat-card-content>
-        <img class="image" src="assets/tuneup.png"/>
-         <div class="button-price">
-          <mat-selection-list color="primary" #selectedServices>
-            <mat-list-option checkboxPosition="before" >$39.99</mat-list-option>
-          </mat-selection-list>
-        </div>
-       </mat-card-content>
-     </mat-card>
-   </mat-grid-tile>
-   <!-- !Fifth item -->
- ​
-   <!-- Sixth item -->
-   <mat-grid-tile>
-     <mat-card class="example-card">
-        <mat-card-title-group>
-          <mat-card-title>Keyboard Cleaning</mat-card-title>
-          <mat-card-subtitle>
-          If your keys get stuck or your keyboard has debris in between the
-          keys, it's time for a clean.
-          </mat-card-subtitle>
-        </mat-card-title-group>
-
-        <mat-card-content>
-          <img class="image" src="assets/keyboard.png" />
-          <div class="button-price">
-            <mat-selection-list color="primary" #selectedServices>
-              <mat-list-option checkboxPosition="before" >$45.99</mat-list-option>
-            </mat-selection-list>
-          </div>
-       </mat-card-content>
-     </mat-card>
-   </mat-grid-tile>
-   <!-- !Sixth item -->
- ​
-   <!-- Seventh item -->
-   <mat-grid-tile>
-     <mat-card class="example-card">
-        <mat-card-title-group>
-          <mat-card-title>Disk Cleanup</mat-card-title>
-          <mat-card-subtitle>
-          Large/leftoverall installation files clogging your space? We can assist in cleaning things up.
-        </mat-card-subtitle>
-        </mat-card-title-group>
-
-       <mat-card-content>
-        <img class="image" src="assets/cleanup.png"/>
-         <div class="button-price">
-          <mat-selection-list color="primary" #selectedServices>
-            <mat-list-option checkboxPosition="before" >$149.99</mat-list-option>
-          </mat-selection-list>
-        </div>
-       </mat-card-content>
-     </mat-card>
-   </mat-grid-tile>
-   <!-- !Seventh item -->
-
+ ​​
+  <!-- Card for parts and labor-->
    <mat-grid-tile>
     <mat-card class="example-card">
       <mat-card-title-group>
         <mat-card-title>Parts & Labor</mat-card-title>
-
       </mat-card-title-group>
-
+     
       <mat-card-content>
+        <form>
         <mat-form-field class="form" appearance="fill">
           <mat-label>Parts:</mat-label>
-          <input matInput>
-          <mat-hint>Enter Value...</mat-hint>
+          <input matInput [(ngModel)]="partsAmount" type="number" name="partsField">
+          <mat-hint>Enter dollar amount</mat-hint>
         </mat-form-field>
 
         <mat-form-field class="form" appearance="fill">
-          <mat-label>Labor:</mat-label>
-          <input matInput>
-          <mat-hint>Hours of Labor at $50.00</mat-hint>
+          <mat-label>Labor Hours:</mat-label>
+          <input matInput [(ngModel)]="laborAmount" type="number" name="laborField">
+          <mat-hint>Charged at $50/hour</mat-hint>
         </mat-form-field>
-
-        <div class="button-price">
-          <button mat-button>Add to Cart</button>
-        </div>
+      </form>
       </mat-card-content>
     </mat-card>
 
   </mat-grid-tile>
  </mat-grid-list>
 
+ <!-- View Invoice and Submit button-->
   <div>
     <button class="submit-button" mat-button (click)="openDialog()">View Invoice and Submit</button>
   </div>
