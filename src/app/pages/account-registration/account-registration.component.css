@@ -16,3 +16,11 @@
   margin-top: 60px;
   font-family:'Castoro', serif;
 }
+
+::ng-deep .mat-step-icon {
+  background-color: #6c5c47 !important;
+}
+
+::ng-deep .mat-step-icon-selected {
+  background-color: #6c4656 !important;
+}

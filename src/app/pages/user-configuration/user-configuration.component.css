@@ -18,15 +18,35 @@
   margin-top: 150px;
 }
 
-.actual-users {
-  margin-left: 28px;
-  justify-self: end;
+::ng-deep.input:focus:not(:focus-visible) {
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
-.edit-button {
-  margin-left: 0px;
-  padding-right: 75px;
+.mat-icon-button ::ng-deep .mat-button-focus-overlay {
+  display: none;
 }
+
+.mat-icon-button ::ng-deep .mat-button-ripple {
+  display: none;
+}
+
+.mat-button ::ng-deep .mat-button-focus-overlay {
+
+  display: none;
+
+}
+
+.mat-button ::ng-deep .mat-button-focus-indicator {
+  display: none;
+}
+
+.mat-button-ripple ::ng-deep {
+  display: none;
+}
+
+
 
 .table {
   box-shadow: none;

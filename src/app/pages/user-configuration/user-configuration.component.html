@@ -9,7 +9,8 @@
   <div fxLayout="row" fxLayoutAlign="flex-start">
     <div>
 
-      <button mat-button style="text-decoration: underline" (click)="createUser()"><h3>Create a User</h3></button>
+      <button class="button"
+       mat-button style="text-decoration: underline" (click)="createUser()"><h3>Create a User</h3></button>
 
     </div>
   </div>
@@ -44,11 +45,11 @@
     <ng-container matColumnDef="functions">
       <th mat-header-cell *matHeaderCellDef>Functions</th>
       <td mat-cell *matCellDef="let user; let i = index">
-        <button mat-icon-button class="edit-button" (click)="updateUser(user)">
+        <button mat-icon-button class="button" (click)="updateUser(user)">
           <mat-icon>edit</mat-icon>
         </button>
 
-        <button mat-icon-button (click)="deleteUser(i)">
+        <button mat-icon-button class="button" (click)="deleteUser(i)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
