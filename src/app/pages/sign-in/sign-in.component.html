@@ -13,7 +13,7 @@
   <mat-card class="signin" fxFlex>
     <mat-card-title>Employee Sign-In</mat-card-title>
 
-    <button mat-button class="button" style="text-decoration: underline;">Or create an account</button>
+    <button mat-button class="button" routerLink="/account-registration" style="text-decoration: underline;">Or create an account</button>
     <br/>
     <form [formGroup]="form" (ngSubmit)="login(); form.reset();">
     <mat-card-content>

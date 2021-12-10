@@ -7,13 +7,13 @@
         <div>
           <mat-form-field>
             <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Last Name" type="name" name="lastName" [(ngModel)]="user.lastName">
+            <input class="input" matInput placeholder="Last Name" type="name" name="lastName" [(ngModel)]="user.lastName">
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
             <mat-label>First Name</mat-label>
-            <input matInput placeholder="First Name" type="name" name="firstName" [(ngModel)]="user.firstName">
+            <input class="input" matInput placeholder="First Name" type="name" name="firstName" [(ngModel)]="user.firstName">
           </mat-form-field>
         </div>
       </div>
@@ -22,13 +22,13 @@
         <div>
           <mat-form-field>
             <mat-label>Username</mat-label>
-            <input matInput placeholder="Username" type="name" name="userName" [(ngModel)]="user.userName">
+            <input class="input" matInput placeholder="Username" type="name" name="userName" [(ngModel)]="user.userName">
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
             <mat-label>Phone</mat-label>
-            <input matInput placeholder="Ex: 123-456-7890" type="tel" name="phone" [(ngModel)]="user.phoneNum">
+            <input class="input" matInput placeholder="Ex: 123-456-7890" type="tel" name="phone" [(ngModel)]="user.phoneNum">
           </mat-form-field>
         </div>
       </div>
@@ -37,7 +37,7 @@
         <div>
           <mat-form-field class="wide-input">
             <mat-label>Address</mat-label>
-            <input matInput placeholder="Ex: 123 Central Ave. Austin, Texas" type="text" name="address" [(ngModel)]="user.address" size="300">
+            <input class="input" matInput placeholder="Ex: 123 Central Ave. Austin, Texas" type="text" name="address" [(ngModel)]="user.address" size="300">
           </mat-form-field>
         </div>
       </div>
@@ -46,13 +46,13 @@
         <div>
           <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" type="email" name="email" [(ngModel)]="user.email">
+            <input class="input" matInput placeholder="Email" type="email" name="email" [(ngModel)]="user.email">
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
             <mat-label>User Role</mat-label>
-            <input matInput placeholder="User Role" type="text" name="userRole" [(ngModel)]="user.role.text">
+            <input class="input" matInput placeholder="User Role" type="text" name="userRole" [(ngModel)]="user.role.text">
           </mat-form-field>
         </div>
       </div>
@@ -71,7 +71,7 @@
         <div>
           <mat-form-field>
             <mat-label>Answer</mat-label>
-            <input matInput type="text" name="securityQuestion1" [(ngModel)]="user.securityQuestions[0].answer">
+            <input class="input" matInput type="text" name="securityQuestion1" [(ngModel)]="user.securityQuestions[0].answer">
           </mat-form-field>
         </div>
 
@@ -91,7 +91,7 @@
         <div>
           <mat-form-field>
             <mat-label>Answer</mat-label>
-            <input matInput type="text" name="securityQuestion2" [(ngModel)]="user.securityQuestions[1].answer">
+            <input class="input" matInput type="text" name="securityQuestion2" [(ngModel)]="user.securityQuestions[1].answer">
           </mat-form-field>
         </div>
 
@@ -111,7 +111,7 @@
         <div>
           <mat-form-field>
             <mat-label>Answer</mat-label>
-            <input matInput type="text" name="securityQuestion3" [(ngModel)]="user.securityQuestions[2].answer">
+            <input class="input" matInput type="text" name="securityQuestion3" [(ngModel)]="user.securityQuestions[2].answer">
           </mat-form-field>
         </div>
 

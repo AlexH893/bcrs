@@ -19,6 +19,27 @@
 
 }
 
+.mat-icon-button ::ng-deep .mat-button-focus-overlay {
+  display: none;
+}
+
+.mat-icon-button ::ng-deep .mat-button-ripple {
+  display: none;
+}
+
+.mat-button ::ng-deep .mat-button-ripple {
+  display:none;
+
+}
+
+.mat-button ::ng-deep .mat-button-focus-overlay {
+  display: none;
+}
+
+.mat-button ::ng-deep .mat-button-focus-indicator {
+  display: none;
+}
+
 .security-questions {
   margin-left: 28px;
   justify-self: end;
