@@ -229,11 +229,11 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
         );
 
         const isValidAnswerOne =
-          selectedSecurityQuestionOne?.answer === req.body.answerText1;
+          selectedSecurityQuestionOne.answer === req.body.answerText1;
         const isValidAnswerTwo =
-          selectedSecurityQuestionTwo?.answer === req.body.answerText2;
+          selectedSecurityQuestionTwo.answer === req.body.answerText2;
         const isValidAnswerThree =
-          selectedSecurityQuestionThree?.answer === req.body.answerText3;
+          selectedSecurityQuestionThree.answer === req.body.answerText3;
 
         if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
           console.log(
