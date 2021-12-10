@@ -70,7 +70,7 @@ app.use("/api/session", sessionRoutes);
 
 app.use("/api", [questionRoutes, userRoutes]);
 
-
+app.use("/api/roles", roleRoutes);
 
 /**
  * Create and start server
