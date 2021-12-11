@@ -26,8 +26,8 @@ export class ForgotPasswordQuestionsComponent implements OnInit {
 
   fetchQuestions() {
     const url = `/api/users/${this.username}/security-questions`
-    this.http.get(url).subscribe((res: any) => {
-      const securityQuestions: SecurityQuestion[] = res.securityQuestions
+    this.http.get(url).subscribe((securityQuestions: SecurityQuestion[]) => {
+
       this.securityquestion1 = securityQuestions[0]
       this.securityquestion2 = securityQuestions[1]
       this.securityquestion3 = securityQuestions[2]

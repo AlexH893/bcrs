@@ -26,7 +26,12 @@ const saltRounds = 10;
  */
 router.get("/users", async (req, res) => {
   try {
-    User.find({ isDisabled: { $ne: true } }, function (err, users) {
+    User.find({ isDisabled: { $ne: true } }).
+      populate({
+        path: "securityQuestions",
+        populate: {path: "question"}
+      }).
+      exec(function (err, users) {
       if (err) {
         console.log(err);
         res.status(501).send({
@@ -86,6 +91,7 @@ router.post("/users", async (req, res) => {
       lastName: req.body.lastName,
       phoneNum: req.body.phoneNum,
       address: req.body.address,
+      email: req.body.email,
       isDisabled: req.body.isDisabled,
       role: req.body.role,
       securityQuestions: req.body.securityQuestions,
@@ -227,7 +233,12 @@ router.get("/users/:username/security-questions", async (req, res) => {
     User.findOne(
       { userName: req.params.username },
       // Projections allow us to limit the amount of data that MongoDB sends to apps & specify fields to return
-      "securityQuestions",
+      "securityQuestions").
+      populate({
+        path: "securityQuestions",
+        populate: {path: "question"}
+      }).
+      exec(
       function (err, questions) {
         if (err) {
           console.log(err);
@@ -240,11 +251,10 @@ router.get("/users/:username/security-questions", async (req, res) => {
           });
         } else {
           console.log(questions);
-          for (let question of questions.securityQuestions) {
-            console.log(question.answer);
-            question.answer = "";
-          }
-          res.json(questions);
+          res.json(questions.securityQuestions.map(question => ({
+            text: question.question.text,
+            answer: ""
+          })));
         }
       }
     );
