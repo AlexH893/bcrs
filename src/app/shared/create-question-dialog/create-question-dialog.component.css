@@ -28,21 +28,6 @@
   margin-right: 50px;
 }
 
-::ng-deep .mat-focused .mat-form-field-label {
-  /*change color of label*/
-  color: #6c4656 !important;
- }
-
-::ng-deep.mat-form-field-underline {
-  /*change color of underline*/
-  background-color: #6c5c47 !important;
-}
-
-::ng-deep.mat-form-field-ripple {
- /*change color of underline when focused*/
- background-color: #6c4656 !important;;
-}
-
 ::ng-deep.input {
   caret-color: #6c4656;
 }
