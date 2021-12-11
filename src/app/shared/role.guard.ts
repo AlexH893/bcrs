@@ -1,3 +1,5 @@
+/*
+
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -12,7 +14,7 @@ import {RoleService} from '';
 export class RoleGuard implements CanActivate {
 
   constructor(private router: Router, private cookieService: CookieService, private roleService: RoleService) {}
-    
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -28,3 +30,4 @@ export class RoleGuard implements CanActivate {
     }))
   }
 }
+ */

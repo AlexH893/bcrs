@@ -25,6 +25,7 @@ import { AccountRegistrationComponent } from './pages/account-registration/accou
 import { ForgotPasswordUsernameComponent } from './pages/forgot-password-username/forgot-password-username.component';
 import { ForgotPasswordQuestionsComponent } from './pages/forgot-password-questions/forgot-password-questions.component';
 import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/forgot-password-confirm.component';
+import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
 
 const routes: Routes = [
   {
@@ -65,6 +66,10 @@ const routes: Routes = [
         path: 'account-registration',
         component: AccountRegistrationComponent
       },
+      {
+        path: 'role-configuration',
+        component: RoleConfigurationComponent
+      }
     ],
   },
   {

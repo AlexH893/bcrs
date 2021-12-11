@@ -50,10 +50,11 @@ import { MatTableModule } from '@angular/material/table';
 import { ForgotPasswordUsernameComponent } from './pages/forgot-password-username/forgot-password-username.component';
 import { ForgotPasswordQuestionsComponent } from './pages/forgot-password-questions/forgot-password-questions.component';
 import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/forgot-password-confirm.component';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatListModule} from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
 import { InvoiceDialogComponent } from './pages/invoice-dialog/invoice-dialog.component';
 import { DatePipe } from '@angular/common';
+import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { DatePipe } from '@angular/common';
     ForgotPasswordUsernameComponent,
     ForgotPasswordQuestionsComponent,
     ForgotPasswordConfirmComponent,
-    InvoiceDialogComponent
+    InvoiceDialogComponent,
+    RoleConfigurationComponent
   ],
   imports: [
     BrowserModule,
