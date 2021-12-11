@@ -31,7 +31,9 @@ router.get("/users", async (req, res) => {
         path: "securityQuestions",
         populate: {path: "question"}
       }).
+      populate("role")
       exec(function (err, users) {
+
       if (err) {
         console.log(err);
         res.status(501).send({
