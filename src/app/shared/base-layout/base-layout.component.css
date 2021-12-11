@@ -51,6 +51,7 @@
 .position-person {
   position: absolute;
   right: 150px;
+  top: 12px;
 }
 
 mat-icon {

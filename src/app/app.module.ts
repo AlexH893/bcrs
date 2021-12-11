@@ -55,6 +55,7 @@ import { MatListModule } from '@angular/material/list';
 import { InvoiceDialogComponent } from './pages/invoice-dialog/invoice-dialog.component';
 import { DatePipe } from '@angular/common';
 import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { RoleConfigurationComponent } from './pages/role-configuration/role-conf
     CdkStepperModule,
     MatTableModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ],
   providers: [
     CookieService,

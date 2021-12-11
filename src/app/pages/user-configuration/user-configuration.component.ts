@@ -34,12 +34,17 @@ export class UserConfigurationComponent implements OnInit {
           role: {text:""},
           securityQuestions: [
             {
-              text: "None",
+              question: {text: "None"},
               answer: "",
               isDisabled: false
             },
             {
-              text: "None",
+              question: {text: "None"},
+              answer: "",
+              isDisabled: false
+            },
+            {
+              question: {text: "None"},
               answer: "",
               isDisabled: false
             }

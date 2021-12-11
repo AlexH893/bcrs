@@ -61,9 +61,9 @@
         <div>
           <mat-form-field appearance="standard">
             <mat-label>Security Question 1</mat-label>
-            <mat-select [(value)]="user.securityQuestions[0].text" name="securityQuestion1text">
+            <mat-select [(value)]="user.securityQuestions[0].question._id" name="securityQuestion1text">
               <mat-option>None</mat-option>
-              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion">{{securityQuestion}}</mat-option>
+              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion._id">{{securityQuestion.text}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -81,9 +81,9 @@
         <div>
           <mat-form-field appearance="standard">
             <mat-label>Security Question 2</mat-label>
-            <mat-select [(value)]="user.securityQuestions[1].text" name="securityQuestion2text">
+            <mat-select [(value)]="user.securityQuestions[1].question._id" name="securityQuestion2text">
               <mat-option>None</mat-option>
-              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion">{{securityQuestion}}</mat-option>
+              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion._id">{{securityQuestion.text}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -101,9 +101,9 @@
         <div>
           <mat-form-field appearance="standard">
             <mat-label>Security Question 3</mat-label>
-            <mat-select [(value)]="user.securityQuestions[2].text" name="securityQuestion3text">
+            <mat-select [(value)]="user.securityQuestions[2].question._id" name="securityQuestion3text">
               <mat-option>None</mat-option>
-              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion">{{securityQuestion}}</mat-option>
+              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion._id">{{securityQuestion.text}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>

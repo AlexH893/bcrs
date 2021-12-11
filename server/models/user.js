@@ -25,8 +25,14 @@ let userSchema = new Schema(
     address: { type: String },
     email: { type: String },
     isDisabled: { type: Boolean, required: true, default: false },
-    role: userRoleSchema,
-    securityQuestions: [questionSchema],
+    role: [userRoleSchema],
+    securityQuestions: [new Schema({
+      answer: { type: String } /* The question answer */,
+      question: {
+        type: Schema.Types.ObjectId,
+        ref: "SecurityQuestions"
+      }
+    })],
     date_created: { type: Date },
     date_modified: { type: Date },
     /*invoice: [InvoiceDocument]  Needs created */

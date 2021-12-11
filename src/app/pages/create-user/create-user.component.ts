@@ -14,7 +14,7 @@ import { SecurityQuestion } from 'src/app/models/security-question.interface';
 })
 export class CreateUserComponent implements OnInit {
   user: User
-  securityQuestions: string[]
+  securityQuestions: SecurityQuestion[]
   title: string
   constructor(public dialogRef: MatDialogRef<CreateUserComponent>,
     public flexLayout: FlexLayoutModule,
@@ -24,7 +24,10 @@ export class CreateUserComponent implements OnInit {
       this.title = data.newUser?"Create": "Edit"
       while (this.user.securityQuestions.length < 3) {
         this.user.securityQuestions.push({
-          text:"",
+          question: {
+            _id: "",
+            text:"",
+          },
           answer: "",
           isDisabled: false
         })
@@ -37,7 +40,7 @@ export class CreateUserComponent implements OnInit {
 
   fetchQuestions(): void {
     this.http.get('/api/security-questions').subscribe((res: SecurityQuestion[]) => {
-      this.securityQuestions = res.map((question) => question.text);
+      this.securityQuestions = res
     });
   }
 
