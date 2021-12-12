@@ -29,22 +29,21 @@ router.get("/users", async (req, res) => {
     User.find({ isDisabled: { $ne: true } })
       .populate({
         path: "securityQuestions",
-        populate: {path: "question"}
-      }).
-      populate("role").
-      exec(function (err, users) {
-
-      if (err) {
-        console.log(err);
-        res.status(501).send({
-          message: `MongoDB Exception: ${err}`,
-        });
-      } else {
-        console.log(users);
-        res.json(users);
-        console.log("All users have been displayed that are NOT disabled!");
-      }
-    });
+        populate: { path: "question" },
+      })
+      .populate("role")
+      .exec(function (err, users) {
+        if (err) {
+          console.log(err);
+          res.status(501).send({
+            message: `MongoDB Exception: ${err}`,
+          });
+        } else {
+          console.log(users);
+          res.json(users);
+          console.log("All users have been displayed that are NOT disabled!");
+        }
+      });
   } catch (e) {
     console.log(e);
     res.status(500).send({
@@ -58,24 +57,24 @@ router.get("/users", async (req, res) => {
  */
 router.get("/users/:id", async (req, res) => {
   try {
-    User.findOne({ _id: req.params.id }).
-    populate({
-      path: "securityQuestions",
-      populate: {path: "question"}
-    }).
-    populate("role").
-    exec(function (err, user) {
-      if (err) {
-        console.log(err);
-        res.status(500).send({
-          message: `MongoDB Exception: ${err}`,
-        });
-      } else {
-        console.log(user);
-        res.json(user);
-        console.log("User with the ID " + req.params.id + " has been found!");
-      }
-    });
+    User.findOne({ _id: req.params.id })
+      .populate({
+        path: "securityQuestions",
+        populate: { path: "question" },
+      })
+      .populate("role")
+      .exec(function (err, user) {
+        if (err) {
+          console.log(err);
+          res.status(500).send({
+            message: `MongoDB Exception: ${err}`,
+          });
+        } else {
+          console.log(user);
+          res.json(user);
+          console.log("User with the ID " + req.params.id + " has been found!");
+        }
+      });
   } catch (e) {
     console.log(e);
     res.status(500).send({
@@ -151,25 +150,33 @@ router.put("/users/:id", async (req, res) => {
         console.log(user);
 
         user.set({
-        firstName = req.body.firstName;
-        lastName = req.body.lastName;
-        phoneNum = req.body.phoneNum;
-        address = req.body.address;
-        email = req.body.email;
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          phoneNum: req.body.phoneNum,
+          address: req.body.address,
+          email: req.body.email,
         });
 
         user.role.set({
-          role: req.body.role;
-        })
+          role: req.body.role,
+        });
 
         user.save(function (err, savedUser) {
           if (err) {
             console.log(err);
-            const saveUserMongodbErrorResponse = new ErrorResponse('500', 'internal server error', err);
+            const saveUserMongodbErrorResponse = new ErrorResponse(
+              "500",
+              "internal server error",
+              err
+            );
             res.status(500).send(saveUserMongodbErrorResponse.toObject());
           } else {
             res.json(savedUser);
-            const saveUserResponse = new BaseResponse(200, 'query success', savedUser);
+            const saveUserResponse = new BaseResponse(
+              200,
+              "query success",
+              savedUser
+            );
             res.json(saveUserResponse.toObject());
           }
         });
@@ -177,9 +184,12 @@ router.put("/users/:id", async (req, res) => {
     });
   } catch (e) {
     console.log(e);
-    const updateUserCatchErrorResponse = new ErrorResponse(500, 'internal server error', e.message);
+    const updateUserCatchErrorResponse = new ErrorResponse(
+      500,
+      "internal server error",
+      e.message
+    );
     res.status(500).send(updateUserCatchErrorResponse.toObject());
-
   }
 });
 
@@ -509,20 +519,20 @@ router.put("/:id/security-questions/:questionId", async (req, res) => {
  */
 router.get("/users/:username/role", async (req, res) => {
   try {
-    User.findOne({ userName: req.params.username },"role").
-    populate("role").
-    exec(function (err, user) {
-      if (err) {
-        console.log(err);
-        res.status(500).send({
-          message: `MongoDB Exception: ${err}`,
-        });
-      } else {
-        console.log(user);
-        res.json(user);
-        console.log("Role for " + req.params.username + " has been found!");
-      }
-    });
+    User.findOne({ userName: req.params.username }, "role")
+      .populate("role")
+      .exec(function (err, user) {
+        if (err) {
+          console.log(err);
+          res.status(500).send({
+            message: `MongoDB Exception: ${err}`,
+          });
+        } else {
+          console.log(user);
+          res.json(user);
+          console.log("Role for " + req.params.username + " has been found!");
+        }
+      });
   } catch (e) {
     console.log(e);
     res.status(500).send({
