@@ -57,6 +57,7 @@ import { DatePipe } from '@angular/common';
 import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { RoleCreateEditComponent } from './pages/role-create-edit/role-create-edit.component';
+import { PurchasesByServiceGraphComponent } from './purchases-by-service-graph/purchases-by-service-graph.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { RoleCreateEditComponent } from './pages/role-create-edit/role-create-ed
     ForgotPasswordConfirmComponent,
     InvoiceDialogComponent,
     RoleConfigurationComponent,
-    RoleCreateEditComponent
+    RoleCreateEditComponent,
+    PurchasesByServiceGraphComponent
   ],
   imports: [
     BrowserModule,
