@@ -24,6 +24,8 @@ let userRoutes = require("./api/user-routes.js");
 let questionRoutes = require("./api/question-routes.js");
 let sessionRoutes = require("./api/session-routes.js");
 let roleRoutes = require("./api/role-routes.js");
+let invoiceRoutes = require("./api/invoice-routes.js");
+
 
 var cors = require("cors");
 
@@ -71,6 +73,9 @@ app.use("/api/session", sessionRoutes);
 app.use("/api", [questionRoutes, userRoutes]);
 
 app.use("/api/roles", roleRoutes);
+
+app.use("/api/invoice", invoiceRoutes);
+
 
 /**
  * Create and start server
