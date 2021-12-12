@@ -12,7 +12,7 @@ export interface User {
     email: string,
     role: {
       _id?: string
-      text: String
+      text: string
     }
     securityQuestions: SecurityQuestion[],
     date_created?: Date,

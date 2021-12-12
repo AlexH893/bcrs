@@ -1,11 +1,12 @@
-/*
+
 
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-Cookie-service';
 import { map } from 'rxjs/operators';
-import {RoleService} from '';
+import { RoleService } from 'src/services/role.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +19,10 @@ export class RoleGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this.roleService.findUserRole(this.cookieService.get('sessionuser')).pipe(map(res => {
+      return this.roleService.findUserRole(this.cookieService.get('session_user')).pipe(map(res => {
         console.log(res);
 
-      if (res['data'].role === 'admin') {
+      if (res.text === 'admin') {
         return true;
       } else {
         this.router.navigate(['/']);
@@ -30,4 +31,3 @@ export class RoleGuard implements CanActivate {
     }))
   }
 }
- */

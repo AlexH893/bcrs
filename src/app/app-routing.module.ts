@@ -26,6 +26,7 @@ import { ForgotPasswordUsernameComponent } from './pages/forgot-password-usernam
 import { ForgotPasswordQuestionsComponent } from './pages/forgot-password-questions/forgot-password-questions.component';
 import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/forgot-password-confirm.component';
 import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
+import { RoleGuard } from './shared/role.guard';
 
 const routes: Routes = [
   {
@@ -50,12 +51,12 @@ const routes: Routes = [
       {
         path: 'user-configuration',
         component: UserConfigurationComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, RoleGuard],
       },
       {
         path: 'security-questions',
         component: SecurityQuestionsComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, RoleGuard],
       },
       {
         path: 'verify-security-questions',
@@ -69,7 +70,7 @@ const routes: Routes = [
       {
         path: 'role-configuration',
         component: RoleConfigurationComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard, RoleGuard]
       }
     ],
   },

@@ -38,12 +38,12 @@
         </button>
 
         <div>
-          <button class="position-person" mat-icon-button>
+          <button class="position-person" [matMenuTriggerFor]="options" mat-icon-button>
           <mat-icon>person</mat-icon>
           </button>
 
           <mat-menu #options="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item [matMenuTriggerFor]="configurations">
               <mat-icon>settings</mat-icon>
               Configurations
             </button>
@@ -54,15 +54,15 @@
           </mat-menu>
 
           <mat-menu #configurations="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="/user-configuration">
               <mat-icon>person_add</mat-icon>
               Users
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="/role-configuration">
               <mat-icon>security</mat-icon>
               Roles
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="/security-questions">
               <mat-icon>help</mat-icon>
               Security Questions
             </button>
