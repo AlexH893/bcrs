@@ -96,7 +96,12 @@ router.post("/register", async (req, res) => {
  */
 router.get("/verify/users/:userName", async (req, res) => {
   try {
-    User.findOne({ userName: req.params.userName }, function (err, user) {
+    User.findOne({ userName: req.params.userName }).
+    populate({
+      path: "securityQuestions",
+      populate: {path: "question"}
+    }).
+    exec(function (err, user) {
       if (user) {
         if (err) {
           console.log(err);
@@ -204,7 +209,12 @@ router.post("/users/:userName/reset-password", async (req, res) => {
  */
 router.post("/verify/users/:userName/security-questions", async (req, res) => {
   try {
-    User.findOne({ userName: req.params.userName }, function (err, user) {
+    User.findOne({ userName: req.params.userName }).
+    populate({
+      path: "securityQuestions",
+      populate: {path: "question"}
+    }).
+    exec(function (err, user) {
       if (err) {
         console.log(err);
         const verifySecurityQuestionsMongodbErrorResponse = new ErrorResponse(
@@ -219,13 +229,13 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
         console.log(user);
 
         const selectedSecurityQuestionOne = user.securityQuestions.find(
-          (q) => q.text === req.body.questionText1
+          (q) => q.question.text === req.body.questionText1
         );
         const selectedSecurityQuestionTwo = user.securityQuestions.find(
-          (q2) => q2.text === req.body.questionText2
+          (q2) => q2.question.text === req.body.questionText2
         );
         const selectedSecurityQuestionThree = user.securityQuestions.find(
-          (q3) => q3.text === req.body.questionText3
+          (q3) => q3.question.text === req.body.questionText3
         );
 
         const isValidAnswerOne =

@@ -49,12 +49,17 @@
             <input class="input" matInput placeholder="Email" type="email" name="email" [(ngModel)]="user.email">
           </mat-form-field>
         </div>
+
         <div>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>User Role</mat-label>
-            <input class="input" matInput placeholder="User Role" type="text" name="userRole" [(ngModel)]="user.role.text">
+            <mat-select [(value)]="user.role._id" name="userRole">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let role of roles" [value]="role._id">{{role.text}}</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
+
       </div>
 
       <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">

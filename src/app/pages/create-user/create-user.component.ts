@@ -4,6 +4,7 @@ import { User } from '../../models/user.interface';
 import { HttpClient } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SecurityQuestion } from 'src/app/models/security-question.interface';
+import { Role } from 'src/app/models/role.interface';
 
 
 
@@ -15,12 +16,16 @@ import { SecurityQuestion } from 'src/app/models/security-question.interface';
 export class CreateUserComponent implements OnInit {
   user: User
   securityQuestions: SecurityQuestion[]
+  roles: Role[]
   title: string
   constructor(public dialogRef: MatDialogRef<CreateUserComponent>,
     public flexLayout: FlexLayoutModule,
     private http: HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: {user: User, newUser: boolean}) {
       this.user = data.user
+      if (!this.user.role) {
+        this.user.role = {_id: "", text: ""}
+      }
       this.title = data.newUser?"Create": "Edit"
       while (this.user.securityQuestions.length < 3) {
         this.user.securityQuestions.push({
@@ -36,11 +41,18 @@ export class CreateUserComponent implements OnInit {
 
   ngOnInit(): void {
    this.fetchQuestions()
+   this.fetchRoles()
   }
 
   fetchQuestions(): void {
     this.http.get('/api/security-questions').subscribe((res: SecurityQuestion[]) => {
       this.securityQuestions = res
+    });
+  }
+
+  fetchRoles(): void {
+    this.http.get('/api/roles').subscribe((res:{data: Role[]}) => {
+      this.roles = res.data
     });
   }
 

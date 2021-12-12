@@ -31,7 +31,7 @@ router.get("/users", async (req, res) => {
         path: "securityQuestions",
         populate: {path: "question"}
       }).
-      populate("role")
+      populate("role").
       exec(function (err, users) {
 
       if (err) {
