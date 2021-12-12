@@ -10,7 +10,10 @@ export interface User {
     phoneNum: string,
     address: string,
     email: string,
-    role: {text: String}
+    role: {
+      _id?: string
+      text: string
+    }
     securityQuestions: SecurityQuestion[],
     date_created?: Date,
     date_modified?: Date,

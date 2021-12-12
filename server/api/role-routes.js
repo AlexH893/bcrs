@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
               console.log(err);
               const createRoleMongodbErrorResponse = new ErrorResponse(
                 "500",
-                "Interna; server error",
+                "Internal server error",
                 err
               );
               res.status(500).send(createRoleMongodbErrorResponse.toObject());

@@ -24,26 +24,14 @@
         <button class="navbar-link" routerLink="/contact-us" mat-button>
           Contact Us
         </button>
-        <button class="navbar-link" routerLink="/session/sign-in" mat-button>
-          Sign-in
-        </button>
-        <button class="navbar-link" routerLink="/user-configuration" mat-button>
-          User Configuration
-        </button>
-        <button class="navbar-link" routerLink="/security-questions" mat-button>
-          Security Question Config
-        </button>
-        <button class="navbar-link" routerLink="/role-configuration" mat-button>
-          Role Config
-        </button>
 
         <div>
-          <button class="position-person" mat-icon-button>
+          <button class="position-person" [matMenuTriggerFor]="options" mat-icon-button>
           <mat-icon>person</mat-icon>
           </button>
 
           <mat-menu #options="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item [matMenuTriggerFor]="configurations">
               <mat-icon>settings</mat-icon>
               Configurations
             </button>
@@ -54,26 +42,21 @@
           </mat-menu>
 
           <mat-menu #configurations="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="/user-configuration">
               <mat-icon>person_add</mat-icon>
               Users
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="/role-configuration">
               <mat-icon>security</mat-icon>
               Roles
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="/security-questions">
               <mat-icon>help</mat-icon>
               Security Questions
             </button>
           </mat-menu>
 
         </div>
-
-
-
-
-
 
       </div>
     </mat-toolbar>

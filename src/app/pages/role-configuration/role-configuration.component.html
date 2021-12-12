@@ -17,27 +17,27 @@
   <br>
   <div fxLayout="row" fxLayoutAlign="flex-start">
     <div>
-      <button mat-button style="text-decoration: underline;" (click)="openCreateQuestionDialog()">
+      <button mat-button style="text-decoration: underline;" (click)="openRoleCreateEdit()">
         <h3>Create a New Role</h3>
       </button>
     </div>
   </div>
 
-  <table mat-table [dataSource]="questions" class="mat-elevation-z8 table">
+  <table mat-table [dataSource]="roles" class="mat-elevation-z8 table">
 
     <ng-container matColumnDef="text">
       <th mat-header-cell *matHeaderCellDef>Role</th>
-      <td mat-cell *matCellDef="let securityQuestion"> {{securityQuestion.text}} </td>
+      <td mat-cell *matCellDef="let role"> {{role.text}} </td>
     </ng-container>
 
     <ng-container matColumnDef="functions">
       <th mat-header-cell *matHeaderCellDef>Functions</th>
-      <td mat-cell *matCellDef="let securityQuestion; let i = index">
-        <button mat-icon-button class="edit-button" (click)="updateQuestion(securityQuestion)">
+      <td mat-cell *matCellDef="let role; let i = index">
+        <button mat-icon-button class="edit-button" (click)="updateRole(role)">
           <mat-icon>edit</mat-icon>
         </button>
 
-        <button mat-icon-button (click)="deleteQuestion(i)">
+        <button mat-icon-button (click)="deleteRole(i)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
