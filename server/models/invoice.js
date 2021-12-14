@@ -10,11 +10,11 @@
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const { lineItemsSchema } = require("");
+const lineItemDocument = require("../models/line-item");
 
 let invoiceSchema = new Schema(
   {
-    lineItems: [lineItemsSchema],
+    lineItems: [lineItemDocument],
     partsAmount: { type: Number },
     laborAmount: { type: Number },
     lineItemTotal: { type: Number },
