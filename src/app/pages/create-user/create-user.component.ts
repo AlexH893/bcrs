@@ -46,22 +46,22 @@ export class CreateUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.createUserForm = this.fb.group({
-      lastName: [null, Validators.compose([Validators.required])],
-      firstName: [null, Validators.compose([Validators.required])],
-      userName: [null, Validators.compose([Validators.required])],
+      lastName: [this.user.lastName, Validators.compose([Validators.required])],
+      firstName: [this.user.firstName, Validators.compose([Validators.required])],
+      userName: [this.user.userName, Validators.compose([Validators.required])],
       phone: [
-        null,
+        this.user.phoneNum,
         Validators.compose([Validators.required, Validators.minLength(10)]),
       ],
-      address: [null, Validators.compose([Validators.required])],
-      email: [null, Validators.compose([Validators.required])],
-      userRole: [null, Validators.compose([Validators.required])],
-      securityQuestion1text: [null, Validators.compose([Validators.required])],
-      securityQuestion2text: [null, Validators.compose([Validators.required])],
-      securityQuestion3text: [null, Validators.compose([Validators.required])],
-      securityQuestion1: [null, Validators.compose([Validators.required])],
-      securityQuestion2: [null, Validators.compose([Validators.required])],
-      securityQuestion3: [null, Validators.compose([Validators.required])],
+      address: [this.user.address, Validators.compose([Validators.required])],
+      email: [this.user.email, Validators.compose([Validators.required])],
+      userRole: [this.user.role._id, Validators.compose([Validators.required])],
+      securityQuestion1text: [this.user.securityQuestions[0].question._id, Validators.compose([Validators.required])],
+      securityQuestion2text: [this.user.securityQuestions[1].question._id, Validators.compose([Validators.required])],
+      securityQuestion3text: [this.user.securityQuestions[2].question._id, Validators.compose([Validators.required])],
+      securityQuestion1: [this.user.securityQuestions[0].answer, Validators.compose([Validators.required])],
+      securityQuestion2: [this.user.securityQuestions[1].answer, Validators.compose([Validators.required])],
+      securityQuestion3: [this.user.securityQuestions[2].answer, Validators.compose([Validators.required])],
 
     });
    this.fetchQuestions()
@@ -81,6 +81,20 @@ export class CreateUserComponent implements OnInit {
   }
 
   onSubmit():void {
+    const newUser = this.createUserForm.getRawValue()
+    this.user.lastName = newUser.lastName
+    this.user.firstName = newUser.firstName
+    this.user.userName = newUser.userName
+    this.user.phoneNum = newUser.phone
+    this.user.address = newUser.address
+    this.user.email = newUser.email
+    this.user.role._id = newUser.userRole
+    this.user.securityQuestions[0].question._id = newUser.securityQuestion1text
+    this.user.securityQuestions[1].question._id = newUser.securityQuestion2text
+    this.user.securityQuestions[2].question._id = newUser.securityQuestion3text
+    this.user.securityQuestions[0].answer = newUser.securityQuestion1
+    this.user.securityQuestions[1].answer = newUser.securityQuestion2
+    this.user.securityQuestions[2].answer = newUser.securityQuestion3
     if (this.data.newUser) {
       this.user.date_created = new Date()
       this.user.date_modified = new Date()
