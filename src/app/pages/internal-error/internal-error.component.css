@@ -18,6 +18,7 @@
   color: white;
   font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
   font-size: 42px;
+  line-height: 4.5vh;
 }
 
 .button-style {
@@ -29,8 +30,18 @@
   padding-right: 20px;
 }
 
+.attribution {
+  color: white;
+  position: absolute;
+  top: 775px;
+  left: 1550px;
+  text-decoration: none;
+  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  font-size: 28px;
+}
+
 button {
   position: absolute;
-  top: 205px;
+  top: 250px;
   left: 240px;
 }

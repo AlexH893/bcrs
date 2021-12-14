@@ -19,29 +19,31 @@
   color: white;
   font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
   font-size: 42px;
+  line-height: 4.5vh;
 }
 
-a {
+.attribution {
   color: white;
   position: absolute;
-  top: 230px;
-  left: 150px;
+  top: 775px;
+  left: 1600px;
+  text-decoration: none;
   font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
   font-size: 28px;
 }
 
 .button-style {
   font-family: 'Castoro', Arial, Helvetica, sans-serif;
-  border: solid #616161;
+  border: solid white;
   border-radius: 10%;
-  color: #616161;
+  color: white;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 button {
   position: absolute;
-  top: 205px;
+  top: 250px;
   left: 240px;
 }
 

@@ -9,14 +9,22 @@
 */
 
 .large-card{
-  margin: 20px;
+  width: 80%;
+  position: fixed;
+  top: 50%;
+  left: 51%;
+  transform: translate(-50%, -50%);
   background-color: #e2ddd8;
 }
+
+
+
 
 .example-card {
   background-color: #f2efeb;
   height: 84%;
   width: 90%;
+
   font-size: 18px;
   line-height: 1.5;
   font-family:'Abhaya Libre', serif;
@@ -66,7 +74,7 @@ mat-hint{
 
 .image{
   filter: grayscale(100%);
-  margin-top: 25%;
+  margin-top: 20%;
   float: right;
   width: 36%;
   height: auto;

@@ -1,3 +1,14 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Create Question Component
+==========================================
+*/
+
+/* Style the dialog container */
 .container {
   width: 40%;
   margin-left: 3px;
@@ -12,6 +23,7 @@
   background-color: #f2efeb;
 }
 
+/* Style the title */
 .title {
   font-family: 'Castoro', Arial, Helvetica, sans-serif;
   font-size: 32px;
@@ -19,15 +31,18 @@
   text-align: center;
 }
 
+/* Set the width of the input underline */
 .input {
-  width: 700px;
+  width: 100%;
 }
 
+/* Move the buttons to the left */
 .button-left {
   margin-left: 275px;
   margin-right: 50px;
 }
 
+/* Set the carat color */
 ::ng-deep.input {
   caret-color: #6c4656;
 }

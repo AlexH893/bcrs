@@ -7,6 +7,8 @@
 ; Description: User-config Component
 ==========================================
 -->
+
+
 <mat-card class="card">
 
   <h1 class="title">Create Account</h1>
@@ -15,111 +17,148 @@
     <!-- Step 1 - Contact Info-->
     <mat-step class="required" errorMessage="Contact Information Required">
       <ng-template matStepLabel>Contact Information</ng-template>
-      <form [formGroup]="contactForm">
-        <mat-form-field>
-          <input matInput placeholder="First Name" type="text" [formControl]="contactForm.controls['firstName']">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Last Name" type="text" [formControl]="contactForm.controls['lastName']">
-        </mat-form-field>
-        <br/>
+      <div>
+        <form class="contact-info" fxLayout="column" [formGroup]="contactForm">
+          <div fxLayout="row" fxLayoutGap="5%">
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="First Name" type="text" [formControl]="contactForm.controls['firstName']">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Last Name" type="text" [formControl]="contactForm.controls['lastName']">
+              </mat-form-field>
+            </div>
+          </div>
 
-        <mat-form-field>
-          <input matInput placeholder="Phone Number"  type="text" [formControl]="contactForm.controls['phoneNum']">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Email"  type="text" [formControl]="contactForm.controls['email']">
-        </mat-form-field>
-        <br/>
+          <div fxLayout="row" fxLayoutGap="5%">
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Phone Number"  type="text" [formControl]="contactForm.controls['phoneNum']">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Email"  type="text" [formControl]="contactForm.controls['email']">
+              </mat-form-field>
+            </div>
+          </div>
 
-        <mat-form-field>
-          <input matInput placeholder="Address"  type="text" [formControl]="contactForm.controls['address']">
-        </mat-form-field>
-        <br/>
+          <div>
+            <mat-form-field class="wide-input">
+              <input matInput placeholder="Address" type="text" [formControl]="contactForm.controls['address']">
+            </mat-form-field>
+          </div>
 
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+
+        </form>
+      </div>
     </mat-step>
+
 
     <!-- Step 2 - Security Question Info-->
     <mat-step>
+
       <ng-template matStepLabel>Security Questions</ng-template>
-        <form [formGroup]="questionsForm">
-          <mat-form-field>
-            <mat-label>Select Security Question</mat-label>
-            <mat-select [formControl] = "questionsForm.controls['question1']">
-              <mat-option *ngFor = "let question of questions" [value]="question._id">
-                    {{ question.text }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Answer" [formControl] = "questionsForm.controls['answer1']">
-          </mat-form-field>
-          <br/>
+        <div fxLayout="column">
+        <form class="contact-info" [formGroup]="questionsForm">
+          <div fxLayout="row" fxLayoutGap="5%">
+            <div>
+              <mat-form-field>
+                <mat-label>Select Security Question</mat-label>
+                <mat-select [formControl] = "questionsForm.controls['question1']">
+                  <mat-option *ngFor = "let question of questions" [value]="question._id">
+                        {{ question.text }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Answer" [formControl] = "questionsForm.controls['answer1']">
+              </mat-form-field>
+            </div>
+          </div>
 
-          <mat-form-field>
-            <mat-label>Select Security Question</mat-label>
-            <mat-select [formControl] = "questionsForm.controls['question2']">
-              <mat-option *ngFor = "let question of questions" [value]="question._id">
-                    {{ question.text }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Answer" [formControl] = "questionsForm.controls['answer2']">
-          </mat-form-field>
-          <br/>
+          <div fxLayout="row" fxLayoutGap="5%">
+            <div>
+              <mat-form-field>
+                <mat-label>Select Security Question</mat-label>
+                <mat-select [formControl] = "questionsForm.controls['question2']">
+                  <mat-option *ngFor = "let question of questions" [value]="question._id">
+                        {{ question.text }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Answer" [formControl] = "questionsForm.controls['answer2']">
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="5%">
+            <div>
+              <mat-form-field>
+                <mat-label>Select Security Question</mat-label>
+                <mat-select [formControl] = "questionsForm.controls['question3']">
+                  <mat-option *ngFor = "let question of questions" [value]="question._id">
+                        {{ question.text }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Answer" [formControl] = "questionsForm.controls['answer3']">
+              </mat-form-field>
+            </div>
+          </div>
 
-          <mat-form-field>
-            <mat-label>Select Security Question</mat-label>
-            <mat-select [formControl] = "questionsForm.controls['question3']">
-              <mat-option *ngFor = "let question of questions" [value]="question._id">
-                    {{ question.text }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Answer" [formControl] = "questionsForm.controls['answer3']">
-          </mat-form-field>
-          <br/>
 
-
-          <div>
+          <div class="move-buttons">
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext>Next</button>
           </div>
         </form>
+        </div>
     </mat-step>
 
     <!-- Step 3 - Credentials Info-->
     <mat-step>
       <ng-template matStepLabel>Credentials</ng-template>
-        <form [formGroup]="credentialsForm">
+        <div>
+          <form [formGroup]="credentialsForm">
+            <div class="position-form">
+              <div>
+                <mat-form-field>
+                  <input matInput placeholder="Username" type="text" [formControl]="credentialsForm.controls['userName']">
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field>
+                  <input matInput type="password" placeholder="Password" [formControl]="credentialsForm.controls['password']">
+                </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Username" type="text" [formControl]="credentialsForm.controls['userName']">
-          </mat-form-field>
-          <br/>
-
-          <mat-form-field>
-            <input matInput type="password" placeholder="Password" [formControl]="credentialsForm.controls['password']">
-          </mat-form-field>
-
-          <mat-error *ngIf="credentialsForm.controls['password'].invalid &&
-            !credentialsForm.controls['password'].pristine">
-            The Password must be 8 characters long with a capital letter and a number
-          </mat-error>
+                <mat-error *ngIf="credentialsForm.controls['password'].invalid &&
+                  !credentialsForm.controls['password'].pristine">
+                  The Password must be 8 characters long with a capital letter and a number
+                </mat-error>
+              </div>
+            </div>
 
 
 
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="register()">Register</button>
-          </div>
-        </form>
+            <div class="move-buttons">
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button (click)="register()">Register</button>
+            </div>
+          </form>
+        </div>
     </mat-step>
   </mat-horizontal-stepper>
 </mat-card>

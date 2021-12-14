@@ -8,31 +8,37 @@
 ==========================================
 */
 
+/* Logo */
 .logo {
-    margin-left: 75px;
-    font-size: 24px;
-    font-weight: lighter;;
+  margin-left: 75px;
+  font-size: 24px;
+  font-weight: lighter;
 }
 
+/* Style navbar container */
 .navbar-container {
   padding: 5px;
 }
 
+/* Style the navbar links */
 .navbar-link {
   font-size: 24px;
   font-weight: lighter;
 }
 
+/* Style the main content */
 .main-content {
   padding-left: 30px;
 }
 
+/* Style the footer */
 .footer {
   bottom: 0;
   position: absolute;
   width: 100%;
 }
 
+/* Style the footer text */
 .footer-content {
   font-size: 16px;
   font-weight: lighter;
@@ -40,10 +46,12 @@
   letter-spacing: 3px;
 }
 
+/* Style the footer link */
 .bu-link {
   text-decoration: none;
 }
 
+/* Style footer link hover */
 .bu-link:hover {
   text-decoration: underline;
 }
@@ -57,10 +65,12 @@
 mat-icon {
   color: #6e5945;
   font-size: 36px;
-
-
 }
 
 ::ng-deep .mat-toolbar {
   background-color: #f2efeb;
+}
+
+::ng-deep .input {
+  caret-color:#6c4656;
 }

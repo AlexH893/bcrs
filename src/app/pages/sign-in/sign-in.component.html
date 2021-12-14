@@ -21,13 +21,13 @@
         <p class="message">Please enter a valid username and password to proceed.</p>
         <div *ngIf="error != ''">{{ error }}</div>
 
-        <mat-form-field class="form" appearance="fill">
+        <mat-form-field class="form" appearance="standard">
           <mat-label>Enter your username</mat-label>
           <input matInput [formControl]="form.controls['username']" placeholder="Username" required>
         </mat-form-field>
         <br/>
 
-        <mat-form-field class="form" appearance="fill">
+        <mat-form-field class="form" appearance="standard">
           <mat-label>Enter your password</mat-label>
           <input matInput [formControl]="form.controls['password']" placeholder="Password" [type]="hide ? 'password' : 'text'">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
