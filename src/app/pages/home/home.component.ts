@@ -1,3 +1,12 @@
+/*
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 12 Dec 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Home
+; Sources: Getting MEAN with Mongo, Express, Angular, and Node, Second Edition,
+*/
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { InvoiceDialogComponent } from '../invoice-dialog/invoice-dialog.component';
@@ -30,13 +39,13 @@ export class HomeComponent implements OnInit {
   // open dialog to display selected services, parts, labor and total of invoice
   openDialog(): void {
     const dialogRef = this.dialog.open(InvoiceDialogComponent, {
-      data: { 
+      data: {
         services: JSON.parse(JSON.stringify (this.services)),
         laborHours: this.laborAmount,
         partsAmount: this.partsAmount
        }
     });
-   
+
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
