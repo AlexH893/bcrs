@@ -155,10 +155,7 @@ router.put("/users/:id", async (req, res) => {
           phoneNum: req.body.phoneNum,
           address: req.body.address,
           email: req.body.email,
-        });
-
-        user.role.set({
-          role: req.body.role,
+          role: req.body.role
         });
 
         user.save(function (err, savedUser) {
@@ -172,12 +169,6 @@ router.put("/users/:id", async (req, res) => {
             res.status(500).send(saveUserMongodbErrorResponse.toObject());
           } else {
             res.json(savedUser);
-            const saveUserResponse = new BaseResponse(
-              200,
-              "query success",
-              savedUser
-            );
-            res.json(saveUserResponse.toObject());
           }
         });
       }
