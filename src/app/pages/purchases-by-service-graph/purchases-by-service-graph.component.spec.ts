@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PurchasesByServiceGraphComponent } from './purchases-by-service-graph.component';
+import { PurchasesByServiceGraphComponentComponent } from './purchases-by-service-graph-component.component';
 
-describe('PurchasesByServiceGraphComponent', () => {
-  let component: PurchasesByServiceGraphComponent;
-  let fixture: ComponentFixture<PurchasesByServiceGraphComponent>;
+describe('PurchasesByServiceGraphComponentComponent', () => {
+  let component: PurchasesByServiceGraphComponentComponent;
+  let fixture: ComponentFixture<PurchasesByServiceGraphComponentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PurchasesByServiceGraphComponent ]
+      declarations: [ PurchasesByServiceGraphComponentComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PurchasesByServiceGraphComponent);
+    fixture = TestBed.createComponent(PurchasesByServiceGraphComponentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -26,8 +26,12 @@
         </button>
 
         <div>
-          <button class="position-person" [matMenuTriggerFor]="options" mat-icon-button>
-          <mat-icon>person</mat-icon>
+          <button
+            class="position-person"
+            [matMenuTriggerFor]="options"
+            mat-icon-button
+          >
+            <mat-icon>person</mat-icon>
           </button>
 
           <mat-menu #options="matMenu">
@@ -59,10 +63,12 @@
               <mat-icon>help</mat-icon>
               Security Questions
             </button>
+            <button mat-menu-item routerLink="/purchases-by-service-graph">
+              <mat-icon>pie_chart</mat-icon>
+              Graph
+            </button>
           </mat-menu>
-
         </div>
-
       </div>
     </mat-toolbar>
   </nav>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InvoiceService } from 'src/app/shared/services/invoice.service';
+import { InvoiceService } from '../../../services/invoice.service';
 
 
 @Component({
@@ -13,14 +13,14 @@ export class PurchasesByServiceGraphComponent implements OnInit {
   itemCount = [];
   labels = [];
 
-/*
+
   constructor(private invoiceService: InvoiceService) {
 
     /*
     * Calling the purchase-graph API
     */
 
-    this.invoiceService.findPurchasesByServiceGraph().subscribe(res => {
+    this.invoiceService.findPurchasesByServicesGraph().subscribe(res => {
 
       // Mapping the response data to the purchases var
       this.purchases = res['data'];

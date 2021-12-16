@@ -50,7 +50,8 @@ import { DatePipe } from '@angular/common';
 import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { RoleCreateEditComponent } from './pages/role-create-edit/role-create-edit.component';
-
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { ChartModule } from 'primeng/chart';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +75,7 @@ import { RoleCreateEditComponent } from './pages/role-create-edit/role-create-ed
     InvoiceDialogComponent,
     RoleConfigurationComponent,
     RoleCreateEditComponent,
+    PurchasesByServiceGraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,6 +103,7 @@ import { RoleCreateEditComponent } from './pages/role-create-edit/role-create-ed
     MatGridListModule,
     MatListModule,
     MatMenuModule,
+    ChartModule,
   ],
   providers: [
     CookieService,
