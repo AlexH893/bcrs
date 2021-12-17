@@ -30,18 +30,7 @@ export class InvoiceService {
     });
   }
 
-    createInvoice(userName: string, invoice: Invoice): Observable<any> {
-        return this.http.post(`/api/invoices/${userName}`, {
-            userName : userName,
-            lineItems: invoice.getLineItems(),
-            partsAmount: invoice.partsAmount,
-            laborAmount: invoice.getLaborAmount(),
-            lineItemTotal: invoice.getLineItemTotal(),
-            total: invoice.getTotal()
-        })
-    }
-
-    findPurchasesByServicesGraph(): Observable<any> {
-        return this.http.get(`/api/invoices/purchases-graph`);
-    }
+  findPurchasesByServicesGraph(): Observable<any> {
+    return this.http.get(`/api/invoices/purchases-graph`);
+  }
 }
