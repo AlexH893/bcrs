@@ -10,8 +10,7 @@
 
 /**
  * Require statements
- */
-
+*/
 const express = require("express");
 const http = require("http");
 const morgan = require("morgan");
@@ -20,10 +19,14 @@ const path = require("path");
 const mongoose = require("mongoose");
 const { Router } = require("express");
 const { userInfo } = require("os");
-
 let userRoutes = require("./api/user-routes.js");
 let questionRoutes = require("./api/question-routes.js");
 let sessionRoutes = require("./api/session-routes.js");
+let roleRoutes = require("./api/role-routes.js");
+let invoiceRoutes = require("./api/invoice-routes.js");
+
+
+var cors = require("cors");
 
 /**
  * App configurations
@@ -34,6 +37,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "../dist/bcrs")));
 app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
+
+app.use(cors());
 
 /**
  * Variables
@@ -66,47 +71,10 @@ app.use("/api/session", sessionRoutes);
 
 app.use("/api", [questionRoutes, userRoutes]);
 
-/* Sign-in */
-app.post("/api/sessions/sign-in", async (req, res) => {
-  try {
-    User.findOne(
-      {
-        userName: req.body.userName,
-      },
-      function (err, user) {
-        if (err) res.status(501).send("MongoDB exception");
+app.use("/api/roles", roleRoutes);
 
-        //Create object literal named newRegisteredUser, map the RequestBody values to the objects properties
-        if (user) {
-          //Compare the RequestBody password against the saved users password using the bcrypt.compareSync() function
-          let passwordIsValid = bcrypt.compareSync(
-            req.body.password,
-            user.password
-          );
+app.use("/api/invoice", invoiceRoutes);
 
-          //Checks if password is valid
-          if (passwordIsValid) {
-            //Returns message for status 200
-            console.log("Password is valid!");
-            res.status(200).send({ message: "User logged in" });
-          } else {
-            res.status(401).send("Invalid username and/or password");
-          }
-        }
-
-        if (!user) res.status(401).send("Invalid username and/or password");
-      }
-    );
-  } catch (e) {
-    console.log(e);
-    const registerUserCatchErrorResponse = new ErrorResponse(
-      "500",
-      "Internal server error",
-      e.message
-    );
-    res.status(500).send(registerUserCatchErrorResponse.toObject());
-  }
-});
 
 /**
  * Create and start server

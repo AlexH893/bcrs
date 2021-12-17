@@ -1,4 +1,13 @@
+/*
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 12 Dec 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Invoice-Routes
+; Sources: Getting MEAN with Mongo, Express, Angular, and Node, Second Edition,
+*/
 
+/* Size, position and style main container */
 .container {
   width: 45%;
   position: fixed;
@@ -8,25 +17,55 @@
   text-align: center;
   padding-top: 50px;
   padding-bottom: 50px;
+  border-radius: 1%;
+  background-color: #f2efeb
 }
 
-
+/* Adjust position and width of the address input underline */
 ::ng-deep .wide-input{
-    width: 560px !important;
+    width: 311% !important;
+    margin-left: -106%;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color:#6c4656 !important;;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #6c4656 !important;
+}
+
+/* Set carat color */
+::ng-deep .mat-form-field .input {
+  caret-color:#6c4656;
+}
+
+::ng-deep .mat-select-arrow {
+  margin-left: -30%;
+}
+
+::ng-deep .select-field {
+  display: flex;
+  width:160%
 }
 
 
-button {
+.button-left {
   margin-top: 30px;
+  margin-right: 60px;
 }
 
 mat-card-title {
   margin-bottom: 50px;
+  font-family: 'Castoro', Arial, Helvetica, sans-serif;
+  font-size: 36px;
 }
 
-mat-select {
-  margin-top: -25px;
-}
+
+
+
 
 
 

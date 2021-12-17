@@ -1,19 +1,29 @@
-<div fxFlexLayout="column">
-  <mat-card class="container">
-    <mat-card-title>Create Account</mat-card-title>
-    <form>
+<!--
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: User-config Component
+==========================================
+-->
+
+<div fxFlexLayout="column" class="dialog">
+  <mat-card style="background-color: #f2efeb;"class="container">
+    <mat-card-title>{{title}} User</mat-card-title>
+    <form [formGroup]="createUserForm">
 
       <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
         <div>
           <mat-form-field>
             <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Last Name" type="name" name="lastName" [(ngModel)]="user.lastName">
+            <input class="input" matInput placeholder="Last Name" type="name" name="lastName" [formControl]="createUserForm.controls['lastName']">
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
             <mat-label>First Name</mat-label>
-            <input matInput placeholder="First Name" type="name" name="firstName" [(ngModel)]="user.firstName">
+            <input class="input" matInput placeholder="First Name" type="name" name="firstName" [formControl]="createUserForm.controls['firstName']">
           </mat-form-field>
         </div>
       </div>
@@ -22,13 +32,13 @@
         <div>
           <mat-form-field>
             <mat-label>Username</mat-label>
-            <input matInput placeholder="Username" type="name" name="userName" [(ngModel)]="user.userName">
+            <input class="input" matInput placeholder="Username" type="name" name="userName" [formControl]="createUserForm.controls['userName']">
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
             <mat-label>Phone</mat-label>
-            <input matInput placeholder="Ex: 123-456-7890" type="tel" name="phone" [(ngModel)]="user.phoneNum">
+            <input class="input" matInput placeholder="Ex: 123-456-7890" type="tel" name="phone" [formControl]="createUserForm.controls['phone']">
           </mat-form-field>
         </div>
       </div>
@@ -37,41 +47,46 @@
         <div>
           <mat-form-field class="wide-input">
             <mat-label>Address</mat-label>
-            <input matInput placeholder="Ex: 123 Central Ave. Austin, Texas" type="text" name="address" [(ngModel)]="user.address" size="300">
+            <input class="input" matInput placeholder="Ex: 123 Central Ave. Austin, Texas" type="text" name="address" size="300" [formControl]="createUserForm.controls['address']">
           </mat-form-field>
         </div>
       </div>
 
       <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
         <div>
-          <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" type="email" name="email" [(ngModel)]="user.email">
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field>
+          <mat-form-field class="select-field" appearance="standard">
             <mat-label>User Role</mat-label>
-            <input matInput placeholder="User Role" type="text" name="userRole" [(ngModel)]="user.role">
+            <mat-select class="select-field" [(value)]="user.role._id" name="userRole" [formControl]="createUserForm.controls['userRole']">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let role of roles" [value]="role._id">{{role.text}}</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
+
+        <div>
+          <mat-form-field appearance="standard">
+            <mat-label>Email</mat-label>
+            <input class="input" matInput placeholder="Email" type="email" name="email" [formControl]="createUserForm.controls['email']">
+          </mat-form-field>
+        </div>
+
       </div>
 
       <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
         <div>
-          <mat-form-field appearance="standard">
+          <mat-form-field class="select-field" appearance="standard">
             <mat-label>Security Question 1</mat-label>
-            <mat-select [(value)]="user.securityQuestions[0].text" name="securityQuestion1text">
+            <mat-select name="securityQuestion1text" [formControl]="createUserForm.controls['securityQuestion1text']">
               <mat-option>None</mat-option>
-              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion">{{securityQuestion}}</mat-option>
+              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion._id">{{securityQuestion.text}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
 
         <div>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Answer</mat-label>
-            <input matInput type="text" name="securityQuestion1" [(ngModel)]="user.securityQuestions[0].answer">
+            <input class="input" matInput type="text" name="securityQuestion1" [formControl]="createUserForm.controls['securityQuestion1']">
           </mat-form-field>
         </div>
 
@@ -79,26 +94,47 @@
 
       <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
         <div>
-          <mat-form-field appearance="standard">
+          <mat-form-field class="select-field" appearance="standard">
             <mat-label>Security Question 2</mat-label>
-            <mat-select [(value)]="user.securityQuestions[1].text" name="securityQuestion2text">
+            <mat-select name="securityQuestion2text" [formControl]="createUserForm.controls['securityQuestion2text']">
               <mat-option>None</mat-option>
-              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion">{{securityQuestion}}</mat-option>
+              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion._id">{{securityQuestion.text}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
 
         <div>
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-label>Answer</mat-label>
-            <input matInput type="text" name="securityQuestion2" [(ngModel)]="user.securityQuestions[1].answer">
+            <input class="input" matInput type="text" name="securityQuestion2" [formControl]="createUserForm.controls['securityQuestion2']">
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="200px" fxLayoutAlign="center">
+        <div>
+          <mat-form-field class="select-field" appearance="standard">
+            <mat-label>Security Question 3</mat-label>
+            <mat-select name="securityQuestion3text" [formControl]="createUserForm.controls['securityQuestion3text']">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let securityQuestion of securityQuestions" [value]="securityQuestion._id">{{securityQuestion.text}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="standard">
+            <mat-label>Answer</mat-label>
+            <input class="input" matInput type="text" name="securityQuestion3" [formControl]="createUserForm.controls['securityQuestion3']">
           </mat-form-field>
         </div>
 
       </div>
 
       <div>
-          <button mat-raised-button (click)="onSubmit()" color="primary">Submit</button>
+        <button class="button-left" mat-button (click)="cancel()">Cancel</button>
+        <button class="button-right" mat-button (click)="onSubmit()">{{title}}</button>
       </div>
 
     </form>

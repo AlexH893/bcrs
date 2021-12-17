@@ -1,9 +1,12 @@
 /*
- * Author: Alex Haefner
- * Date: 11.25.2021
- * Description: Contains REST APIs that allow for communication between application &
- * database, performing CRUD functions
- */
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 12 Dec 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Invoice-Routes
+; Sources: Getting MEAN with Mongo, Express, Angular, and Node, Second Edition,
+*/
+
 
 var express = require("express");
 const router = express.Router();
@@ -69,10 +72,8 @@ router.put("/security-questions/:id", async (req, res) => {
         });
       } else {
 
+        question.text = req.body.text
 
-        question.set({
-          text: req.body.text,
-        });
 
         question.save(function (err, updatedQuestion) {
           if (err) {

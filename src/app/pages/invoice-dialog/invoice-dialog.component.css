@@ -1,0 +1,48 @@
+/*
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 12 Dec 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Invoice Dialog
+; Sources: Getting MEAN with Mongo, Express, Angular, and Node, Second Edition,
+*/
+
+.container {
+  width: 30%;
+  margin-left: 3px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  padding-top: 50px;
+  padding-bottom: 10px;
+  border-radius: 1%;
+  background-color: #e2ddd8;
+  font-family:'Abhaya Libre', serif;
+  box-shadow: 2px 2px 2px 2px grey;
+}
+
+.services{
+  list-style-type: none;
+  text-align: left;
+  font-family:'Abhaya Libre', serif;
+  width: 40%;
+  line-height: 1.5;
+}
+
+.title {
+  font-family: 'Castoro', serif;
+  font-size: 32px;
+  font-weight: normal;
+  text-align: center;
+}
+
+button{
+  width: 40%;
+  font-family: 'Castoro', serif;
+  left: 10%;
+  background-color: #f2efeb;
+
+}
+

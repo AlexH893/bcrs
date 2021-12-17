@@ -4,7 +4,7 @@
 ; Author: Professor Krasso
 ; Date: 27 November 2021
 ; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: User-config Component
+; Description: app routing
 ==========================================
 */
 
@@ -21,7 +21,12 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { InternalErrorComponent } from './pages/internal-error/internal-error.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
-import { AccountRegistrationComponent } from './pages/account-registration/account-registration.component'
+import { AccountRegistrationComponent } from './pages/account-registration/account-registration.component';
+import { ForgotPasswordUsernameComponent } from './pages/forgot-password-username/forgot-password-username.component';
+import { ForgotPasswordQuestionsComponent } from './pages/forgot-password-questions/forgot-password-questions.component';
+import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/forgot-password-confirm.component';
+import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
+import { RoleGuard } from './shared/role.guard';
 
 const routes: Routes = [
   {
@@ -46,12 +51,12 @@ const routes: Routes = [
       {
         path: 'user-configuration',
         component: UserConfigurationComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, RoleGuard],
       },
       {
         path: 'security-questions',
         component: SecurityQuestionsComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, RoleGuard],
       },
       {
         path: 'verify-security-questions',
@@ -60,9 +65,13 @@ const routes: Routes = [
       },
       {
         path: 'account-registration',
-        component: AccountRegistrationComponent,
-        canActivate: [AuthGuard],
+        component: AccountRegistrationComponent
       },
+      {
+        path: 'role-configuration',
+        component: RoleConfigurationComponent,
+        canActivate: [AuthGuard, RoleGuard]
+      }
     ],
   },
   {
@@ -73,14 +82,33 @@ const routes: Routes = [
         path: 'sign-in',
         component: SignInComponent,
       },
-
       {
-        path: 'not-found',
-        component: PageNotFoundComponent,
+        path: 'forgot-password',
+        children: [
+          {
+            path: '',
+            component: ForgotPasswordUsernameComponent
+          },
+          {
+            path: 'confirm',
+            component: ForgotPasswordConfirmComponent
+          },
+          {
+            path: ':username',
+            component: ForgotPasswordQuestionsComponent
+          }
+
+        ]
+
       },
+
       {
         path: 'internal-error',
         component: InternalErrorComponent
+      },
+      {
+        path: 'not-found',
+        component: PageNotFoundComponent
       },
     ],
   },

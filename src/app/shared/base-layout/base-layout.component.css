@@ -8,42 +8,69 @@
 ==========================================
 */
 
+/* Logo */
 .logo {
-    margin-left: 75px;
-    font-size: 24px;
-    font-weight: lighter;;
-  }
+  margin-left: 75px;
+  font-size: 24px;
+  font-weight: lighter;
+}
 
-  .navbar-container {
-    padding: 5px;
-  }
+/* Style navbar container */
+.navbar-container {
+  padding: 5px;
+}
 
-  .navbar-link {
-    font-size: 24px;
-    font-weight: lighter;
-  }
+/* Style the navbar links */
+.navbar-link {
+  font-size: 24px;
+  font-weight: lighter;
+}
 
-  .main-content {
-    padding-left: 30px;
-  }
+/* Style the main content */
+.main-content {
+  padding-left: 30px;
+}
 
-  .footer {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-  }
+/* Style the footer */
+.footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
 
-  .footer-content {
-    font-size: 16px;
-    font-weight: lighter;
-    padding-left: 100px;
-    letter-spacing: 3px;
-  }
+/* Style the footer text */
+.footer-content {
+  font-size: 16px;
+  font-weight: lighter;
+  padding-left: 100px;
+  letter-spacing: 3px;
+}
 
-  .bu-link {
-    text-decoration: none;
-  }
+/* Style the footer link */
+.bu-link {
+  text-decoration: none;
+}
 
-  .bu-link:hover {
-    text-decoration: underline;
-  }
+/* Style footer link hover */
+.bu-link:hover {
+  text-decoration: underline;
+}
+
+.position-person {
+  position: absolute;
+  right: 150px;
+  top: 12px;
+}
+
+mat-icon {
+  color: #6e5945;
+  font-size: 36px;
+}
+
+::ng-deep .mat-toolbar {
+  background-color: #f2efeb;
+}
+
+::ng-deep .input {
+  caret-color:#6c4656;
+}

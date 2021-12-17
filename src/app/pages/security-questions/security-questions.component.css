@@ -8,35 +8,61 @@
 ==========================================
 */
 
+/* Container styling */
 .container {
-  width: 55%;
+  width: 45%;
   position: fixed;
-  top: 30%;
-  left: 50%;
+  top: 33%;
+  left: 48%;
   transform: translate(-50%, -50%);
-  box-shadow: none;
+  background-color: #f2efeb;
   margin-top: 150px;
-
 }
 
-.security-questions {
-  margin-left: 28px;
-  justify-self: end;
-}
-
+/* Position Edit button */
 .edit-button {
   margin-left: 0px;
   padding-right: 75px;
-
 }
 
+/* Table styling */
+.table {
+  box-shadow: none;
+  background-color: #f2efeb;
+  text-align: center;
+}
 
+/* Changes the focus color of the input and label */
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color:#6c4656 !important;;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #6c4656 !important;
+}
+
+::ng-deep.input {
+  caret-color:#6c4656;
+}
+
+th.mat-header-cell {
+  font-family: 'Castoro', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  color: black;
+}
+
+td.mat-cell {
+  font-family: 'Abhaya Libre', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
 
 h1 {
-  font-size: 34px;
+  font-family: 'Castoro', Arial, Helvetica, sans-serif;
+  font-size: 36px;
   font-weight: normal;
-
-
 }
 
 h2 {
@@ -46,6 +72,7 @@ h2 {
 }
 
 h3 {
+  font-family: 'Castoro', Arial, Helvetica, sans-serif;
   font-size: 16px;
   margin-left: 10px;
 }
@@ -56,7 +83,12 @@ h4 {
 
 mat-card {
   margin: 40px;
+  padding-top: 25px;
   box-shadow: none;
+}
+
+mat-icon {
+  color: #6e5945 !important;
 }
 
 

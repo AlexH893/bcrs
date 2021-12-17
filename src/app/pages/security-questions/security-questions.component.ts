@@ -1,3 +1,13 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Security Questions Component
+==========================================
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { CreateQuestionDialogComponent } from 'src/app/shared/create-question-dialog/create-question-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,7 +34,7 @@ export class SecurityQuestionsComponent implements OnInit {
   //Task dialog to open when user hits button
   openCreateQuestionDialog(): void {
     const dialogRef = this.dialog.open(CreateQuestionDialogComponent, {
-      width: '250px',
+      width: '600px',
       data: {
         question: {
           text: '',
@@ -58,7 +68,7 @@ export class SecurityQuestionsComponent implements OnInit {
 
   updateQuestion(question: SecurityQuestion): void {
     const dialogRef = this.dialog.open(CreateQuestionDialogComponent, {
-      width: '250px',
+      width: '600px',
       data: {
         question: question,
         newQuestion: false,

@@ -1,9 +1,13 @@
-/**
- * Title: auth.guard.ts
- * Author: Alex Haefner, Sarah Baptiste, Angie Martin
- * Date: 29 Nov 2021
- * Description: The auth guard file for bcrs
- */
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 12 Dec 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: auth guard
+===========================================
+*/
+
 
 import { Injectable } from '@angular/core';
 import {
@@ -29,14 +33,14 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return true;
+
 
     const sessionUser = this.cookieService.get('session_user');
 
     if (sessionUser) {
       return true;
     } else {
-      this.router.navigate(['/session/signin']);
+      this.router.navigate(['/session/sign-in']);
 
       return false;
     }

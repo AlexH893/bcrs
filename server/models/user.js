@@ -11,7 +11,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const { questionSchema } = require("./security-questions");
-const { roleSchema } = require("./role");
+const userRoleSchema = require("./user-role");
 
 let userSchema = new Schema(
   {
@@ -25,8 +25,17 @@ let userSchema = new Schema(
     address: { type: String },
     email: { type: String },
     isDisabled: { type: Boolean, required: true, default: false },
-    role: roleSchema,
-    securityQuestions: [questionSchema],
+    role: {
+      type: Schema.Types.ObjectId,
+      ref: "Role"
+    },
+    securityQuestions: [new Schema({
+      answer: { type: String } /* The question answer */,
+      question: {
+        type: Schema.Types.ObjectId,
+        ref: "SecurityQuestions"
+      }
+    })],
     date_created: { type: Date },
     date_modified: { type: Date },
     /*invoice: [InvoiceDocument]  Needs created */

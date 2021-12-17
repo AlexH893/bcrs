@@ -4,7 +4,7 @@
 ; Author: Professor Krasso
 ; Date: 27 November 2021
 ; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: User-config Component
+; Description: app module
 ==========================================
 */
 
@@ -31,12 +31,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import {
+  MatDialogModule,
+  MAT_DIALOG_DEFAULT_OPTIONS,
+} from '@angular/material/dialog';
 import { CookieService } from 'ngx-cookie-service';
 import { VerifySecurityQuestionsComponent } from './pages/verify-security-questions/verify-security-questions.component';
 import { CommonModule } from '@angular/common';
 import { CreateQuestionDialogComponent } from './shared/create-question-dialog/create-question-dialog.component';
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -44,10 +47,21 @@ import { InternalErrorComponent } from './pages/internal-error/internal-error.co
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { AccountRegistrationComponent } from './pages/account-registration/account-registration.component';
-import {MatStepperModule} from '@angular/material/stepper';
-import {CdkStepperModule} from '@angular/cdk/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatTableModule } from '@angular/material/table';
-
+import { ForgotPasswordUsernameComponent } from './pages/forgot-password-username/forgot-password-username.component';
+import { ForgotPasswordQuestionsComponent } from './pages/forgot-password-questions/forgot-password-questions.component';
+import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/forgot-password-confirm.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { InvoiceDialogComponent } from './pages/invoice-dialog/invoice-dialog.component';
+import { DatePipe } from '@angular/common';
+import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { RoleCreateEditComponent } from './pages/role-create-edit/role-create-edit.component';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { ChartModule } from 'primeng/chart';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +78,14 @@ import { MatTableModule } from '@angular/material/table';
     InternalErrorComponent,
     AboutUsComponent,
     ContactUsComponent,
-    AccountRegistrationComponent
+    AccountRegistrationComponent,
+    ForgotPasswordUsernameComponent,
+    ForgotPasswordQuestionsComponent,
+    ForgotPasswordConfirmComponent,
+    InvoiceDialogComponent,
+    RoleConfigurationComponent,
+    RoleCreateEditComponent,
+    PurchasesByServiceGraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,11 +109,17 @@ import { MatTableModule } from '@angular/material/table';
     MatSelectModule,
     MatStepperModule,
     CdkStepperModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule,
+    MatListModule,
+    MatMenuModule,
+    ChartModule,
   ],
   providers: [
-    CookieService
+    CookieService,
+    DatePipe,
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

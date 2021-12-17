@@ -1,8 +1,23 @@
+/*
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 12 Dec 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Invoice-Routes
+; Sources: Getting MEAN with Mongo, Express, Angular, and Node, Second Edition,
+*/
+
+
 /* Card Styling */
 .card{
   background-color: #f2efeb;
   margin: 20px 60px 0px 40px;
   padding: 40px;
+  top: 25%
+}
+
+.contact-info {
+  margin-top: 2%;
 }
 
 .stepper{
@@ -10,9 +25,56 @@
   font-family:'Abhaya Libre', serif;
 }
 
+/* Title styling */
 .title{
   text-align: center;
   font-size: 36px;
   margin-top: 60px;
   font-family:'Castoro', serif;
 }
+
+/* make the address input wider */
+.wide-input {
+  width: 26.7%;
+}
+
+/* Position the form */
+.position-form {
+  margin-top: 2%;
+  margin-left: 6.5%;
+}
+ /* Move the buttons to the right */
+.move-buttons {
+  margin-left: -10% ;
+}
+
+/* change the color of the mat-step-icon */
+::ng-deep .mat-step-icon {
+  background-color: #6c5c47 !important;
+}
+
+/* Change the color of the mat-step-icon when selected */
+::ng-deep .mat-step-icon-selected {
+  background-color: #6c4656 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color:#6c4656 !important;;
+ }
+
+ ::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #6c4656 !important;
+  caret-color:#6c4656;
+ }
+
+/* Change the color of the focused carat */
+::ng-deep .mat-focused .input {
+  caret-color:#6c4656;
+}
+
+button {
+  margin-left: 11%;
+}
+

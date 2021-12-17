@@ -18,7 +18,8 @@ const saltRounds = 10;
 /*
  * Register user
  */
-router.post("/api/session/register", async (req, res) => {
+
+router.post("/register", async (req, res) => {
   try {
     User.findOne({ userName: req.body.userName }, function (err, user) {
       if (err) {
@@ -95,7 +96,12 @@ router.post("/api/session/register", async (req, res) => {
  */
 router.get("/verify/users/:userName", async (req, res) => {
   try {
-    User.findOne({ userName: req.params.userName }, function (err, user) {
+    User.findOne({ userName: req.params.userName }).
+    populate({
+      path: "securityQuestions",
+      populate: {path: "question"}
+    }).
+    exec(function (err, user) {
       if (user) {
         if (err) {
           console.log(err);
@@ -203,7 +209,12 @@ router.post("/users/:userName/reset-password", async (req, res) => {
  */
 router.post("/verify/users/:userName/security-questions", async (req, res) => {
   try {
-    User.findOne({ userName: req.params.userName }, function (err, user) {
+    User.findOne({ userName: req.params.userName }).
+    populate({
+      path: "securityQuestions",
+      populate: {path: "question"}
+    }).
+    exec(function (err, user) {
       if (err) {
         console.log(err);
         const verifySecurityQuestionsMongodbErrorResponse = new ErrorResponse(
@@ -218,21 +229,21 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
         console.log(user);
 
         const selectedSecurityQuestionOne = user.securityQuestions.find(
-          (q) => q.questionText === req.body.questionText1
+          (q) => q.question.text === req.body.questionText1
         );
         const selectedSecurityQuestionTwo = user.securityQuestions.find(
-          (q2) => q2.questionText === req.body.questionText2
+          (q2) => q2.question.text === req.body.questionText2
         );
         const selectedSecurityQuestionThree = user.securityQuestions.find(
-          (q3) => q3.questionText === req.body.questionText3
+          (q3) => q3.question.text === req.body.questionText3
         );
 
         const isValidAnswerOne =
-          selectedSecurityQuestionOne.answerText === req.body.questionText1;
+          selectedSecurityQuestionOne?.answer === req.body.answerText1;
         const isValidAnswerTwo =
-          selectedSecurityQuestionTwo.answerText === req.body.questionText2;
+          selectedSecurityQuestionTwo?.answer === req.body.answerText2;
         const isValidAnswerThree =
-          selectedSecurityQuestionThree.answerText === req.body.questionText3;
+          selectedSecurityQuestionThree?.answer === req.body.answerText3;
 
         if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
           console.log(
@@ -303,6 +314,48 @@ router.get("/:userName/security-questions", async (req, res) => {
     res
       .status(500)
       .send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
+  }
+});
+
+/* Sign-in */
+router.post("/sign-in", async (req, res) => {
+  try {
+    User.findOne(
+      {
+        userName: req.body.userName,
+      },
+      function (err, user) {
+        if (err) res.status(501).send("MongoDB exception");
+
+        //Create object literal named newRegisteredUser, map the RequestBody values to the objects properties
+        if (user) {
+          //Compare the RequestBody password against the saved users password using the bcrypt.compareSync() function
+          let passwordIsValid = bcrypt.compareSync(
+            req.body.password,
+            user.password
+          );
+
+          //Checks if password is valid
+          if (passwordIsValid) {
+            //Returns message for status 200
+            console.log("Password is valid!");
+            res.status(200).send({ message: "User logged in" });
+          } else {
+            res.status(401).send("Invalid username and/or password");
+          }
+        }
+
+        if (!user) res.status(401).send("Invalid username and/or password");
+      }
+    );
+  } catch (e) {
+    console.log(e);
+    const registerUserCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(registerUserCatchErrorResponse.toObject());
   }
 });
 

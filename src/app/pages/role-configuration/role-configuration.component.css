@@ -1,0 +1,82 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: User-config Component
+==========================================
+*/
+
+.container {
+  width: 45%;
+  position: fixed;
+  top: 33%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  background-color: #f2efeb;
+  margin-top: 150px;
+
+}
+
+.security-questions {
+  margin-left: 28px;
+  justify-self: end;
+}
+
+.edit-button {
+  margin-left: 0px;
+  padding-right: 75px;
+}
+
+.table {
+  box-shadow: none;
+  background-color: #f2efeb;
+  text-align: center;
+}
+
+th.mat-header-cell {
+  font-family: 'Castoro', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  color: black;
+}
+
+td.mat-cell {
+  font-family: 'Abhaya Libre', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+h1 {
+  font-family: 'Castoro', Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight:normal;
+  margin-left: 26px;
+}
+
+h3 {
+  font-family: 'Castoro', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+mat-card {
+  margin: 40px;
+  padding-top: 25px;
+  box-shadow: none;
+}
+
+mat-icon {
+  color: #6e5945 !important;
+}
+
+

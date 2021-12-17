@@ -1,3 +1,13 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Security Questions Component
+==========================================
+*/
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -32,7 +42,7 @@ export class SignInComponent implements OnInit {
     const userName = this.form.controls['username'].value;
     const password = this.form.controls['password'].value;
 
-    this.http.post('/api/session/signin', {userName, password}).subscribe((res: any) => {
+    this.http.post('/api/session/sign-in', {userName, password}).subscribe((res: any) => {
       if (res) {
 
         this.cookieService.set('session_user', userName);

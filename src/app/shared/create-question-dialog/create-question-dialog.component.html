@@ -1,25 +1,28 @@
 <!--
-=======================================================
-  Title: Nodebucket
-  Author: Professor Krasso
-  Date: 11/03/2021
-  Modified by: Sarah Jean Baptiste
-  Description: baselayout
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: create question dialog
 ========================================================
 -->
 
-<!-- Add new task dialog-->
-<h2 class="title" mat-dialog-title>Create a New Security Question</h2>
+<!-- Container -->
+<mat-card class="container">
+<!-- Add new question dialog -->
+  <h2 class="title" mat-dialog-title>{{titletext}}</h2>
 
-<!-- form to allow user to enter task-->
-<mat-dialog-content class="content" [formGroup]="questionForm">
-  <mat-form-field class="input" style="width: 200px;">
-    <input type="text" matInput formControlName="text" (keydown.enter)="createQuestion()">
-  </mat-form-field>
-</mat-dialog-content>
+  <!-- form to allow user to enter question -->
+  <mat-dialog-content class="content" [formGroup]="questionForm">
+    <mat-form-field class="input">
+      <input class="input" type="text" matInput formControlName="text" (keydown.enter)="createQuestion()">
+    </mat-form-field>
+  </mat-dialog-content>
 
-<!-- Button to create task and send to TODO list-->
-<mat-dialog-actions>
-  <button class="button" mat-button (click)="cancel()">Cancel</button>
-  <button class="button" mat-button [disabled]="!questionForm.valid" (click)="createQuestion()">Create</button>
-</mat-dialog-actions>
+  <!-- Button to create a new question and send to DB -->
+  <mat-dialog-actions>
+    <button class="button-left" mat-button (click)="cancel()">Cancel</button>
+    <button class="button-right" mat-button [disabled]="!questionForm.valid" (click)="createQuestion()">{{submitbuttontext}}</button>
+  </mat-dialog-actions>
+</mat-card>

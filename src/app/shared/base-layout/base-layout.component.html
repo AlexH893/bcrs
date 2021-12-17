@@ -4,12 +4,11 @@
 ; Author: Professor Krasso
 ; Date: 27 November 2021
 ; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: User-config Component
+; Description: base layout
 ==========================================
 -->
 
 <div fxLayout="column">
-
   <!-- navigation -->
   <nav fxFlex>
     <mat-toolbar>
@@ -19,16 +18,58 @@
         <button class="logo" routerLink="/" mat-button>BCRS</button>
 
         <button class="navbar-link" routerLink="/" mat-button>Home</button>
-        <button class="navbar-link" routerLink="/about-us" mat-button>About Us</button>
-        <button class="navbar-link" routerLink="/contact-us" mat-button>Contact Us</button>
-        <button class="navbar-link" routerLink="/session/sign-in" mat-button>Sign-in</button>
-        <button class="navbar-link" routerLink="/user-configuration" mat-button>User Configuration</button>
-        <button class="navbar-link" routerLink="/security-questions" mat-button>security question config</button>
-        <button class="navbar-link" routerLink="/not-found" mat-button>Not Found</button>
-        <button class="navbar-link" routerLink="/account-registration" mat-button>Account Reg</button>
-        <button class="navbar-link" routerLink="/session/internal-error" mat-button>Internal Error</button>
-      </div>
+        <button class="navbar-link" routerLink="/about-us" mat-button>
+          About Us
+        </button>
+        <button class="navbar-link" routerLink="/contact-us" mat-button>
+          Contact Us
+        </button>
 
+        <div>
+          <button
+            class="position-person"
+            [matMenuTriggerFor]="options"
+            mat-icon-button
+          >
+            <mat-icon>person</mat-icon>
+          </button>
+
+          <mat-menu #options="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="configurations">
+              <mat-icon>settings</mat-icon>
+              Configurations
+            </button>
+            <button mat-menu-item routerLink="/session/sign-in">
+              <mat-icon>logout</mat-icon>
+              Sign Out
+            </button>
+
+            <button mat-menu-item routerLink="/session/sign-in">
+              <mat-icon>login</mat-icon>
+              Sign In
+            </button>
+          </mat-menu>
+
+          <mat-menu #configurations="matMenu">
+            <button mat-menu-item routerLink="/user-configuration">
+              <mat-icon>person_add</mat-icon>
+              Users
+            </button>
+            <button mat-menu-item routerLink="/role-configuration">
+              <mat-icon>security</mat-icon>
+              Roles
+            </button>
+            <button mat-menu-item routerLink="/security-questions">
+              <mat-icon>help</mat-icon>
+              Security Questions
+            </button>
+            <button mat-menu-item routerLink="/purchases-by-service-graph">
+              <mat-icon>pie_chart</mat-icon>
+              Graph
+            </button>
+          </mat-menu>
+        </div>
+      </div>
     </mat-toolbar>
   </nav>
 
@@ -44,10 +85,12 @@
     <footer class="footer">
       <mat-toolbar class="footer-content">
         <p>
-          &copy; {{year | date: 'yyyy'}} - Bob's Computer Repair Shop - <a href="https://www.bellevue.edu/" class="bu-link" target="_blank">Bellevue University</a>
+          &copy; {{ year | date: "yyyy" }} - Bob's Computer Repair Shop -
+          <a href="https://www.bellevue.edu/" class="bu-link" target="_blank"
+            >Bellevue University</a
+          >
         </p>
       </mat-toolbar>
     </footer>
   </div>
-
 </div>

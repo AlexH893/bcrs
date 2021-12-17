@@ -1,0 +1,57 @@
+<!--
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Invoice Dialog
+==========================================
+-->
+
+
+<mat-card class="container">
+
+  <!--main content-->
+  <h1 mat-dialog-title class="title">Invoice Summary</h1>
+
+  <mat-dialog-content>
+
+    <!--display current date-->
+      <strong>
+        {{ date | date: 'MMMM d, y' }}
+      </strong>
+    <hr>
+    <br/>
+
+    <!--display selected services-->
+    <strong>Services</strong>
+    <hr>
+        <div *ngFor = "let service of getSelectedServices()" class="services">
+          <span> {{ service.name }} </span>
+          &#160;
+          <span> {{ service.value | currency }} </span>
+        </div>
+        <br/>
+
+    <!--display parts fee and labor hours times 50-->
+    <strong>Parts & Labor</strong>
+    <hr>
+      <div class="parts-labor">
+        <p>Parts: {{ data.partsAmount | currency }}</p>
+        <p>Labor: {{ data.laborHours }} hours</p>
+      </div>
+      <br/>
+
+      <!--display invoice total-->
+    <hr>
+    <strong>Total Charges:</strong>
+      <div> {{ totalCharge | currency }}</div>
+  </mat-dialog-content>
+  <br/>
+
+  <!--button to close dialog-->
+  <mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Submit Order</button>
+    <button mat-raised-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</mat-card>

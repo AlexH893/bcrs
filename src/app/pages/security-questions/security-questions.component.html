@@ -10,19 +10,20 @@
 <mat-card  class="container" fxLayout="column">
   <div fxLayout="row" fxLayoutAlign="center">
     <div>
-      <h1>Security Question Configuration</h1>
+      <h1>Security Question Configuration<br></h1>
     </div>
   </div>
 
+  <br>
   <div fxLayout="row" fxLayoutAlign="flex-start">
     <div>
       <button mat-button style="text-decoration: underline;" (click)="openCreateQuestionDialog()">
-        <h3>Create a new security question</h3>
+        <h3>Create a New Security Question</h3>
       </button>
     </div>
   </div>
 
-  <table mat-table [dataSource]="questions" class="mat-elevation-z8">
+  <table mat-table [dataSource]="questions" class="mat-elevation-z8 table">
 
     <ng-container matColumnDef="text">
       <th mat-header-cell *matHeaderCellDef>Question</th>
@@ -33,11 +34,11 @@
       <th mat-header-cell *matHeaderCellDef>Functions</th>
       <td mat-cell *matCellDef="let securityQuestion; let i = index">
         <button mat-icon-button class="edit-button" (click)="updateQuestion(securityQuestion)">
-          <mat-icon color="primary">edit</mat-icon>
+          <mat-icon>edit</mat-icon>
         </button>
 
         <button mat-icon-button (click)="deleteQuestion(i)">
-          <mat-icon color="primary">delete</mat-icon>
+          <mat-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>

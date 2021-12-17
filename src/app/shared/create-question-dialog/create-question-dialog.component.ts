@@ -1,3 +1,13 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: create question dialog
+==========================================
+*/
+
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,10 +22,15 @@ import { HttpClient } from '@angular/common/http';
 export class CreateQuestionDialogComponent implements OnInit {
   questionForm: FormGroup;
   securityQuestion: SecurityQuestion;
+  titletext: String
+  submitbuttontext: String
   constructor(private dialogRef: MatDialogRef<CreateQuestionDialogComponent>, private fb: FormBuilder,
     private http: HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: {question: SecurityQuestion, newQuestion: boolean}) {
       this.securityQuestion = data.question
+      this.titletext = data.newQuestion? "Create a New Security Question" : "Edit Security Question"
+      this.submitbuttontext = data.newQuestion? "Create": "Edit"
+
     }
 
   ngOnInit(): void {
