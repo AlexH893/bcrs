@@ -81,7 +81,7 @@ router.get("/purchases-graph", async (req, res) => {
               price: "$lineItems.price",
             },
             count: {
-              $sum1: 1,
+              $sum: 1,
             },
           },
         },
