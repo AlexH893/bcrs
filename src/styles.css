@@ -4,11 +4,11 @@
 ; Author: Professor Krasso
 ; Date: 27 November 2021
 ; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: CSS
+; Description: User-config Component
 ==========================================
 */
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%; background-color: #f2efeb;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

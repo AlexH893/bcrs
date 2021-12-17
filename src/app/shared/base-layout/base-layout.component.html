@@ -4,7 +4,7 @@
 ; Author: Professor Krasso
 ; Date: 27 November 2021
 ; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: base layout
+; Description: User-config Component
 ==========================================
 -->
 
@@ -17,7 +17,7 @@
         <!-- logo -->
         <button class="logo" routerLink="/" mat-button>BCRS</button>
 
-        <button class="navbar-link" routerLink="/" mat-button>Home</button>
+        <button class="navbar-link" routerLink="/" mat-button>Services</button>
         <button class="navbar-link" routerLink="/about-us" mat-button>
           About Us
         </button>
@@ -26,12 +26,8 @@
         </button>
 
         <div>
-          <button
-            class="position-person"
-            [matMenuTriggerFor]="options"
-            mat-icon-button
-          >
-            <mat-icon>person</mat-icon>
+          <button class="position-person" [matMenuTriggerFor]="options" mat-icon-button>
+          <mat-icon>person</mat-icon>
           </button>
 
           <mat-menu #options="matMenu">
@@ -39,14 +35,17 @@
               <mat-icon>settings</mat-icon>
               Configurations
             </button>
-            <button mat-menu-item routerLink="/session/sign-in">
-              <mat-icon>logout</mat-icon>
-              Sign Out
+            <button mat-menu-item [matMenuTriggerFor]="reports">
+              <mat-icon>insert_chart</mat-icon>
+              Reports
             </button>
-
             <button mat-menu-item routerLink="/session/sign-in">
               <mat-icon>login</mat-icon>
               Sign In
+            </button>
+            <button mat-menu-item routerLink="/session/sign-in">
+              <mat-icon>logout</mat-icon>
+              Sign Out
             </button>
           </mat-menu>
 
@@ -63,12 +62,16 @@
               <mat-icon>help</mat-icon>
               Security Questions
             </button>
+          </mat-menu>
+          <mat-menu #reports="matMenu">
             <button mat-menu-item routerLink="/purchases-by-service-graph">
               <mat-icon>pie_chart</mat-icon>
-              Graph
+              Purchases by Service
             </button>
           </mat-menu>
+
         </div>
+
       </div>
     </mat-toolbar>
   </nav>

@@ -18,7 +18,7 @@
   <mat-grid-list
    cols="4"
    rowHeight="30vh"
-   style="margin-left: 10%; width: 80%"
+   style="width: 90%;"
    gutterSize="1em"
   >
    <!-- Card for all items-->
@@ -51,13 +51,13 @@
 
       <mat-card-content>
         <form>
-        <mat-form-field class="form" appearance="fill">
+        <mat-form-field class="form" appearance="standard">
           <mat-label>Parts:</mat-label>
           <input matInput [(ngModel)]="partsAmount" type="number" name="partsField">
           <mat-hint>Enter dollar amount</mat-hint>
         </mat-form-field>
 
-        <mat-form-field class="form" appearance="fill">
+        <mat-form-field class="form" appearance="standard">
           <mat-label>Labor Hours:</mat-label>
           <input matInput [(ngModel)]="laborAmount" type="number" name="laborField">
           <mat-hint>Charged at $50/hour</mat-hint>

@@ -8,25 +8,23 @@
 ===========================================
 -->
 
-<!-- Main Welcome-->
+<!-- Main container -->
 <div fxLayout="column">
-  <div fxFlex class="main-welcome">
-    <h1 class="title">About Us</h1>
-  </div>
-
-<!-- Main container-->
-<div fxFlex class="contact-container">
 
   <!-- Main Content-->
-  <div>
+  <div class="main-container">
     <mat-card class="card">
-      <mat-card-content>
+      <mat-card-content fxLayout="column">
 
+        <div fxFlex>
+          <h1 class="title">About Us</h1>
+        </div>
+        <div  fxLayout="row">
         <!-- Image-->
         <div fxFlex="30%">
           <figure>
             <img src="../../../assets/bobmiller.jpg" alt="Bob Miller" class="photo"/>
-            <figcaption>Alexandre Debièvet on <a href="https://unsplash.com/photos/mCw8SyQQbc4" target="_blank" class="link">Unsplash</a></figcaption><!--displaying at top!!-->
+            <figcaption>Alexandre Debièvet on <a href="https://unsplash.com/photos/mCw8SyQQbc4" target="_blank" class="link">Unsplash</a></figcaption>
           </figure>
         </div>
         <!-- Text: about us-->
@@ -48,6 +46,7 @@
             <br/>
             <span class="signature">-	Bob’s Computer Repair Shop</span>
           </p>
+        </div>
         </div>
 
 

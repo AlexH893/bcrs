@@ -1,13 +1,3 @@
-/*
-============================================
-; Title: Bobs Computer Repair Shop
-; Author: Professor Krasso
-; Date: 27 November 2021
-; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: Security Questions Component
-==========================================
-*/
-
 import { Component, OnInit } from '@angular/core';
 import { CreateQuestionDialogComponent } from 'src/app/shared/create-question-dialog/create-question-dialog.component';
 import { MatDialog } from '@angular/material/dialog';

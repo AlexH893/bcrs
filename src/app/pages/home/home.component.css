@@ -9,12 +9,15 @@
 */
 
 .large-card{
-  width: 80%;
+  width: 65%;
   position: fixed;
   top: 50%;
-  left: 51%;
+  left: 49.7%;
   transform: translate(-50%, -50%);
   background-color: #e2ddd8;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 1.5%;
 }
 
 .example-card {
@@ -29,9 +32,8 @@
 .title {
   text-align: center;
   font-size: 36px;
-  margin-top: 20px;
-  padding-top: 10px;
   font-family:'Castoro', serif;
+  margin-bottom: 35px;
 }
 
 button{
@@ -63,8 +65,9 @@ mat-hint{
   padding: 10px;
   margin-top: 10px;
   left: 30%;
-  background-color: #f2efeb;
+  background-color: #6c4656;
   font-size: 20px;
+  color: #f2efeb;
 }
 
 .image{
@@ -78,6 +81,11 @@ mat-hint{
 .add-to-cart{
   position: absolute;
   top: 80%;
+}
+
+mat-grid-list {
+  padding-left: 10%;
+  margin-top: -3%;
 }
 
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
