@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InvoiceService } from '../../../services/invoice.service';
-
+import { InvoiceService } from 'src/services/invoice.service';
 
 @Component({
   selector: 'app-purchases-by-service-graph',
@@ -8,11 +7,10 @@ import { InvoiceService } from '../../../services/invoice.service';
   styleUrls: ['./purchases-by-service-graph.component.css']
 })
 export class PurchasesByServiceGraphComponent implements OnInit {
-  purchases: any;
   data: any;
+  purchases: any;
   itemCount = [];
   labels = [];
-
 
   constructor(private invoiceService: InvoiceService) {
 
@@ -24,6 +22,7 @@ export class PurchasesByServiceGraphComponent implements OnInit {
 
       // Mapping the response data to the purchases var
       this.purchases = res['data'];
+       // this.purchases = [];
 
       // Looping over purchases to split out the services & item count
       for (const item of this.purchases) {

@@ -4,7 +4,7 @@
 ; Author: Professor Krasso
 ; Date: 27 November 2021
 ; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: app routing
+; Description: User-config Component
 ==========================================
 */
 
@@ -27,6 +27,8 @@ import { ForgotPasswordQuestionsComponent } from './pages/forgot-password-questi
 import { ForgotPasswordConfirmComponent } from './pages/forgot-password-confirm/forgot-password-confirm.component';
 import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
 import { RoleGuard } from './shared/role.guard';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+/*import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';*/
 
 const routes: Routes = [
   {
@@ -71,6 +73,11 @@ const routes: Routes = [
         path: 'role-configuration',
         component: RoleConfigurationComponent,
         canActivate: [AuthGuard, RoleGuard]
+      },
+      {
+          path: 'purchases-by-service-graph',
+          component: PurchasesByServiceGraphComponent,
+          canActivate: [AuthGuard]
       }
     ],
   },

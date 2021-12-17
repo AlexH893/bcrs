@@ -1,12 +1,10 @@
-/*
-============================================
+/*============================================
 ; Title: Bobs Computer Repair Shop
 ; Author: Professor Krasso
 ; Date: 27 November 2021
 ; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: Verify security questions
-==========================================
-*/
+; Description: Verify-security-questions Component
+==========================================*/
 
 import { Component, OnInit } from '@angular/core';
 

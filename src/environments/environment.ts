@@ -1,13 +1,3 @@
-/*
-============================================
-; Title: Bobs Computer Repair Shop
-; Author: Professor Krasso
-; Date: 27 November 2021
-; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: environment
-==========================================
-*/
-
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.

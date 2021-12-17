@@ -1,12 +1,3 @@
-/*
-============================================
-; Title: Bobs Computer Repair Shop
-; Author: Professor Krasso
-; Date: 12 Dec 2021
-; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: services service file
-===========================================
-*/
 
 // import statements
 import { Injectable } from '@angular/core';
@@ -18,8 +9,8 @@ import { IService } from '../app/models/services.interface';
 export class ServicesService {
   typesOfServices: IService[] = [
     {
-      name:'Password Reset',
-      value: 39.99,
+      name:'Password Reset', 
+      value: 39.99, 
       description:'Our password reset services can help you get back into your machines.',
       image: 'assets/pwreset.png'
     },
@@ -30,7 +21,7 @@ export class ServicesService {
       image:'assets/spyware.png'
     },
     {
-      name:'RAM Upgrade',
+      name:'RAM Upgrade', 
       value: 129.99,
       description:'Looking for more power? Look no further.',
       image:"assets/ram.png"
@@ -42,19 +33,19 @@ export class ServicesService {
       image: "assets/install.png"
     },
     {
-      name:'Keyboard Cleaning',
+      name:'Keyboard Cleaning', 
       value: 45.00,
       description:"If your keys get stuck or your keyboard has debris in between the keys, it's time for a clean.",
       image:"assets/keyboard.png"
     },
     {
-      name:'Disk Clean-up',
+      name:'Disk Clean-up', 
       value: 149.99,
       description:"Large/leftoverall installation files clogging your space? We can assist in cleaning things up.",
       image:"assets/cleanup.png"
     },
     {
-      name:'PC Tuneup',
+      name:'PC Tuneup', 
       value: 149.99,
       description:'Computer running sluggishly? Not enough disk space? It might be time for a tuneUp.',
       image:"assets/tuneup.png"

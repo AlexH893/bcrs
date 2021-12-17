@@ -1,12 +1,3 @@
-/*
-; Title: Bobs Computer Repair Shop
-; Author: Professor Krasso
-; Date: 12 Dec 2021
-; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: Invoice Dialog
-; Sources: Getting MEAN with Mongo, Express, Angular, and Node, Second Edition,
-*/
-
 import { Component, Inject, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';

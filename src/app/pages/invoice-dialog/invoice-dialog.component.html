@@ -1,13 +1,11 @@
 <!--
-============================================
-; Title: Bobs Computer Repair Shop
-; Author: Professor Krasso
-; Date: 27 November 2021
-; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: Invoice Dialog
+==========================================
+  Title: Bobs Computer Repair Shop
+  Author: Sarah Jean Baptiste
+  Date: 10/03/2021
+  Description:Bobs Computer Repair Shop
 ==========================================
 -->
-
 
 <mat-card class="container">
 
@@ -27,7 +25,7 @@
     <strong>Services</strong>
     <hr>
         <div *ngFor = "let service of getSelectedServices()" class="services">
-          <span> {{ service.name }} </span>
+          <span> {{ service.name }} </span> 
           &#160;
           <span> {{ service.value | currency }} </span>
         </div>

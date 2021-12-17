@@ -76,11 +76,11 @@ router.get("/purchases-graph", async (req, res) => {
         },
         {
           $group: {
-            _id: {
-              title: "$lineItems.title",
-              price: "$lineItems.price",
+            '_id': {
+              'title': "$lineItems.title",
+              'price': "$lineItems.price",
             },
-            count: {
+            'count': {
               $sum: 1,
             },
           },

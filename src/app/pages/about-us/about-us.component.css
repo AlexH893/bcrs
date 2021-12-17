@@ -7,54 +7,58 @@
 ; Description: Home Component
 ===========================================
 */
+.main-container {
+  margin-top: 1.6%;
+  margin-left: -1.3%;
+}
 
 /* Styling for title */
 .title {
   text-align: center;
   font-size: 36px;
-  margin-top: 40px;
+  margin-top: 15px;
   font-family:'Castoro', serif;
-  }
+}
 
-  /* Styling for image */
-  .photo{
-    width: 140%;
-    margin-top: 25px;
-  }
+/* Styling for image */
+.photo{
+  width: 140%;
+  margin-top: 25px;
+}
 
-  .link{
-    color:  #5D5B5B;
-  }
+.link{
+  color:  #5D5B5B;
+}
 
-  /* Styling for text */
-  .text{
-    font-size: 18px;
-    line-height: 1.5;
-    margin-left: 200px;
-    margin-top: 30px;
-    font-family:'Abhaya Libre', serif;
-  }
+/* Styling for text */
+.text{
+  font-size: 18px;
+  line-height: 1.5;
+  margin-left: 200px;
+  margin-top: 30px;
+  font-family:'Abhaya Libre', serif;
+}
 
-  .note{
-    color: #5D5B5B;
-  }
+.note{
+  color: #5D5B5B;
+}
 
   /* Card Styling */
 .card{
-  background-color: #f2efeb;
+  background-color: #e2ddd8;
   margin: 20px 40px 0px 40px;
   padding: 20px;
 }
 
-  .signature{
-   font-size: 32px;
-   font-weight: bold;
-   font-family: 'Reenie Beanie', cursive;
-  }
+.signature{
+  font-size: 32px;
+  font-weight: bold;
+  font-family: 'Reenie Beanie', cursive;
+}
 
-  figcaption {
-    text-align: center;
-    margin-top: 15px;
-    margin-left: 185px;
-  }
+figcaption {
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 185px;
+}
 

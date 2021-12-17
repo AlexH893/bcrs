@@ -1,13 +1,3 @@
-/*
-============================================
-; Title: Bobs Computer Repair Shop
-; Author: Professor Krasso
-; Date: 27 November 2021
-; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: app module
-==========================================
-*/
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -62,6 +52,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { RoleCreateEditComponent } from './pages/role-create-edit/role-create-edit.component';
 import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
 import { ChartModule } from 'primeng/chart';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,6 +78,8 @@ import { ChartModule } from 'primeng/chart';
     RoleConfigurationComponent,
     RoleCreateEditComponent,
     PurchasesByServiceGraphComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -113,7 +107,8 @@ import { ChartModule } from 'primeng/chart';
     MatGridListModule,
     MatListModule,
     MatMenuModule,
-    ChartModule,
+    ChartModule
+
   ],
   providers: [
     CookieService,

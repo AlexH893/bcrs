@@ -1,13 +1,9 @@
-/*
-============================================
-; Title: Bobs Computer Repair Shop
-; Author: Professor Krasso
-; Date: 12 Dec 2021
-; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: auth guard
-===========================================
-*/
-
+/**
+ * Title: auth.guard.ts
+ * Author: Alex Haefner, Sarah Baptiste, Angie Martin
+ * Date: 29 Nov 2021
+ * Description: The auth guard file for bcrs
+ */
 
 import { Injectable } from '@angular/core';
 import {
