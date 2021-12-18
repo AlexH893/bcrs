@@ -1,3 +1,13 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description:Account register ts
+===========================================
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
@@ -106,8 +116,6 @@ export class AccountRegistrationComponent implements OnInit {
     });
 
     this.fetchQuestions();
-
-
   }
 
   fetchQuestions(): void {

@@ -1,3 +1,13 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Create user css
+===========================================
+*/
+
 /* Size, position and style main container */
 .container {
   width: 45%;
@@ -9,18 +19,18 @@
   padding-top: 50px;
   padding-bottom: 50px;
   border-radius: 1%;
-  background-color: #e2ddd8
+  background-color: #e2ddd8;
 }
 
 /* Adjust position and width of the address input underline */
-::ng-deep .wide-input{
-    width: 311% !important;
-    margin-left: -106%;
+::ng-deep .wide-input {
+  width: 311% !important;
+  margin-left: -106%;
 }
 
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
-  background-color:#6c4656 !important;;
+  background-color: #6c4656 !important;
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {
@@ -30,7 +40,7 @@
 
 /* Set carat color */
 ::ng-deep .mat-form-field .input {
-  caret-color:#6c4656;
+  caret-color: #6c4656;
 }
 
 ::ng-deep .mat-select-arrow {
@@ -39,9 +49,8 @@
 
 ::ng-deep .select-field {
   display: flex;
-  width:160%
+  width: 160%;
 }
-
 
 .button-left {
   margin-top: 30px;
@@ -50,13 +59,6 @@
 
 mat-card-title {
   margin-bottom: 50px;
-  font-family: 'Castoro', Arial, Helvetica, sans-serif;
+  font-family: "Castoro", Arial, Helvetica, sans-serif;
   font-size: 36px;
 }
-
-
-
-
-
-
-

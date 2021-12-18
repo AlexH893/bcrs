@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Role create edit ts
+===========================================
+*/
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -7,41 +16,44 @@ import { Role } from 'src/app/models/role.interface';
 @Component({
   selector: 'app-role-create-edit',
   templateUrl: './role-create-edit.component.html',
-  styleUrls: ['./role-create-edit.component.css']
+  styleUrls: ['./role-create-edit.component.css'],
 })
 export class RoleCreateEditComponent implements OnInit {
   roleForm: FormGroup;
   role: Role;
-  titletext: String
-  submitbuttontext: String
-  constructor(private dialogRef: MatDialogRef<RoleCreateEditComponent>, private fb: FormBuilder,
+  titletext: String;
+  submitbuttontext: String;
+  constructor(
+    private dialogRef: MatDialogRef<RoleCreateEditComponent>,
+    private fb: FormBuilder,
     private http: HttpClient,
-    @Inject(MAT_DIALOG_DATA) public data: {role: Role, newRole: boolean}) {
-      this.role = data.role
-      this.titletext = data.newRole? "Create a New Role" : "Edit Role"
-      this.submitbuttontext = data.newRole? "Create": "Edit"
-
-    }
+    @Inject(MAT_DIALOG_DATA) public data: { role: Role; newRole: boolean }
+  ) {
+    this.role = data.role;
+    this.titletext = data.newRole ? 'Create a New Role' : 'Edit Role';
+    this.submitbuttontext = data.newRole ? 'Create' : 'Edit';
+  }
 
   ngOnInit(): void {
     this.roleForm = this.fb.group({
-      text: [this.role.text, Validators.compose([Validators.required])]
-    })
+      text: [this.role.text, Validators.compose([Validators.required])],
+    });
   }
 
   // create question and close dialog
-  createRole():void {
+  createRole(): void {
     if (this.data.newRole) {
-      this.http.post("/api/roles", this.roleForm.value)
-      .subscribe((res: Role) => {
-        this.dialogRef.close(res)
-      })
-    }
-    else {
-      this.http.put(`/api/roles/${this.role._id}`, this.roleForm.value)
-      .subscribe((res: Role) => {
-        this.dialogRef.close(res)
-      })
+      this.http
+        .post('/api/roles', this.roleForm.value)
+        .subscribe((res: Role) => {
+          this.dialogRef.close(res);
+        });
+    } else {
+      this.http
+        .put(`/api/roles/${this.role._id}`, this.roleForm.value)
+        .subscribe((res: Role) => {
+          this.dialogRef.close(res);
+        });
     }
   }
 
@@ -49,5 +61,4 @@ export class RoleCreateEditComponent implements OnInit {
   cancel() {
     this.dialogRef.close();
   }
-
 }

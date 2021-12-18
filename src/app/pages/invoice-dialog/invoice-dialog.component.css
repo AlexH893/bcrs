@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Inivoice dialog styling
+===========================================
+*/
 .container {
   width: 30%;
   margin-left: 3px;
@@ -10,30 +19,29 @@
   padding-bottom: 10px;
   border-radius: 1%;
   background-color: #e2ddd8;
-  font-family:'Abhaya Libre', serif;
+  font-family: "Abhaya Libre", serif;
   box-shadow: 2px 2px 2px 2px grey;
 }
 
-.services{
+.services {
   list-style-type: none;
   text-align: left;
-  font-family:'Abhaya Libre', serif;
+  font-family: "Abhaya Libre", serif;
   width: 40%;
   line-height: 1.5;
 }
 
 .title {
-  font-family: 'Castoro', serif;
+  font-family: "Castoro", serif;
   font-size: 32px;
   font-weight: normal;
   text-align: center;
 }
 
-button{
+button {
   width: 40%;
-  font-family: 'Castoro', serif;
+  font-family: "Castoro", serif;
   left: 10%;
   background-color: #6c4656;
   color: #e2ddd8;
 }
-

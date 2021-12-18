@@ -1,3 +1,9 @@
+/*
+ * Author: Professor Krasso
+ * Date: 11.10.2021
+ * Description: Handles error messages
+ */
+
 class ErrorResponse {
   constructor(httpCode, message, data) {
     this.httpCode = httpCode;

@@ -1,6 +1,6 @@
 <!--
 =======================================================
-  Title: Nodebucket
+  Title: Bob's Computer Repair Shop
   Author: Professor Krasso
   Date: 11/03/2021
   Modified by: Sarah Jean Baptiste
@@ -11,19 +11,32 @@
 <!-- Container -->
 <mat-card class="container">
   <!-- Add new question dialog -->
-    <h2 class="title" mat-dialog-title>{{titletext}}</h2>
+  <h2 class="title" mat-dialog-title>{{ titletext }}</h2>
 
-    <!-- form to allow user to enter question -->
-    <mat-dialog-content class="content" [formGroup]="roleForm">
-      <mat-form-field class="input">
-        <input class="input" type="text" matInput formControlName="text" placeholder="Create New Role" (keydown.enter)="createRole()">
-      </mat-form-field>
-    </mat-dialog-content>
+  <!-- form to allow user to enter question -->
+  <mat-dialog-content class="content" [formGroup]="roleForm">
+    <mat-form-field class="input">
+      <input
+        class="input"
+        type="text"
+        matInput
+        formControlName="text"
+        placeholder="Create New Role"
+        (keydown.enter)="createRole()"
+      />
+    </mat-form-field>
+  </mat-dialog-content>
 
-    <!-- Button to create a new question and send to DB -->
-    <mat-dialog-actions>
-      <button class="button-left" mat-button (click)="cancel()">Cancel</button>
-      <button class="button-right" mat-button [disabled]="!roleForm.valid" (click)="createRole()">{{submitbuttontext}}</button>
-    </mat-dialog-actions>
-  </mat-card>
-
+  <!-- Button to create a new question and send to DB -->
+  <mat-dialog-actions>
+    <button class="button-left" mat-button (click)="cancel()">Cancel</button>
+    <button
+      class="button-right"
+      mat-button
+      [disabled]="!roleForm.valid"
+      (click)="createRole()"
+    >
+      {{ submitbuttontext }}
+    </button>
+  </mat-dialog-actions>
+</mat-card>

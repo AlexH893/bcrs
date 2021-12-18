@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Internal-error styling
+===========================================
+*/
 .image-container {
   width: 100%;
   height: auto;
@@ -16,13 +25,13 @@
   top: 150px;
   left: 100px;
   color: white;
-  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  font-family: "Reenie Beanie", Arial, Helvetica, sans-serif;
   font-size: 42px;
   line-height: 4.5vh;
 }
 
 .button-style {
-  font-family: 'Castoro', Arial, Helvetica, sans-serif;
+  font-family: "Castoro", Arial, Helvetica, sans-serif;
   border: solid white;
   border-radius: 10%;
   color: white;
@@ -36,7 +45,7 @@
   top: 775px;
   left: 1550px;
   text-decoration: none;
-  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  font-family: "Reenie Beanie", Arial, Helvetica, sans-serif;
   font-size: 28px;
 }
 

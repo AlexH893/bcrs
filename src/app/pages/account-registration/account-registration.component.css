@@ -1,26 +1,35 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Accuont registration css
+===========================================
+*/
 /* Card Styling */
-.card{
+.card {
   background-color: #e2ddd8;
   margin: 20px 60px 0px 40px;
   padding: 40px;
-  top: 25%
+  top: 25%;
 }
 
 .contact-info {
   margin-top: 2%;
 }
 
-.stepper{
+.stepper {
   background-color: #e2ddd8;
-  font-family:'Abhaya Libre', serif;
+  font-family: "Abhaya Libre", serif;
 }
 
 /* Title styling */
-.title{
+.title {
   text-align: center;
   font-size: 36px;
   margin-top: 60px;
-  font-family:'Castoro', serif;
+  font-family: "Castoro", serif;
 }
 
 /* make the address input wider */
@@ -33,9 +42,9 @@
   margin-top: 2%;
   margin-left: 6.5%;
 }
- /* Move the buttons to the right */
+/* Move the buttons to the right */
 .move-buttons {
-  margin-left: -10% ;
+  margin-left: -10%;
 }
 
 /* change the color of the mat-step-icon */
@@ -50,21 +59,20 @@
 
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
-  background-color:#6c4656 !important;;
- }
+  background-color: #6c4656 !important;
+}
 
- ::ng-deep .mat-focused .mat-form-field-label {
+::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
   color: #6c4656 !important;
-  caret-color:#6c4656;
- }
+  caret-color: #6c4656;
+}
 
 /* Change the color of the focused carat */
 ::ng-deep .mat-focused .input {
-  caret-color:#6c4656;
+  caret-color: #6c4656;
 }
 
 button {
   margin-left: 11%;
 }
-

@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Role create edit styling
+===========================================
+*/
 .container {
   width: 40%;
   margin-left: 3px;
@@ -13,7 +22,7 @@
 }
 
 .title {
-  font-family: 'Castoro', Arial, Helvetica, sans-serif;
+  font-family: "Castoro", Arial, Helvetica, sans-serif;
   font-size: 32px;
   font-weight: normal;
   text-align: center;
@@ -34,7 +43,7 @@
 
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
-  background-color:#6c4656 !important;;
+  background-color: #6c4656 !important;
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {
@@ -42,12 +51,6 @@
   color: #6c4656 !important;
 }
 
- ::ng-deep.input {
-  caret-color:#6c4656;
+::ng-deep.input {
+  caret-color: #6c4656;
 }
-
-
-
-
-
-

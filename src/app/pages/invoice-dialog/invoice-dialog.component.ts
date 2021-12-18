@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: Bobs Computer Repair Shop
+; Author: Professor Krasso
+; Date: 27 November 2021
+; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
+; Description: Invoice dialog ts
+===========================================
+*/
 import { Component, Inject, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -11,46 +20,47 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-invoice-dialog',
   templateUrl: './invoice-dialog.component.html',
-  styleUrls: ['./invoice-dialog.component.css']
+  styleUrls: ['./invoice-dialog.component.css'],
 })
 export class InvoiceDialogComponent implements OnInit {
+  date: string;
+  totalCharge: number;
+  Invoice: [{}];
 
-  date : string;
-  totalCharge : number;
-  Invoice: [{
-
-  }]
-
-  constructor(private http: HttpClient, private datePipe: DatePipe, @Inject(MAT_DIALOG_DATA) public data: { services: IService[],
-    laborHours: number,
-    partsAmount: number
-  }) {
+  constructor(
+    private http: HttpClient,
+    private datePipe: DatePipe,
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      services: IService[];
+      laborHours: number;
+      partsAmount: number;
+    }
+  ) {
     this.date = this.datePipe.transform(Date.now(), 'yyyy-MM-dd');
-
   }
 
-  getSelectedServices(): IService[]{
-    return this.data.services.filter(service => service.selected);
+  getSelectedServices(): IService[] {
+    return this.data.services.filter((service) => service.selected);
   }
 
   createInvoice(userName: string, invoice: Invoice): Observable<any> {
     return this.http.post(`/api/invoice/${userName}`, {
-        userName : userName,
-        lineItems: invoice.getLineItems(),
-        partsAmount: invoice.partsAmount,
-        laborAmount: invoice.getLaborAmount(),
-        lineItemTotal: invoice.getLineItemTotal(),
-        total: invoice.getTotal()
-    })
-}
+      userName: userName,
+      lineItems: invoice.getLineItems(),
+      partsAmount: invoice.partsAmount,
+      laborAmount: invoice.getLaborAmount(),
+      lineItemTotal: invoice.getLineItemTotal(),
+      total: invoice.getTotal(),
+    });
+  }
 
   ngOnInit(): void {
     let total = this.data.partsAmount;
-    total = total + (this.data.laborHours * 50);
-    this.getSelectedServices().forEach(service => {
+    total = total + this.data.laborHours * 50;
+    this.getSelectedServices().forEach((service) => {
       total = total + service.value;
     });
     this.totalCharge = total;
   }
-
 }
