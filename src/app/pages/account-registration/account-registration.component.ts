@@ -66,7 +66,7 @@ export class AccountRegistrationComponent implements OnInit {
         securityQuestions: questions,
       })
       .subscribe((res) => {
-        this.router.navigate(['/sign-in']);
+        this.router.navigate(['/session/sign-in']);
       });
     alert('Registration success');
   }
@@ -106,8 +106,6 @@ export class AccountRegistrationComponent implements OnInit {
     });
 
     this.fetchQuestions();
-
-
   }
 
   fetchQuestions(): void {
