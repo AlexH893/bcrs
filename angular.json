@@ -22,21 +22,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-<<<<<<< HEAD
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/custom-theme.scss", "src/styles.css"],
             "scripts": ["node_modules/chart.js/dist/chart.js"]
-=======
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/custom-theme.scss",
-              "src/styles.css"
-            ],
-            "scripts": []
->>>>>>> parent of 8c5f8613 (quick update)
           },
           "configurations": {
             "production": {
@@ -102,11 +90,7 @@
               "node_modules/primeicons/primeicons.css",
               "node_modules/quill/dist/quill.snow.css"
             ],
-<<<<<<< HEAD
             "scripts": []
-=======
-            "scripts": ["node_modules/chart.js/dist/chart.js"]
->>>>>>> parent of 8c5f8613 (quick update)
           }
         },
         "lint": {
