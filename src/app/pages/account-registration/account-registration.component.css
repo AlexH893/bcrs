@@ -1,6 +1,6 @@
 /* Card Styling */
 .card{
-  background-color: #f2efeb;
+  background-color: #e2ddd8;
   margin: 20px 60px 0px 40px;
   padding: 40px;
   top: 25%
@@ -11,7 +11,7 @@
 }
 
 .stepper{
-  background-color: #f2efeb;
+  background-color: #e2ddd8;
   font-family:'Abhaya Libre', serif;
 }
 

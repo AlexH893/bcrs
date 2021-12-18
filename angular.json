@@ -30,7 +30,7 @@
               "src/custom-theme.scss",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/chart.js/dist/chart.js"]
           },
           "configurations": {
             "production": {
@@ -99,7 +99,7 @@
               "node_modules/primeicons/primeicons.css",
               "node_modules/quill/dist/quill.snow.css"
             ],
-            "scripts": ["node_modules/chart.js/dist/chart.js"]
+            "scripts": [   "node_modules/chart.js/dist/chart.js"]
           }
         },
         "lint": {

@@ -16,7 +16,7 @@
     <!-- form to allow user to enter question -->
     <mat-dialog-content class="content" [formGroup]="roleForm">
       <mat-form-field class="input">
-        <input class="input" type="text" matInput formControlName="text" (keydown.enter)="createRole()">
+        <input class="input" type="text" matInput formControlName="text" placeholder="Create New Role" (keydown.enter)="createRole()">
       </mat-form-field>
     </mat-dialog-content>
 

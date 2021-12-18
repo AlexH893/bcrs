@@ -26,6 +26,7 @@ let sessionRoutes = require("./api/session-routes.js");
 let roleRoutes = require("./api/role-routes.js");
 let invoiceRoutes = require("./api/invoice-routes.js");
 
+
 var cors = require("cors");
 
 /**
@@ -43,7 +44,7 @@ app.use(cors());
 /**
  * Variables
  */
-//const port = 3000; // server port
+
 
 // TODO: This line will need to be replaced with your actual database connection string
 const conn =
@@ -75,12 +76,11 @@ app.use("/api/roles", roleRoutes);
 
 app.use("/api/invoice", invoiceRoutes);
 
+
 /**
  * Create and start server
-
-http.createServer(app).listen(port, function () {
-  console.log(`Application started and listening on port: ${port}`);
-}); */
-app.listen(process.env.PORT || 3000, function () {
-  console.log("Application is running at localhost:" + app.get("port"));
-});
+ */
+ app.listen(process.env.PORT || 3000, function(){
+  console.log("Application is running at localhost:" +
+ app.get('port'));
+ }) // end http create server function
