@@ -14,13 +14,13 @@
   top: 33%;
   left: 48%;
   transform: translate(-50%, -50%);
-  background-color: #f2efeb;
+  background-color: #e2ddd8;
   margin-top: 150px;
 }
 
 .table {
   box-shadow: none;
-  background-color: #f2efeb;
+  background-color: #e2ddd8;
   text-align: center;
 }
 
@@ -65,6 +65,6 @@ mat-card {
 }
 
 mat-icon {
-  color: #6e5945 !important;
+  color: #6c4656 !important;
 }
 

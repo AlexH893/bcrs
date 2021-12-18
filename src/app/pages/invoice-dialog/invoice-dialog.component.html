@@ -25,7 +25,7 @@
     <strong>Services</strong>
     <hr>
         <div *ngFor = "let service of getSelectedServices()" class="services">
-          <span> {{ service.name }} </span> 
+          <span> {{ service.name }} </span>
           &#160;
           <span> {{ service.value | currency }} </span>
         </div>
@@ -49,7 +49,7 @@
 
   <!--button to close dialog-->
   <mat-dialog-actions>
-    <button mat-raised-button mat-dialog-close>Submit Order</button>
+    <button mat-raised-button mat-dialog-close (click)="createInvoice">Submit Order</button>
     <button mat-raised-button mat-dialog-close>Close</button>
   </mat-dialog-actions>
 </mat-card>

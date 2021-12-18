@@ -18,7 +18,7 @@
   text-align: center;
   margin-top: 150px;
   font-family:'Castoro', serif;
-  background-color: #f2efeb;
+  background-color: #e2ddd8;
   caret-color:#6c4656;
 }
 
@@ -40,7 +40,7 @@
 .submit{
   font-family:'Abhaya Libre', serif;
   width: 60%;
-  background-color: #6e5945;
+  background-color: #6c4656;
 }
 
 ::ng-deep.mat-form-field-ripple {
@@ -58,5 +58,5 @@
 }
 
 mat-icon {
-  color: #6e5945
+  color: #6c4656;
 }

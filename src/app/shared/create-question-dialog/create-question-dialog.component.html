@@ -16,7 +16,7 @@
   <!-- form to allow user to enter question -->
   <mat-dialog-content class="content" [formGroup]="questionForm">
     <mat-form-field class="input">
-      <input class="input" type="text" matInput formControlName="text" (keydown.enter)="createQuestion()">
+      <input class="input" type="text" placeholder="Create New Security Question" matInput formControlName="text" (keydown.enter)="createQuestion()">
     </mat-form-field>
   </mat-dialog-content>
 
