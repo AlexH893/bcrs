@@ -1,19 +1,10 @@
-/*
-============================================
-; Title: Bobs Computer Repair Shop
-; Author: Professor Krasso
-; Date: 27 November 2021
-; Modified By: Angela Martin, Alex Haefner & Sarah Jean Baptiste
-; Description: Purchases by service graph ts
-===========================================
-*/
 import { Component, OnInit } from '@angular/core';
 import { InvoiceService } from 'src/services/invoice.service';
 
 @Component({
   selector: 'app-purchases-by-service-graph',
   templateUrl: './purchases-by-service-graph.component.html',
-  styleUrls: ['./purchases-by-service-graph.component.css'],
+  styleUrls: ['./purchases-by-service-graph.component.css']
 })
 export class PurchasesByServiceGraphComponent implements OnInit {
   data: any;
@@ -22,14 +13,16 @@ export class PurchasesByServiceGraphComponent implements OnInit {
   labels = [];
 
   constructor(private invoiceService: InvoiceService) {
-    /*
-     * Calling the purchase-graph API
-     */
 
-    this.invoiceService.findPurchasesByServicesGraph().subscribe((res) => {
+    /*
+    * Calling the purchase-graph API
+    */
+
+    this.invoiceService.findPurchasesByServicesGraph().subscribe(res => {
+
       // Mapping the response data to the purchases var
       this.purchases = res['data'];
-      // this.purchases = [];
+       // this.purchases = [];
 
       // Looping over purchases to split out the services & item count
       for (const item of this.purchases) {
@@ -59,17 +52,20 @@ export class PurchasesByServiceGraphComponent implements OnInit {
               '#0066CC',
               '#6B3FA0',
               '#AF593E',
-              '#6CDAE7',
+              '#6CDAE7'
             ],
-            data: this.itemCount,
+            data: this.itemCount
           },
-        ],
+        ]
       };
 
       console.log('Data object');
       console.log(this.data);
-    });
+
+    })
+   }
+
+  ngOnInit(): void {
   }
 
-  ngOnInit(): void {}
 }
